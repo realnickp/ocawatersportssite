@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCA Watersports | Jet Ski &amp; Pontoon Rentals | Ocean City, Maryland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Hero -->
+    <header class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="https://www.figma.com/api/mcp/asset/f16f1f2b-1913-4a08-ba99-bb54019ccedd">
+          <source src="videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__bg-overlay"></div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__logo" href="#top">
+          <img src="https://www.figma.com/api/mcp/asset/4aeea9a5-3779-4316-93e4-bee83f75ded9" alt="OC Jet Ski" width="142" height="93" />
+        </a>
+        <ul class="nav__links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#jetski">Jetski</a></li>
+          <li><a href="#experiences">Boats</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+        <a class="btn btn--gold nav__cta" href="#book">Book Details</a>
+      </nav>
+      <div class="hero__content">
+        <p class="hero__eyebrow">— OCEAN CITY MARYLAND’S 6•MILE RIDE —</p>
+        <h1 class="hero__title">JETSKI &amp; PONTOON RENTALS</h1>
+        <p class="hero__sub">
+          Ocean City + Assateague Watersports — It's more than jet ski and boat rentals, it's an experience. Built by riders, for riders.
+        </p>
+        <div class="hero__rating" aria-label="5 star rating">
+          <img class="hero__rating-laurel" src="https://www.figma.com/api/mcp/asset/570759ab-ee25-443b-ba81-970185ba98df" alt="" />
+          <div class="hero__rating-content">
+            <div class="hero__stars" role="img" aria-label="5 stars">
+              <img src="https://www.figma.com/api/mcp/asset/3c3aef46-7fda-494f-b3ab-1482b48b01cb" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/278e0545-190d-44de-87dd-20b36a0bc872" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/3c3aef46-7fda-494f-b3ab-1482b48b01cb" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/278e0545-190d-44de-87dd-20b36a0bc872" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/3c3aef46-7fda-494f-b3ab-1482b48b01cb" alt="" />
+            </div>
+            <div class="hero__rating-row">
+              <img class="hero__rating-badge" src="https://www.figma.com/api/mcp/asset/f3ff2e97-8b46-4e02-831b-ce0e3fec1a02" alt="" />
+              <span class="hero__rating-text">5-Star Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="booking" id="book">
+        <p class="booking__label">BOOK NOW</p>
+        <div class="booking__bar">
+          <div class="booking__field">
+            <span>Boat Type</span>
+            <img src="https://www.figma.com/api/mcp/asset/1bbd82ff-960c-47e8-bd41-4721f1787641" alt="" class="booking__chev" />
+          </div>
+          <div class="booking__field">
+            <span>Date</span>
+            <img src="https://www.figma.com/api/mcp/asset/800aeb29-3453-4097-a5e3-8513105a6456" alt="" class="booking__chev" />
+          </div>
+          <div class="booking__field">
+            <span>Time</span>
+            <img src="https://www.figma.com/api/mcp/asset/c9711415-41ef-4ab4-9642-57fc2e98c805" alt="" class="booking__chev" />
+          </div>
+          <button type="button" class="booking__submit">BOOK NOW</button>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <img src="https://www.figma.com/api/mcp/asset/4a5340de-2175-4201-81b6-f7f2afa06130" alt="" width="23" height="23" />
+      </div>
+    </header>
+
+    <!-- Journey -->
+    <section class="journey section--light" id="journey" aria-labelledby="journey-title">
+      <div class="journey__pattern" aria-hidden="true">
+        <img src="https://www.figma.com/api/mcp/asset/d1f17543-1b6a-4612-8b12-598a68006e72" alt="" />
+        <div class="journey__pattern-fade"></div>
+      </div>
+      <div class="journey__inner">
+        <h2 id="journey-title" class="journey__heading">6 Mile Ride Starts Here</h2>
+
+        <div class="journey__map" id="journeyMap">
+          <svg class="journey__route" viewBox="0 0 1000 2400" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path id="routePath"
+              d="M 500,0
+                 C 500,100 300,200 250,350
+                 C 200,500 250,550 350,600
+                 C 450,650 700,650 750,800
+                 C 800,950 700,1000 600,1050
+                 C 500,1100 300,1100 250,1250
+                 C 200,1400 300,1500 400,1550
+                 C 500,1600 700,1650 750,1800
+                 C 800,1950 600,2050 500,2100
+                 C 400,2150 500,2300 500,2400"
+              stroke="#debc6b" stroke-width="3" stroke-dasharray="14 10"
+              fill="none" opacity="0.5" />
+          </svg>
+
+          <div class="journey__vehicle" id="journeyVehicle" aria-hidden="true">
+            <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="" />
+            <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="" />
+          </div>
+
+          <article class="landmark landmark--1" data-stop="1">
+            <div class="landmark__body">
+              <div class="landmark__marker">
+                <img src="https://www.figma.com/api/mcp/asset/2a4d54d3-f071-4023-a01a-b3562f6210ff" alt="" />
+              </div>
+              <h3 class="landmark__title">The Launch</h3>
+              <p class="landmark__copy">When renting jet skis in OC, location matters. We're right in the middle of all the action — don't let our competitors tell you any different.</p>
+            </div>
+            <div class="landmark__photo">
+              <img src="https://www.figma.com/api/mcp/asset/7b70e668-d36e-4f3e-8e7a-9862fc4d17fa" alt="On the water" />
+            </div>
+          </article>
+
+          <div class="landmark__spacer"></div>
+
+          <article class="landmark landmark--2" data-stop="2">
+            <div class="landmark__photo">
+              <img src="https://www.figma.com/api/mcp/asset/dd9f4b20-3551-47f1-b3f0-9a5b7f44d667" alt="Coastal view" />
+            </div>
+            <div class="landmark__body">
+              <div class="landmark__marker">
+                <img src="https://www.figma.com/api/mcp/asset/2a4d54d3-f071-4023-a01a-b3562f6210ff" alt="" />
+              </div>
+              <h3 class="landmark__title">The Ride</h3>
+              <p class="landmark__copy">OC Famous for a reason. We don't ride in circles in a confined area like the other rental companies — we ride. 70 minutes, not 60. The largest free riding area in all of OC.</p>
+            </div>
+          </article>
+
+          <div class="landmark__spacer"></div>
+
+          <article class="landmark landmark--3" data-stop="3">
+            <div class="landmark__body">
+              <div class="landmark__marker">
+                <img src="https://www.figma.com/api/mcp/asset/2a4d54d3-f071-4023-a01a-b3562f6210ff" alt="" />
+              </div>
+              <h3 class="landmark__title">The Destination</h3>
+              <p class="landmark__copy">Wild horses. Dolphins off the bow. Sandbars you didn't know existed. The views. The adrenaline. Let's go.</p>
+            </div>
+            <div class="landmark__photo">
+              <img src="https://www.figma.com/api/mcp/asset/729effaf-5110-4b21-b3af-a24994c43970" alt="Shoreline" />
+            </div>
+          </article>
+        </div>
+
+        <section class="services" aria-labelledby="services-title">
+          <p class="services__eyebrow" id="services-title">Why OCA</p>
+          <h3 class="services__heading">The unequal watersports rental company — where being equal isn't good enough</h3>
+          <ul class="services__grid">
+            <li class="services__item">
+              <img src="https://www.figma.com/api/mcp/asset/c8548aed-1853-4c5d-bb5f-b475fd203029" alt="" width="34" height="34" />
+              <h4>The Location</h4>
+              <p>Right in the middle of all the action. The largest riding area in all of OC — from the RT 90 Bridge to the Assateague Island.</p>
+            </li>
+            <li class="services__item">
+              <img src="https://www.figma.com/api/mcp/asset/c8548aed-1853-4c5d-bb5f-b475fd203029" alt="" width="34" height="34" />
+              <h4>The Ride</h4>
+              <p>The OC Famous 6-Mile Ride. 70 minutes, not 60. No confined circles, no dodging buoys — just open water and pure adrenaline.</p>
+            </li>
+            <li class="services__item">
+              <img src="https://www.figma.com/api/mcp/asset/c8548aed-1853-4c5d-bb5f-b475fd203029" alt="" width="34" height="34" />
+              <h4>The Experience</h4>
+              <p>Wild horses on Assateague, dolphins off the bow, hidden sandbars, and views that'll make you forget you're on a rental.</p>
+            </li>
+          </ul>
+        </section>
+
+        <p class="ticker" aria-hidden="true">BOATS ~ JETSKI ~ HORSES ~ FAMILY ~ FUN</p>
+      </div>
+    </section>
+
+    <!-- Boats Overview -->
+    <section class="product section--white" id="jetski" aria-labelledby="product-title">
+      <p class="product__eyebrow">~ Boats Overview ~</p>
+
+      <div class="product__carousel" id="productCarousel">
+        <!-- Slide 1: Jetski -->
+        <article class="product__slide product__slide--active" data-slide="0">
+          <h2 class="product__title">Jetski</h2>
+          <p class="product__copy">
+            The 6-Mile Ride is OC Famous for a reason. We don't ride in circles in a confined area — we ride. 70 minutes of open water, the largest free riding area in all of OC. Don't believe us? Just read the reviews.
+          </p>
+          <a class="btn btn--gold product__book" href="#book">BOOK NOW</a>
+          <div class="product__visual">
+            <button type="button" class="product__arrow product__arrow--prev" data-dir="prev" aria-label="Previous">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+            <img class="product__image" src="https://www.figma.com/api/mcp/asset/ba3b761a-19f6-452b-b2e4-72767cd78cd7" alt="Jetski rental" />
+            <button type="button" class="product__arrow product__arrow--next" data-dir="next" aria-label="Next">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+            </button>
+          </div>
+          <div class="product__specs">
+            <div>
+              <h3>Price</h3>
+              <p><strong>$129 + tax</strong><br />(no gas surcharge or deposit)</p>
+            </div>
+            <div>
+              <h3>Top Speed</h3>
+              <p>75 mph</p>
+            </div>
+            <div>
+              <h3>Guest Capacity</h3>
+              <p>2 Per Jetski</p>
+            </div>
+          </div>
+          <p class="product__note">*Add-Ons Available</p>
+          <a class="btn btn--outline" href="#jetski">VIEW DETAILS</a>
+        </article>
+
+        <!-- Slide 2: Pontoon -->
+        <article class="product__slide" data-slide="1">
+          <h2 class="product__title">Pontoon</h2>
+          <p class="product__copy">
+            Boating in the middle of the action — million dollar houses, million dollar yachts, the Assateague Wild Horses, dolphins, restaurants, marinas, vibes. Pull up on Assateague beaches, hit OC's hottest sandbars, or cruise the Bay and take it easy. We got you.
+          </p>
+          <a class="btn btn--gold product__book" href="#book">BOOK NOW</a>
+          <div class="product__visual">
+            <button type="button" class="product__arrow product__arrow--prev" data-dir="prev" aria-label="Previous">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+            <img class="product__image" src="images/pontoon.png" alt="Pontoon boat rental" />
+            <button type="button" class="product__arrow product__arrow--next" data-dir="next" aria-label="Next">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+            </button>
+          </div>
+          <div class="product__specs">
+            <div>
+              <h3>Price</h3>
+              <p><strong>$349 + tax</strong><br />(no gas surcharge or deposit)</p>
+            </div>
+            <div>
+              <h3>Top Speed</h3>
+              <p>25 mph</p>
+            </div>
+            <div>
+              <h3>Guest Capacity</h3>
+              <p>Up to 10 Guests</p>
+            </div>
+          </div>
+          <p class="product__note">*Add-Ons Available</p>
+          <a class="btn btn--outline" href="#jetski">VIEW DETAILS</a>
+        </article>
+      </div>
+
+      <div class="product__dots" aria-label="Slide indicators">
+        <button type="button" class="product__dot product__dot--active" data-goto="0" aria-label="Jetski"></button>
+        <button type="button" class="product__dot" data-goto="1" aria-label="Pontoon"></button>
+      </div>
+    </section>
+
+    <!-- Experiences -->
+    <section class="experiences section--dark" id="experiences" aria-labelledby="exp-title">
+      <div class="experiences__head">
+        <div>
+          <h2 id="exp-title">UNIQUE EXPERIENCES</h2>
+          <p class="experiences__intro">
+            Where riders ride. From the RT 90 Bridge to Assateague Island — the biggest riding area in all of OC. Other companies won't let you go to Assateague. That's why we're different, and in OC Watersports, being different is a good thing.
+          </p>
+        </div>
+        <a class="btn btn--outline btn--on-dark" href="#experiences">VIEW EXPERIENCE DETAILS</a>
+      </div>
+      <div class="experiences__grid">
+        <a href="#" class="exp-card exp-card--large">
+          <img src="https://www.figma.com/api/mcp/asset/b4009fde-5462-4e90-bfec-42e3771431e8" alt="" />
+          <span class="exp-card__title">Full Throttle On The Atlantic</span>
+        </a>
+        <div class="experiences__stack">
+          <a href="#" class="exp-card">
+            <img src="https://www.figma.com/api/mcp/asset/621d8001-971b-44bd-93ad-e38ad0869ca0" alt="" />
+            <span class="exp-card__title">Wild Horses at Your Feet</span>
+          </a>
+          <a href="#" class="exp-card">
+            <img src="https://www.figma.com/api/mcp/asset/00da8179-4267-4b2a-ab48-7058d1a88eaa" alt="" />
+            <span class="exp-card__title">A Sandbar Just For Us</span>
+          </a>
+          <a href="#" class="exp-card">
+            <img src="https://www.figma.com/api/mcp/asset/93746b0c-1549-4f9a-a19c-26e7b226f971" alt="" />
+            <span class="exp-card__title">Dolphins off the bow</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews section--white" aria-labelledby="reviews-title">
+      <h2 id="reviews-title" class="reviews__heading">~ Experience Reviews ~</h2>
+      <a class="btn btn--outline reviews__all" href="#reviews">VIEW ALL REVIEWS</a>
+      <figure class="review">
+        <span class="review__quote review__quote--open" aria-hidden="true">“</span>
+        <blockquote class="review__text">
+          First time jet skiing….its love at first ride!! Jayden, Bryan and his colleague I forget his name very nice,
+          helpful and accommodating. Was able to rent 2 jet skis last min and had a blast. Safety briefing was
+          informative and stressed, Jayden our guide very cool and down to earth. If in the area and want good fun for
+          your money I’d recommend under the bridge watersports, you won’t be disappointed!!
+        </blockquote>
+        <span class="review__quote review__quote--close" aria-hidden="true">“</span>
+        <figcaption class="review__meta">
+          <div class="review__stars" role="img" aria-label="5 stars">
+            <img src="https://www.figma.com/api/mcp/asset/90699d26-437c-4c55-8b4a-6b86be5aef1e" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/a1189ae3-2af2-4e25-abfb-9a821abd3059" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/90699d26-437c-4c55-8b4a-6b86be5aef1e" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/a1189ae3-2af2-4e25-abfb-9a821abd3059" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/90699d26-437c-4c55-8b4a-6b86be5aef1e" alt="" />
+          </div>
+          <div class="review__rating-row">
+            <img src="https://www.figma.com/api/mcp/asset/1a3a872c-f4c2-4032-8f4c-52bf5503df77" alt="" />
+            <span>5-Star Rating</span>
+          </div>
+          <cite class="review__author">Stewart Matthews</cite>
+        </figcaption>
+        <div class="review__photo">
+          <img src="https://www.figma.com/api/mcp/asset/4f78e117-a917-48e0-ab36-a4b31c120f43" alt="Guests on the water" />
+        </div>
+      </figure>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+          <span>BOOK YOUR EXPERIENCE</span>
+          <span>~</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="discount" aria-labelledby="discount-title">
+      <div class="discount__bg" aria-hidden="true">
+        <img src="https://www.figma.com/api/mcp/asset/f16f1f2b-1913-4a08-ba99-bb54019ccedd" alt="" />
+      </div>
+      <div class="discount__inner">
+        <h2 id="discount-title">GET YOUR DISCOUNT %</h2>
+        <p>Be the first to get discounts, deals, and announcements. Built by riders, for riders.</p>
+        <form class="newsletter" action="#" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          <button type="submit" class="btn btn--gold">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section class="social section--dark" id="gallery" aria-labelledby="social-title">
+      <h2 id="social-title">FOLLOW US ON SOCIALS</h2>
+      <p class="social__handle">@OCAWATERSPORTS</p>
+      <div class="social__icons" aria-label="Social links">
+        <a href="#" aria-label="Instagram"><img src="https://www.figma.com/api/mcp/asset/20e4c959-7a17-4b58-a43b-1565a79b5135" alt="" /></a>
+        <a href="#" aria-label="Facebook"><img src="https://www.figma.com/api/mcp/asset/d088e7dd-1a5b-497f-8855-157abc43dcb8" alt="" /></a>
+        <a href="#" aria-label="Twitter"><img src="https://www.figma.com/api/mcp/asset/e6ca0f1a-2eb8-490a-aa6b-c50dfaccf6fc" alt="" /></a>
+      </div>
+      <div class="social__grid">
+        <img src="https://www.figma.com/api/mcp/asset/23e98c76-c604-47a6-bd89-5c401e757d33" alt="Social feed" />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+      <div class="footer__rule">
+        <img src="https://www.figma.com/api/mcp/asset/49cef77f-41f8-4558-a66d-d60c84e1978a" alt="" />
+      </div>
+      <div class="footer__grid">
+        <img class="footer__logo" src="https://www.figma.com/api/mcp/asset/4aeea9a5-3779-4316-93e4-bee83f75ded9" alt="OC Jet Ski" width="142" height="93" />
+        <nav class="footer__nav" aria-label="Footer">
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#jetski">Jetski</a></li>
+            <li><a href="#experiences">Boats</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__nav footer__nav--secondary" aria-label="Policies">
+          <ul>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#book">Book Now</a></li>
+          </ul>
+        </nav>
+        <div class="footer__contact" id="contact">
+          <p class="footer__phone"><a href="tel:+14102893278">410-289-3278</a></p>
+          <p>312 Talbot St, Ocean City, MD</p>
+          <p><a href="mailto:Info@OCAWatersports.com">Info@OCAWatersports.com</a></p>
+        </div>
+      </div>
+      <div class="footer__social" aria-label="Social">
+        <a href="#" aria-label="Instagram"><img src="https://www.figma.com/api/mcp/asset/1b1a83ba-5a4f-4f16-9255-b853b19d449e" alt="" /></a>
+        <a href="#" aria-label="Facebook"><img src="https://www.figma.com/api/mcp/asset/9046a13e-c928-43bf-8a7e-c8dccbddde86" alt="" /></a>
+        <a href="#" aria-label="TikTok"><img src="https://www.figma.com/api/mcp/asset/58f33cd2-02c5-4839-ba20-c7dd6f45582d" alt="" /></a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.querySelector('.newsletter')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+
+    (function () {
+      var slides = document.querySelectorAll('.product__slide');
+      var dots = document.querySelectorAll('.product__dot');
+      var arrows = document.querySelectorAll('.product__arrow');
+      if (!slides.length) return;
+      var current = 0;
+      var total = slides.length;
+
+      function goTo(i) {
+        slides[current].classList.remove('product__slide--active');
+        dots[current].classList.remove('product__dot--active');
+        current = (i + total) % total;
+        slides[current].classList.add('product__slide--active');
+        dots[current].classList.add('product__dot--active');
+      }
+
+      arrows.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          goTo(btn.dataset.dir === 'prev' ? current - 1 : current + 1);
+        });
+      });
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () { goTo(Number(dot.dataset.goto)); });
+      });
+    })();
+
+    (function () {
+      var path = document.getElementById('routePath');
+      var vehicle = document.getElementById('journeyVehicle');
+      var jetskiImg = document.getElementById('journeyJetski');
+      var pontoonImg = document.getElementById('journeyPontoon');
+      var map = document.getElementById('journeyMap');
+      if (!path || !vehicle || !map) return;
+
+      var totalLen = path.getTotalLength();
+      var VB_W = 1000;
+      var VB_H = 2400;
+      var smoothAngle = 0;
+      var showingPontoon = false;
+
+      function update() {
+        var mapRect = map.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var triggerTop = mapRect.top + window.scrollY - vh * 0.7;
+        var triggerEnd = mapRect.top + window.scrollY + mapRect.height - vh * 0.3;
+        var scrollY = window.scrollY;
+        var t = (scrollY - triggerTop) / (triggerEnd - triggerTop);
+        t = Math.max(0, Math.min(1, t));
+
+        // Swap after first landmark so pontoon covers landmarks 2 and 3
+        if (t >= 0.33 && !showingPontoon) {
+          showingPontoon = true;
+          jetskiImg.style.opacity = '0';
+          pontoonImg.style.opacity = '1';
+        } else if (t < 0.33 && showingPontoon) {
+          showingPontoon = false;
+          jetskiImg.style.opacity = '1';
+          pontoonImg.style.opacity = '0';
+        }
+
+        var pt = path.getPointAtLength(t * totalLen);
+        var lookAhead = Math.min(t * totalLen + 20, totalLen);
+        var ptNext = path.getPointAtLength(lookAhead);
+
+        var dx = ptNext.x - pt.x;
+        var dy = ptNext.y - pt.y;
+        var pathAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+        var targetAngle = pathAngle - 90;
+
+        var diff = targetAngle - smoothAngle;
+        while (diff > 180) diff -= 360;
+        while (diff < -180) diff += 360;
+        smoothAngle += diff * 0.08;
+
+        var scaleX = mapRect.width / VB_W;
+        var scaleY = mapRect.height / VB_H;
+        var x = pt.x * scaleX;
+        var y = pt.y * scaleY;
+
+        vehicle.style.left = x + 'px';
+        vehicle.style.top = y + 'px';
+        vehicle.style.transform = 'translate(-50%, -50%) rotate(' + smoothAngle.toFixed(1) + 'deg)';
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      requestAnimationFrame(function loop() {
+        update();
+        requestAnimationFrame(loop);
+      });
+    })();
+  </script>
+</body>
+</html>
