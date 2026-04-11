@@ -344,14 +344,24 @@
       <div class="text-center reveal" style="margin-bottom:2rem;">
         <p class="eyebrow">Explore the Route</p>
         <h2 class="section-title section-title--dark">The 6-Mile Ride &mdash; Interactive Map</h2>
-        <p class="section-sub section-sub--center">Follow the full southbound route to Assateague Island. Every stop, every landmark, every moment &mdash; right here.</p>
+        <p class="section-sub section-sub--center">Follow the full southbound route to Assateague Island. Every stop, every landmark, every moment.</p>
       </div>
-      <div class="ride-map-embed reveal">
-        <iframe src="https://oca-scrollytelling.vercel.app/?ride=jetski" class="ride-map-embed__frame" allow="geolocation" loading="lazy" title="Interactive 6-Mile Ride Map"></iframe>
+      <div class="ride-map-preview reveal">
+        <div class="ride-map-preview__phone">
+          <video autoplay muted loop playsinline>
+            <source src="videos/interactive-map-raw.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <button type="button" class="btn btn--gold btn--lg ride-map-preview__btn" data-map-url="https://oca-scrollytelling.vercel.app/?ride=jetski">LAUNCH INTERACTIVE MAP</button>
       </div>
       <div class="text-center" style="margin-top:1.5rem;">
         <a href="the-6-mile-ride.html" class="btn btn--outline btn--on-dark btn--lg">SEE THE FULL ROUTE STORY &rarr;</a>
       </div>
+    </div>
+
+    <div class="ride-map-modal" role="dialog" aria-modal="true" aria-label="Interactive Ride Map">
+      <button type="button" class="ride-map-modal__close" aria-label="Close map">&times;</button>
+      <iframe class="ride-map-modal__frame" src="" allow="geolocation" loading="lazy"></iframe>
     </div>
   </section>
 
@@ -752,6 +762,30 @@
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
   if (lightbox) lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+  // Interactive map modal
+  var mapBtn = document.querySelector('.ride-map-preview__btn');
+  var mapModal = document.querySelector('.ride-map-modal');
+  var mapFrame = mapModal ? mapModal.querySelector('.ride-map-modal__frame') : null;
+  var mapClose = mapModal ? mapModal.querySelector('.ride-map-modal__close') : null;
+
+  if (mapBtn && mapModal && mapFrame) {
+    mapBtn.addEventListener('click', function () {
+      mapFrame.src = mapBtn.getAttribute('data-map-url');
+      mapModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMap() {
+      mapModal.classList.remove('open');
+      document.body.style.overflow = '';
+      mapFrame.src = '';
+    }
+
+    if (mapClose) mapClose.addEventListener('click', closeMap);
+    mapModal.addEventListener('click', function (e) { if (e.target === mapModal) closeMap(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mapModal.classList.contains('open')) closeMap(); });
+  }
 
 }());
 </script>

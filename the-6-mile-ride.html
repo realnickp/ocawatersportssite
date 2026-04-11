@@ -390,9 +390,19 @@
         <h2 class="section-title section-title--dark">The Interactive 6-Mile Ride</h2>
         <p class="section-sub section-sub--center">Every stop. Every view. Every moment. Explore the full route on our satellite map loaded with photos and videos from the actual ride.</p>
       </div>
-      <div class="ride-map-embed ride-map-embed--full reveal">
-        <iframe src="https://oca-scrollytelling.vercel.app/?ride=jetski" class="ride-map-embed__frame" allow="geolocation" loading="lazy" title="Interactive 6-Mile Ride Map"></iframe>
+      <div class="ride-map-preview reveal">
+        <div class="ride-map-preview__phone">
+          <video autoplay muted loop playsinline>
+            <source src="videos/interactive-map-raw.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <button type="button" class="btn btn--gold btn--lg ride-map-preview__btn" data-map-url="https://oca-scrollytelling.vercel.app/?ride=jetski">LAUNCH INTERACTIVE MAP</button>
       </div>
+    </div>
+
+    <div class="ride-map-modal" role="dialog" aria-modal="true" aria-label="Interactive 6-Mile Ride Map">
+      <button type="button" class="ride-map-modal__close" aria-label="Close map">&times;</button>
+      <iframe class="ride-map-modal__frame" src="" allow="geolocation" loading="lazy"></iframe>
     </div>
   </section>
 
@@ -639,6 +649,31 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
+
+  // Interactive map modal
+  var mapBtn = document.querySelector('.ride-map-preview__btn');
+  var mapModal = document.querySelector('.ride-map-modal');
+  var mapFrame = mapModal ? mapModal.querySelector('.ride-map-modal__frame') : null;
+  var mapClose = mapModal ? mapModal.querySelector('.ride-map-modal__close') : null;
+
+  if (mapBtn && mapModal && mapFrame) {
+    mapBtn.addEventListener('click', function () {
+      mapFrame.src = mapBtn.getAttribute('data-map-url');
+      mapModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMap() {
+      mapModal.classList.remove('open');
+      document.body.style.overflow = '';
+      mapFrame.src = '';
+    }
+
+    if (mapClose) mapClose.addEventListener('click', closeMap);
+    mapModal.addEventListener('click', function (e) { if (e.target === mapModal) closeMap(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mapModal.classList.contains('open')) closeMap(); });
+  }
+
 }());
 </script>
 <!-- FareHarbor Lightframe API -->
