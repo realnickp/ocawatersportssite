@@ -274,7 +274,7 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 101;
+  z-index: 501;
 }
 
 .nav__hamburger span {
@@ -311,7 +311,7 @@ a:hover {
     justify-content: center;
     gap: 2rem;
     font-size: 1.1rem;
-    z-index: 200;
+    z-index: 500;
     color: var(--color-white);
   }
 
