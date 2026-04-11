@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Mobile Book Now Banner -->
+  <div class="mobile-book-banner" aria-hidden="true">
+    <a href="#book" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'});return false;}">BOOK NOW — RESERVE YOUR SPOT</a>
+  </div>
+
   <div class="page">
     <!-- Hero -->
     <header class="hero" id="top">
@@ -18,19 +23,25 @@
           <source src="videos/hero.mp4" type="video/mp4" />
         </video>
         <div class="hero__bg-overlay"></div>
+        <div class="hero__bg-top-fade"></div>
       </div>
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" id="navHome" aria-label="Primary">
         <a class="nav__logo" href="#top">
-          <img src="https://www.figma.com/api/mcp/asset/4aeea9a5-3779-4316-93e4-bee83f75ded9" alt="OC Jet Ski" width="142" height="93" />
+          <img src="images/OCA_LogoColors-final.png" alt="OCA Watersports" width="142" height="93" />
         </a>
-        <ul class="nav__links">
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navHomeLinks">
           <li><a href="#top">Home</a></li>
-          <li><a href="#jetski">Jetski</a></li>
-          <li><a href="#pontoon">Boats</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="jet-skis.html">Jet Skis</a></li>
+          <li><a href="pontoon-boats.html">Pontoon Boats</a></li>
+          <li><a href="the-6-mile-ride.html">The 6-Mile Ride</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a class="btn btn--gold nav__cta" href="#book">Book Details</a>
+        <a class="btn btn--gold nav__cta" href="#book">Book Now</a>
       </nav>
       <div class="hero__content">
         <p class="hero__eyebrow">&mdash; OCEAN CITY MARYLAND'S 6&bull;MILE RIDE &mdash;</p>
@@ -693,6 +704,42 @@
       }, { threshold: 0.5 });
 
       stats.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // Homepage hamburger menu
+    (function () {
+      var hamburger = document.getElementById('navHamburger');
+      var links = document.getElementById('navHomeLinks');
+      if (!hamburger || !links) return;
+      hamburger.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          links.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    // Homepage nav scroll behavior
+    (function () {
+      var nav = document.getElementById('navHome');
+      if (!nav) return;
+      function onScroll() {
+        if (window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     })();
   </script>
 </body>

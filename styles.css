@@ -134,7 +134,7 @@ a:hover {
   min-height: 100vh;
   min-height: 100svh;
   max-height: 800px;
-  padding: 1.5rem 1.25rem 2rem;
+  padding: 5.5rem 1.25rem 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -165,18 +165,45 @@ a:hover {
   );
 }
 
+/* White-to-transparent gradient at top of hero (over the video) */
+.hero__bg-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
 .nav {
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding: 1rem 1.25rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.nav.scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  padding: 0.65rem 1.25rem;
 }
 
 .nav__logo img {
-  width: clamp(100px, 28vw, 142px);
+  width: clamp(100px, 14vw, 142px);
   height: auto;
 }
 
@@ -189,10 +216,10 @@ a:hover {
   justify-content: center;
   gap: clamp(0.5rem, 2vw, 1.75rem);
   font-family: var(--font-nav);
-  font-size: clamp(0.65rem, 1.5vw, 1.125rem);
+  font-size: clamp(0.65rem, 1.1vw, 0.82rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #000;
+  color: var(--color-navy);
 }
 
 .nav__links a:hover {
@@ -200,8 +227,98 @@ a:hover {
   opacity: 0.75;
 }
 
+.nav.scrolled .nav__links a {
+  color: var(--color-navy);
+}
+
 .nav__cta {
   flex-shrink: 0;
+}
+
+/* ============================
+   Mobile Book Banner
+   ============================ */
+.mobile-book-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: var(--color-gold);
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  text-align: center;
+}
+
+.mobile-book-banner a {
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+/* ============================
+   Homepage Hamburger
+   ============================ */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 101;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-navy);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav__hamburger.open span:nth-child(2) { opacity: 0; }
+.nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 900px) {
+  .mobile-book-banner { display: flex; }
+
+  .nav {
+    top: 40px;
+  }
+
+  .nav__hamburger { display: flex; }
+
+  .nav__cta { display: none; }
+
+  .nav__links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--color-navy);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.1rem;
+    z-index: 200;
+    color: var(--color-white);
+  }
+
+  .nav__links.open { display: flex; }
+
+  .hero {
+    padding-top: 7rem;
+  }
 }
 
 .hero__content {
@@ -236,7 +353,7 @@ a:hover {
   letter-spacing: 0.06em;
   color: var(--color-navy);
   text-shadow: 0 4px 4px rgba(255, 255, 255, 0.85);
-  max-width: 22ch;
+  max-width: 19.8ch;
 }
 
 .hero__sub {

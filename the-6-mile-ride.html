@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 6-Mile Ride — Assateague Island Jet Ski Tour | OCA Watersports Ocean City MD</title>
+  <meta name="description" content="The only 6-mile guided jet ski experience in Ocean City MD. Ride to Assateague Island, see wild horses, dolphins &amp; sandbars. 70-min rides. Book: 410-289-3278." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ocawatersports.com/the-6-mile-ride.html" />
+
+  <meta property="og:title" content="The 6-Mile Ride — Assateague Island Jet Ski Tour | OCA Watersports" />
+  <meta property="og:description" content="The only true 6-mile open-water jet ski route in Ocean City Maryland. Created by OCA Watersports in 2010. Wild horses, dolphins, sandbars." />
+  <meta property="og:url" content="https://ocawatersports.com/the-6-mile-ride.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="geo.region" content="US-MD" />
+  <meta name="geo.placename" content="Ocean City, Maryland" />
+  <meta name="geo.position" content="38.3365;-75.0849" />
+  <meta name="ICBM" content="38.3365, -75.0849" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="interior.css" />
+
+  <script src="//fareharbor.com/embeds/api/v1/?autolightboxes=no" async></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "OCA Watersports",
+    "description": "Ocean City MD's premier jet ski and pontoon boat rental company. Home of the Famous 6-Mile Ride along Assateague Island.",
+    "url": "https://ocawatersports.com",
+    "telephone": "+14102893278",
+    "email": "info@ocawatersports.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "312 Talbot Street",
+      "addressLocality": "Ocean City",
+      "addressRegion": "MD",
+      "postalCode": "21842",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 38.3365, "longitude": -75.0849 },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640" },
+    "priceRange": "$$",
+    "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"]
+  }
+  </script>
+
+  <style>
+    /* Page-specific styles for editorial feel */
+    .hero-six {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-six__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-six__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.08);
+      animation: heroZoom 8s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.08); }
+      to   { transform: scale(1.0); }
+    }
+
+    .hero-six__overlay {
+      position: absolute;
+      inset: 0;
+      /* Cinematic page still needs more sky visible, but text must stay legible */
+      background: linear-gradient(
+        to bottom,
+        rgba(2,25,34,0.52) 0%,
+        rgba(2,25,34,0.68) 50%,
+        rgba(2,25,34,0.94) 100%
+      );
+    }
+
+    .hero-six__content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 2rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-six__super {
+      font-family: var(--font-nav);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin: 0 0 1.25rem;
+    }
+
+    .hero-six__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: 0.03em;
+      color: var(--color-white);
+      text-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-six__subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      font-weight: 400;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-six__lead {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+      max-width: 42ch;
+      margin: 0;
+    }
+
+    .hero-six__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+
+    /* Story section */
+    .origin-story {
+      position: relative;
+      padding: 7rem 1.5rem;
+      background: var(--color-navy);
+    }
+
+    .origin-story__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .origin-story__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .origin-story__text p {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.72);
+      margin: 0 0 1.25rem;
+    }
+
+    .origin-story__text p strong { color: var(--color-white); }
+
+    .origin-story__pullquote {
+      border-left: 3px solid var(--color-gold);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0 0;
+      background: rgba(222,188,107,0.06);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .origin-story__pullquote p {
+      margin: 0 !important;
+      font-size: 1.05rem !important;
+      font-weight: 700 !important;
+      color: var(--color-white) !important;
+      font-style: italic;
+    }
+
+    /* Assateague facts */
+    .fact-number {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--color-gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-int">
+
+  <!-- Sticky Bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <span class="sticky-bar__text">You've Read About It. Now Ride It.</span>
+    <button class="sticky-bar__btn" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK YOUR RIDE →</button>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav-int" id="navInt" aria-label="Primary navigation">
+    <a class="nav-int__logo" href="index.html">
+      <img class="logo-white" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" width="120" height="78" />
+      <img class="logo-color" src="images/OCA_LogoColors-final.png" alt="OCA Watersports" width="120" height="78" />
+    </a>
+    <button class="nav-int__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-int__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jet-skis.html">Jet Skis</a></li>
+      <li><a href="pontoon-boats.html">Pontoon Boats</a></li>
+      <li><a href="the-6-mile-ride.html" class="active">The 6-Mile Ride</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="deals.html">Deals &amp; Coupons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="btn btn--gold nav-int__cta" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+  </nav>
+
+  <!-- Hero — cinematic, no button -->
+  <header class="hero-six" id="top">
+    <div class="hero-six__bg">
+      <img src="images/Delmarva_Aerial_360-387.jpg" alt="Aerial view of Ocean City Maryland bay and Assateague Island coastline — the 6-mile jet ski route" />
+      <div class="hero-six__overlay"></div>
+    </div>
+    <div class="hero-six__content">
+      <p class="hero-six__super">OCA Watersports Signature Experience</p>
+      <h1 class="hero-six__title">The 6-Mile<br>Ride</h1>
+      <p class="hero-six__subtitle">Ocean City MD → Assateague Island National Seashore</p>
+      <p class="hero-six__lead">The most talked-about jet ski experience on the East Coast. Wild horses. Dolphins. Open ocean. We didn't just name it — we built it.</p>
+    </div>
+    <div class="hero-six__scroll" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <span>&#8964;</span>
+    </div>
+  </header>
+
+  <!-- The Origin Story -->
+  <section class="origin-story">
+    <div class="origin-story__inner">
+      <div class="reveal">
+        <p class="eyebrow">The Origin</p>
+        <h2 class="section-title section-title--dark" style="margin-bottom:1.5rem;">Where OCA Watersports Earned Its Reputation.</h2>
+      </div>
+      <div class="origin-story__text reveal reveal-right">
+        <p>It started in 2010. While every other jet ski rental company in Ocean City Maryland was keeping riders locked in a buoyed-off bay circle, we were thinking about what a real ride could look like. Open water. Real distance. Something worth remembering.</p>
+        <p>We mapped the bay. We scouted the route from our dock at 312 Talbot Street all the way to Assateague Island National Seashore — a 6-mile stretch of water that passed sandbars, million-dollar waterfront homes, open bay, and ended at one of the most protected, untouched shorelines in the entire country.</p>
+        <p>We called it the <strong>6-Mile Ride</strong>. We gave riders 70 minutes — not 60 — because we ride too, and we knew what that extra 10 minutes meant out there.</p>
+        <p>Every other company in Ocean City that talks about riding to Assateague today? They're following our lead. <strong>We built this route.</strong></p>
+        <div class="origin-story__pullquote">
+          <p>"We created the 6-Mile Ride. The unequal watersports rental company — where being equal isn't good enough."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Timeline -->
+  <section class="section section--mid">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:4rem;">
+        <p class="eyebrow">The Route</p>
+        <h2 class="section-title section-title--dark">6 Miles. 6 Stops.</h2>
+        <p class="section-sub section-sub--center">From our dock in downtown Ocean City MD to the wild shoreline of Assateague Island National Seashore. Here's every stop along the way.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">1</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 01 · The Launch</p>
+            <h3 class="timeline-stop__title">Our Dock — Downtown Ocean City</h3>
+            <span class="timeline-stop__dist">📍 312 Talbot Street, The Angler Restaurant</span>
+            <p class="timeline-stop__text">You arrive at our dock on the north side of The Angler Restaurant, directly under the Rt. 50 drawbridge. Location matters in Ocean City — we're right in the middle of the action with direct bay access. Orientation. Waivers. Briefing on the route. Then you launch.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/the-launch.jpg" alt="OCA Watersports dock at 312 Talbot Street Ocean City MD under Rt. 50 bridge" />
+          </div>
+        </div>
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">2</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 02 · The Open Bay</p>
+            <h3 class="timeline-stop__title">Full Throttle Freedom</h3>
+            <span class="timeline-stop__dist">🌊 Largest riding area in Ocean City MD</span>
+            <p class="timeline-stop__text">Within minutes of launch you're in open water — the entire bay from Verrazano Bridge to Rt. 90 Bridge. No circles. No buoys. No other company gives you this. Hit the throttle and ride. Million-dollar waterfront homes line the shore. The Ocean City skyline appears behind you. This is the ride.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/the-ride.jpg" alt="Open bay riding area Ocean City Maryland largest jet ski riding zone" />
+          </div>
+        </div>
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">3</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 03 · The Sandbars</p>
+            <h3 class="timeline-stop__title">The OC Sandbars</h3>
+            <span class="timeline-stop__dist">🏖️ Shallow-water carving ground</span>
+            <p class="timeline-stop__text">As you approach Assateague Island, shallow sandbars rise from the bay floor — some just inches deep. Cut through them. Slow down and drift across them. Pontoon riders beach here. Jet ski riders carve circles. This is where Ocean City's summer crowd completely disappears.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/Delmarva_Aerial_360-425.jpg" alt="Bay sandbars near Assateague Island Ocean City Maryland jet ski area" />
+          </div>
+        </div>
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">4</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 04 · Assateague Island Coastline</p>
+            <h3 class="timeline-stop__title">The National Seashore</h3>
+            <span class="timeline-stop__dist">🌿 37 miles of federally protected wilderness</span>
+            <p class="timeline-stop__text">You arrive at Assateague Island National Seashore — a 37-mile barrier island with zero development. No hotels. No condos. Just wild beach, barrier dunes, and the Atlantic. The contrast from Ocean City just 6 miles behind you is staggering. Protected by the National Park Service since 1965.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/the-destination.jpg" alt="Assateague Island National Seashore coastline from the water Ocean City Maryland" />
+          </div>
+        </div>
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">5</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 05 · Wild Horse Territory</p>
+            <h3 class="timeline-stop__title">The Wild Horses</h3>
+            <span class="timeline-stop__dist">🐴 Free since the 1600s</span>
+            <p class="timeline-stop__text">The famous wild Assateague horses have roamed this island for over 400 years. Legend says they swam ashore from a Spanish shipwreck in the 1500s. Whether true or not, seeing them on the beach — from the water, from your jet ski — is a moment that doesn't exist anywhere else in the world quite like this.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/get-the-up-close-and.jpg" alt="Wild horses on Assateague Island beach Maryland — seen from jet ski on the 6-mile ride" />
+          </div>
+        </div>
+
+        <div class="timeline-stop reveal">
+          <div class="timeline-stop__dot">6</div>
+          <div class="timeline-stop__body">
+            <p class="timeline-stop__num">Stop 06 · The Return</p>
+            <h3 class="timeline-stop__title">Sunset on the Bay</h3>
+            <span class="timeline-stop__dist">🌅 The best view of Ocean City, Maryland</span>
+            <p class="timeline-stop__text">You turn back toward the OC skyline with the sun dropping behind it and the bay going glassy. This is the most photographed part of the ride — riders slow down here on instinct. You've just done something that most people visiting Ocean City never even know exists. See you back at the dock.</p>
+          </div>
+          <div class="timeline-stop__img">
+            <img src="images/Delmarva_Aerial_360-428.jpg" alt="Sunset on Ocean City Maryland bay returning from Assateague Island jet ski ride" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Assateague Facts -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:3rem;">
+        <p class="eyebrow">Know the Destination</p>
+        <h2 class="section-title section-title--dark">The Place You'll Be Riding To.</h2>
+        <p class="section-sub section-sub--center">Here's what you should know about Assateague Island before you ride there.</p>
+      </div>
+      <div class="editorial-grid">
+        <div class="editorial-card reveal d1">
+          <div class="editorial-card__img">
+            <img src="images/Delmarva_Aerial_360-401.jpg" alt="37 miles of Assateague Island coastline Maryland Virginia" />
+          </div>
+          <div class="editorial-card__body">
+            <span class="fact-number">37</span>
+            <h3 class="editorial-card__title">Miles of Protected Coastline</h3>
+            <p class="editorial-card__text">Assateague Island stretches 37 miles along the Atlantic coast, shared between Maryland and Virginia. As a National Seashore protected by the National Park Service, the land looks exactly as it did hundreds of years ago. No hotels. No condos. No development. Just wilderness.</p>
+          </div>
+        </div>
+        <div class="editorial-card reveal d2">
+          <div class="editorial-card__img">
+            <img src="images/get-the-up-close-and.jpg" alt="Wild horses Assateague Island free since the 1600s" />
+          </div>
+          <div class="editorial-card__body">
+            <h3 class="editorial-card__title">Wild Horses Since the 1600s</h3>
+            <p class="editorial-card__text">The Assateague horses have roamed freely for over 400 years. Local legend says they swam ashore from a Spanish shipwreck. Whether true or not, they are a recognized wonder — and you might see them just feet from the waterline on the bay side of the island during your ride.</p>
+          </div>
+        </div>
+        <div class="editorial-card reveal d3">
+          <div class="editorial-card__img">
+            <img src="images/Delmarva_Aerial_360-399.jpg" alt="Dolphins in the inlet between Ocean City and Assateague Island Maryland" />
+          </div>
+          <div class="editorial-card__body">
+            <h3 class="editorial-card__title">Dolphins in the Inlet</h3>
+            <p class="editorial-card__text">Atlantic bottlenose dolphins are regularly spotted in the waters between Ocean City and Assateague Island. We can't promise them on every ride — but it happens often enough that we talk about it in every pre-ride briefing. When it happens, riders go quiet. It's that good.</p>
+          </div>
+        </div>
+        <div class="editorial-card reveal d1">
+          <div class="editorial-card__img">
+            <img src="images/Delmarva_Aerial_360-405.jpg" alt="Assateague Island national seashore no development just wilderness" />
+          </div>
+          <div class="editorial-card__body">
+            <h3 class="editorial-card__title">A National Seashore — Not a Resort</h3>
+            <p class="editorial-card__text">Assateague is protected federal land. No hotels, no condos, no development. Just 37 miles of wilderness, barrier dunes, and wild shoreline. The contrast to Ocean City — just 6 miles away by water — is staggering. One of the most unique natural experiences on the Eastern Seaboard.</p>
+          </div>
+        </div>
+        <div class="editorial-card reveal d2">
+          <div class="editorial-card__img">
+            <img src="images/Delmarva_Aerial_360-413.jpg" alt="Bay side sandbars Assateague Island Maryland shallow water" />
+          </div>
+          <div class="editorial-card__body">
+            <h3 class="editorial-card__title">The Bay-Side Sandbars</h3>
+            <p class="editorial-card__text">On the bay side of Assateague, shallow sandbars emerge from the water — some just inches deep. Pontoon riders beach here and walk on the island. Jet ski riders carve through the shallows. This is where Ocean City's summer bustle completely disappears and the wilderness takes over.</p>
+          </div>
+        </div>
+        <div class="editorial-card reveal d3">
+          <div class="editorial-card__img">
+            <img src="images/Delmarva_Aerial_360-384.jpg" alt="Ocean City Maryland from the water perspective aerial view" />
+          </div>
+          <div class="editorial-card__body">
+            <h3 class="editorial-card__title">OC From the Water</h3>
+            <p class="editorial-card__text">The view of Ocean City, Maryland from the middle of the bay — skyline, the Ferris wheel, the Rt. 50 bridge — is something most visitors never see. From Assateague looking back toward OC, the entire resort city appears like a thin strip between two bodies of water. It reframes everything.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Only OCA -->
+  <section class="section section--mid">
+    <div class="container container--narrow">
+      <div class="text-center reveal" style="margin-bottom:2rem;">
+        <p class="eyebrow">The Honest Difference</p>
+        <h2 class="section-title section-title--dark">OCA vs. Every Other Jet Ski Company in Ocean City</h2>
+      </div>
+      <div class="vs-card reveal">
+        <div class="vs-col vs-col--them">
+          <p class="vs-col__header">Every Other Company in OC</p>
+          <ul class="vs-col__list">
+            <li>60-minute ride time</li>
+            <li>Confined buoyed-off bay loop</li>
+            <li>Bay access only — no Assateague</li>
+            <li>Supervised "babysitter" experience</li>
+            <li>Nothing memorable to see</li>
+            <li>Generic rental</li>
+          </ul>
+        </div>
+        <div class="vs-col vs-col--us">
+          <p class="vs-col__header">OCA Watersports</p>
+          <ul class="vs-col__list">
+            <li>70-minute ride time</li>
+            <li>6-mile open-water route</li>
+            <li>Assateague Island access</li>
+            <li>True rider freedom</li>
+            <li>Wild horses, dolphins, sandbars</li>
+            <li>The 6-Mile Ride — we created it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews mentioning the 6-mile ride -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:3rem;">
+        <p class="eyebrow">4.4★ · 640+ Reviews</p>
+        <h2 class="section-title section-title--dark">What Riders Say About the Ride</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal d1">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__quote">The 6-mile ride was absolutely incredible. No other jet ski place in OC even comes close. You actually get to RIDE, not just go in circles. We saw dolphins and got to cruise by Assateague. Already booked again for next weekend.</p>
+          <div class="review-card__author">— Jessica T. · Ocean City, MD</div>
+        </div>
+        <div class="review-card reveal d2">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__quote">We've been coming to Ocean City for 15 years and this was the most unique thing we've ever done here. The route to Assateague, seeing the wild horses from the water — we had no idea this even existed. OCA is in a class by themselves.</p>
+          <div class="review-card__author">— The Mercer Family · Annapolis, MD</div>
+        </div>
+        <div class="review-card reveal d3">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__quote">70 minutes feels like the right amount of time — 60 would have felt rushed. The 6-mile route is the real deal. Wide open water, the horses on the beach, sandbars you can carve through. Best watersports experience I've had anywhere on the East Coast.</p>
+          <div class="review-card__author">— Marcus D. · Washington, DC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="cta-section__bg">
+      <img src="images/Delmarva_Aerial_360-389.jpg" alt="Ocean City Maryland bay aerial view Assateague Island" />
+      <div class="cta-section__overlay"></div>
+    </div>
+    <div class="cta-section__inner reveal">
+      <p class="eyebrow eyebrow--gold">Included in Every Jet Ski Rental</p>
+      <h2 class="cta-section__title">You've Read About It.<br>Now Ride It.</h2>
+      <p class="cta-section__sub">The 6-Mile Ride is our signature experience — and it's included in every single jet ski rental. You don't pay extra for the best ride in Ocean City Maryland. You just book and show up.</p>
+      <div class="cta-section__actions">
+        <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK YOUR RIDE</button>
+        <a class="btn btn--outline btn--on-dark btn--lg" href="tel:4102893278">410-289-3278</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-int">
+    <div class="footer-int__top">
+      <div>
+        <div class="footer-int__logo">
+          <img src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
+        </div>
+        <p class="footer-int__tagline">Home of OC's Famous 6-Mile Ride.<br>Built by riders, for riders. Est. 2010.</p>
+        <div class="footer-int__social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="TripAdvisor"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></a>
+          <a href="#" aria-label="Google"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10.5h-9v3h5.2a4.5 4.5 0 01-4.2 3 5 5 0 010-10 4.9 4.9 0 013.3 1.3l2.1-2.1A8 8 0 104 12a8 8 0 0013.9-5.5H21z"/></svg></a>
+        </div>
+      </div>
+      <nav class="footer-int__nav" aria-label="Explore">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="jet-skis.html">Jet Skis</a></li>
+          <li><a href="pontoon-boats.html">Pontoon Boats</a></li>
+          <li><a href="the-6-mile-ride.html">The 6-Mile Ride</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-int__nav" aria-label="Info">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="deals.html">Deals &amp; Coupons</a></li>
+          <li><a href="contact.html">Contact &amp; Find Us</a></li>
+          <li><a href="jet-skis.html#faq">Jet Ski FAQ</a></li>
+          <li><a href="pontoon-boats.html#faq">Pontoon FAQ</a></li>
+          <li><a href="jet-skis.html#pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="footer-int__contact">
+        <h4>Get In Touch</h4>
+        <a href="tel:4102893278" class="footer-int__phone">410-289-3278</a>
+        <p class="footer-int__addr">312 Talbot Street<br>Ocean City, MD 21842<br>(At The Angler Restaurant)<br><a href="mailto:info@ocawatersports.com">info@ocawatersports.com</a></p>
+      </div>
+    </div>
+    <div class="footer-int__bottom">
+      <p class="footer-int__copy">&copy; 2026 OCA Watersports. All rights reserved.</p>
+      <p class="footer-int__partner">Partner: <a href="https://angleroc.net" target="_blank" rel="noopener">The Angler Restaurant</a> — 10% off with OCA confirmation email</p>
+    </div>
+    <p class="footer-int__seo">OCA Watersports — Jet Ski Rentals &amp; Pontoon Boat Rentals in Ocean City, Maryland. Serving Ocean City MD, Assateague Island, Berlin MD, Salisbury MD, Ocean Pines, Fenwick Island DE, Rehoboth Beach DE, and the entire Maryland Eastern Shore.</p>
+  </footer>
+
+  <a class="review-badge" href="https://www.google.com/maps/search/?api=1&query=OCA+Watersports+Ocean+City+MD" target="_blank" rel="noopener" aria-label="Google reviews">
+    <div class="review-badge__stars">★★★★★</div>
+    <div class="review-badge__text">4.4★ on Google</div>
+    <div class="review-badge__count">640+ Reviews</div>
+  </a>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var navInt = document.getElementById('navInt');
+  var stickyBar = document.getElementById('stickyBar');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    navInt.classList.toggle('scrolled', y > 80);
+    var show = y > 600;
+    stickyBar.classList.toggle('visible', show);
+    document.body.classList.toggle('bar-visible', show);
+  }, { passive: true });
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function () {
+      var open = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!open));
+      hamburger.classList.toggle('open', !open);
+      navLinks.classList.toggle('open', !open);
+    });
+    navLinks.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal, .reveal-right');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    revealEls.forEach(function (el) { obs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+}());
+</script>
+</body>
+</html>
