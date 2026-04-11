@@ -344,6 +344,7 @@ a:hover {
   .nav__hamburger.open {
     top: 1.25rem;
     right: 1.25rem;
+    z-index: 601;
   }
 
   .nav__hamburger.open span {

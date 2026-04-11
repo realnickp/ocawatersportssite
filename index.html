@@ -790,12 +790,14 @@
     (function () {
       var hamburger = document.getElementById('navHamburger');
       var links = document.getElementById('navHomeLinks');
+      var banner = document.querySelector('.mobile-book-banner');
       if (!hamburger || !links) return;
       hamburger.addEventListener('click', function () {
         var isOpen = links.classList.toggle('open');
         hamburger.classList.toggle('open', isOpen);
         hamburger.setAttribute('aria-expanded', isOpen);
         document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (banner) banner.style.display = isOpen ? 'none' : '';
       });
       links.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
@@ -803,6 +805,7 @@
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
+          if (banner) banner.style.display = '';
         });
       });
     })();
