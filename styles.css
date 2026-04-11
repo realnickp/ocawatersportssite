@@ -1027,6 +1027,266 @@ a:hover {
 }
 
 /* ============================
+   INTERACTIVE MAP SHOWCASE
+   ============================ */
+.imap {
+  background: var(--color-navy);
+  padding: 5rem 1.5rem;
+  overflow: hidden;
+}
+
+.imap__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .imap__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.imap__pill {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(222, 188, 107, 0.12);
+  border: 1px solid rgba(222, 188, 107, 0.35);
+  border-radius: 100px;
+  font-family: var(--font-nav);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.imap__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+}
+
+.imap__lead {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.imap__features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.imap__feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.imap__feature svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.imap__feature strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.2rem;
+}
+
+.imap__feature p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.imap__video {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.imap__video-wrap {
+  position: relative;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #000;
+  border: 4px solid #2a2a2a;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(222, 188, 107, 0.08);
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.imap__video-wrap::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.imap__video-wrap video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 19.5;
+  object-fit: contain;
+  max-height: 650px;
+  background: #000;
+}
+
+@media (min-width: 900px) {
+  .imap__video-wrap video {
+    max-height: 700px;
+  }
+}
+
+.imap__video-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(222, 188, 107, 0.3) 25%,
+    transparent 50%,
+    rgba(222, 188, 107, 0.2) 75%,
+    transparent 100%
+  );
+  z-index: -1;
+  animation: glowSpin 6s linear infinite;
+}
+
+@keyframes glowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.imap__video-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.imap__video-caption svg {
+  opacity: 0.5;
+}
+
+.imap__launch {
+  margin-top: 1.25rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ---- Interactive map modal ---- */
+.imap-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.imap-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.imap-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.imap-modal__close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.imap-modal__frame {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  border: none;
+  border-radius: 16px;
+  background: #000;
+}
+
+@media (max-width: 600px) {
+  .imap-modal {
+    padding: 0;
+  }
+
+  .imap-modal__frame {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .imap-modal__close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .imap-modal__frame {
+    height: -webkit-fill-available;
+  }
+}
+
+/* ============================
    JET SKI DEEP DIVE
    ============================ */
 .jetski-deep {

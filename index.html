@@ -227,6 +227,57 @@
     </section>
 
     <!-- ======================================================
+         INTERACTIVE MAP SHOWCASE
+         ====================================================== -->
+    <section class="imap" id="explore-the-ride">
+      <div class="imap__inner">
+        <div class="imap__text reveal" data-reveal="up">
+          <span class="imap__pill">Live Now</span>
+          <h2 class="imap__title">EXPLORE THE RIDE</h2>
+          <p class="imap__lead">An interactive map loaded with every stop, every view, and every moment along the way &mdash; from the Southbound 6-Mile Ride to every pontoon destination on the Bay.</p>
+          <div class="imap__features">
+            <div class="imap__feature">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <div>
+                <strong>Stops Along the Ride</strong>
+                <p>Pontoon boat destinations heading north and south &mdash; sandbars, restaurants, Assateague, and more.</p>
+              </div>
+            </div>
+            <div class="imap__feature">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <div>
+                <strong>The Full 6-Mile Ride</strong>
+                <p>See the entire southbound jet ski route &mdash; the largest free riding area in all of OC.</p>
+              </div>
+            </div>
+            <div class="imap__feature">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <div>
+                <strong>Photos &amp; Videos at Every Stop</strong>
+                <p>Wild horses, dolphins, million-dollar yachts, hidden sandbars &mdash; see it all before you even leave the dock.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="imap__video reveal" data-reveal="right">
+          <div class="imap__video-wrap">
+            <video autoplay muted loop playsinline>
+              <source src="videos/interactive-map-raw.mp4" type="video/mp4" />
+            </video>
+            <div class="imap__video-glow" aria-hidden="true"></div>
+          </div>
+          <button type="button" class="btn btn--gold btn--lg imap__launch" id="imapLaunch">LAUNCH INTERACTIVE MAP</button>
+        </div>
+      </div>
+
+      <!-- Full-screen modal -->
+      <div class="imap-modal" id="imapModal" role="dialog" aria-modal="true" aria-label="Interactive Ride Map">
+        <button type="button" class="imap-modal__close" id="imapClose" aria-label="Close map">&times;</button>
+        <iframe class="imap-modal__frame" id="imapFrame" src="" allow="geolocation" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ======================================================
          JET SKI DEEP DIVE
          ====================================================== -->
     <section class="jetski-deep" id="jetski">
@@ -655,6 +706,35 @@
       requestAnimationFrame(function loop() {
         update();
         requestAnimationFrame(loop);
+      });
+    })();
+
+    // Interactive map modal
+    (function () {
+      var launch = document.getElementById('imapLaunch');
+      var modal = document.getElementById('imapModal');
+      var frame = document.getElementById('imapFrame');
+      var close = document.getElementById('imapClose');
+      if (!launch || !modal || !frame) return;
+
+      launch.addEventListener('click', function () {
+        frame.src = 'https://oca-scrollytelling.vercel.app/';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        frame.src = '';
+      }
+
+      close.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
       });
     })();
 
