@@ -317,6 +317,17 @@ a:hover {
 
   .nav__links.open { display: flex; }
 
+  .nav__links a {
+    color: var(--color-white);
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+
+  .nav__links a:hover {
+    color: var(--color-gold);
+    opacity: 1;
+  }
+
   .hero {
     padding-top: 7rem;
   }
