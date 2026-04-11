@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
 
-  <script src="//fareharbor.com/embeds/api/v1/?autolightboxes=no" async></script>
+  <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <script type="application/ld+json">
   {
@@ -91,7 +91,7 @@
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
     <span class="sticky-bar__text">Come Find Us. Book Your Adventure.</span>
-    <button class="sticky-bar__btn" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW →</button>
+    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
   </div>
 
   <!-- Nav -->
@@ -112,7 +112,7 @@
       <li><a href="deals.html">Deals &amp; Coupons</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
-    <button class="btn btn--gold nav-int__cta" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+    <a class="btn btn--gold nav-int__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
   </nav>
 
   <!-- Hero -->
@@ -361,7 +361,7 @@
       <h2 class="cta-section__title">Come Find Us.</h2>
       <p class="cta-section__sub">312 Talbot Street. Under the Rt. 50 bridge. The adventure starts the moment you walk up to our dock.</p>
       <div class="cta-section__actions">
-        <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+        <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
         <a class="btn btn--outline btn--on-dark btn--lg" href="tel:4102893278">CALL 410-289-3278</a>
       </div>
     </div>
@@ -481,5 +481,7 @@
   }
 }());
 </script>
+<!-- FareHarbor Lightframe API -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

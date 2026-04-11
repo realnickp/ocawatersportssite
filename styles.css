@@ -90,6 +90,7 @@ a:hover {
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -487,6 +488,8 @@ a:hover {
   letter-spacing: 0.06em;
   color: #000;
   text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .booking__chev {
@@ -499,6 +502,9 @@ a:hover {
 .booking__submit {
   flex: 1 1 160px;
   min-height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: var(--radius-lg);
   background: var(--color-gold);
@@ -509,6 +515,7 @@ a:hover {
   cursor: pointer;
   color: #000;
   text-transform: capitalize;
+  text-decoration: none;
 }
 
 .booking__submit:hover {

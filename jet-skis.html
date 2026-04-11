@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
 
-  <!-- FareHarbor -->
-  <script src="//fareharbor.com/embeds/api/v1/?autolightboxes=no" async></script>
+  <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <!-- Schema: LocalBusiness -->
   <script type="application/ld+json">
@@ -103,7 +102,7 @@
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
     <span class="sticky-bar__text">Ready to Ride? Slots fill fast.</span>
-    <button class="sticky-bar__btn" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW →</button>
+    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
   </div>
 
   <!-- Nav -->
@@ -124,7 +123,7 @@
       <li><a href="deals.html">Deals &amp; Coupons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="btn btn--gold nav-int__cta" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+    <a class="btn btn--gold nav-int__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
   </nav>
 
   <!-- Hero -->
@@ -142,7 +141,7 @@
         <span class="badge">The 6-Mile Route</span>
         <span class="badge">640+ Five-Star Reviews</span>
       </div>
-      <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK YOUR JET SKI</button>
+      <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK YOUR JET SKI</a>
     </div>
     <div class="page-hero__scroll" aria-hidden="true">&#8964;</div>
   </header>
@@ -299,7 +298,7 @@
           </div>
 
           <div class="btn-row" style="margin-top:2rem;">
-            <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+            <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
             <a class="btn btn--outline btn--on-dark btn--lg" href="tel:4102893278">CALL 410-289-3278</a>
           </div>
         </div>
@@ -530,7 +529,7 @@
       <h2 class="cta-section__title">Ready to Ride?</h2>
       <p class="cta-section__sub">Book your jet ski today. Slots fill fast in peak season — and there's nothing like this anywhere else in Ocean City, MD.</p>
       <div class="cta-section__actions">
-        <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+        <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
         <a class="btn btn--outline btn--on-dark btn--lg" href="tel:4102893278">CALL 410-289-3278</a>
       </div>
     </div>
@@ -724,5 +723,7 @@
 
 }());
 </script>
+<!-- FareHarbor Lightframe API -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

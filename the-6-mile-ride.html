@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
 
-  <script src="//fareharbor.com/embeds/api/v1/?autolightboxes=no" async></script>
+  <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <script type="application/ld+json">
   {
@@ -228,7 +228,7 @@
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
     <span class="sticky-bar__text">You've Read About It. Now Ride It.</span>
-    <button class="sticky-bar__btn" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK YOUR RIDE →</button>
+    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK YOUR RIDE →</a>
   </div>
 
   <!-- Nav -->
@@ -249,7 +249,7 @@
       <li><a href="deals.html">Deals &amp; Coupons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="btn btn--gold nav-int__cta" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+    <a class="btn btn--gold nav-int__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
   </nav>
 
   <!-- Hero — cinematic, no button -->
@@ -522,7 +522,7 @@
       <h2 class="cta-section__title">You've Read About It.<br>Now Ride It.</h2>
       <p class="cta-section__sub">The 6-Mile Ride is our signature experience — and it's included in every single jet ski rental. You don't pay extra for the best ride in Ocean City Maryland. You just book and show up.</p>
       <div class="cta-section__actions">
-        <button class="btn btn--gold btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK YOUR RIDE</button>
+        <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK YOUR RIDE</a>
         <a class="btn btn--outline btn--on-dark btn--lg" href="tel:4102893278">410-289-3278</a>
       </div>
     </div>
@@ -627,5 +627,7 @@
   }
 }());
 </script>
+<!-- FareHarbor Lightframe API -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

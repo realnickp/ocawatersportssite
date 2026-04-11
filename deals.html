@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
 
-  <script src="//fareharbor.com/embeds/api/v1/?autolightboxes=no" async></script>
+  <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <script type="application/ld+json">
   {
@@ -105,7 +105,7 @@
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
     <span class="sticky-bar__text">Ready to Book with Your Deal?</span>
-    <button class="sticky-bar__btn" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW →</button>
+    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
   </div>
 
   <!-- Nav -->
@@ -126,7 +126,7 @@
       <li><a href="deals.html" class="active">Deals &amp; Coupons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="btn btn--gold nav-int__cta" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK NOW</button>
+    <a class="btn btn--gold nav-int__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
   </nav>
 
   <!-- Hero — no image, dark with radial glow -->
@@ -168,7 +168,7 @@
           </div>
           <div class="coupon-card__foot">
             <span class="coupon-card__cta-label">Use at checkout</span>
-            <button class="btn btn--gold" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</button>
+            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
           </div>
         </div>
 
@@ -181,7 +181,7 @@
           </div>
           <div class="coupon-card__foot">
             <span class="coupon-card__cta-label">Before noon rides only</span>
-            <button class="btn btn--gold" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</button>
+            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
           </div>
         </div>
 
@@ -194,7 +194,7 @@
           </div>
           <div class="coupon-card__foot">
             <span class="coupon-card__cta-label">Starts June 16th</span>
-            <button class="btn btn--gold" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</button>
+            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
           </div>
         </div>
 
@@ -294,7 +294,7 @@
       <p class="cta-section__sub">Apply your deal at checkout — or call us and mention your code. Our team will make sure you get the best rate available for your date.</p>
       <div class="cta-section__actions">
         <a class="btn btn--gold btn--lg" href="tel:4102893278">CALL 410-289-3278</a>
-        <button class="btn btn--outline btn--on-dark btn--lg" onclick="if(window.FH){window.FH.open({shortname:'underthebridgewatersports'})}else{window.open('https://fareharbor.com/embeds/book/underthebridgewatersports/','_blank')}">BOOK ONLINE</button>
+        <a class="btn btn--outline btn--on-dark btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK ONLINE</a>
       </div>
     </div>
   </section>
@@ -380,5 +380,7 @@
   }
 }());
 </script>
+<!-- FareHarbor Lightframe API -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>

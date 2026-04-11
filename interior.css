@@ -223,6 +223,7 @@ body.bar-visible .nav-int {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s;
 }
