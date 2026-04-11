@@ -232,6 +232,12 @@ a:hover {
   color: var(--color-navy);
 }
 
+@media (max-width: 900px) {
+  .nav.scrolled .nav__links a {
+    color: var(--color-white);
+  }
+}
+
 .nav__cta {
   flex-shrink: 0;
 }
@@ -313,19 +319,35 @@ a:hover {
     font-size: 1.1rem;
     z-index: 500;
     color: var(--color-white);
+    padding: 4rem 1.5rem 2rem;
   }
 
   .nav__links.open { display: flex; }
 
   .nav__links a {
-    color: var(--color-white);
+    color: var(--color-white) !important;
     font-size: 1.3rem;
     text-decoration: none;
   }
 
   .nav__links a:hover {
-    color: var(--color-gold);
+    color: var(--color-gold) !important;
     opacity: 1;
+  }
+
+  .nav__hamburger {
+    position: fixed;
+    top: 52px;
+    right: 1.25rem;
+  }
+
+  .nav__hamburger.open {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .nav__hamburger.open span {
+    background: var(--color-white);
   }
 
   .hero {
