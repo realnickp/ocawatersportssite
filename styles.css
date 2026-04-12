@@ -1519,6 +1519,10 @@ a:hover {
   background: linear-gradient(to top, rgba(2, 25, 34, 0.8) 0%, rgba(2, 25, 34, 0.15) 60%);
 }
 
+.jk-card__overlay--heavy {
+  background: linear-gradient(to top, rgba(2, 25, 34, 0.95) 0%, rgba(2, 25, 34, 0.6) 45%, rgba(2, 25, 34, 0.25) 100%);
+}
+
 .jk-card__content {
   position: relative;
   z-index: 2;
