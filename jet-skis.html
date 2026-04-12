@@ -664,12 +664,16 @@
       hamburger.setAttribute('aria-expanded', String(!open));
       hamburger.classList.toggle('open', !open);
       navLinks.classList.toggle('open', !open);
+      document.body.style.overflow = !open ? 'hidden' : '';
+      if (stickyBar) stickyBar.style.display = !open ? 'none' : '';
     });
     navLinks.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+        if (stickyBar) stickyBar.style.display = '';
       });
     });
   }
