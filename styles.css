@@ -297,10 +297,10 @@ a:hover {
 .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 @media (max-width: 900px) {
-  .mobile-book-banner { display: flex; }
+  .mobile-book-banner { display: none !important; }
 
   .nav {
-    top: 40px;
+    top: 0;
   }
 
   .nav__hamburger { display: flex; }

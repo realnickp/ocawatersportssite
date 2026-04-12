@@ -252,8 +252,12 @@ body.bar-visible .nav-int {
 
 .sticky-bar__btn:hover { opacity: 0.85; }
 
+@media (max-width: 900px) {
+  .sticky-bar { display: none !important; transform: none; }
+  body.bar-visible .nav-int { top: 0; }
+}
+
 @media (max-width: 600px) {
-  .sticky-bar { gap: 1rem; }
   .sticky-bar__text { font-size: 0.72rem; }
 }
 
