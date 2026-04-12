@@ -656,13 +656,6 @@
       var VB_H = 2400;
       var smoothAngle = 0;
       var showingPontoon = false;
-      var photos = map.querySelectorAll('.landmark__photo');
-      var currentOpacity = 1;
-      var targetOpacity = 1;
-
-      function rectsOverlap(a, b) {
-        return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
-      }
 
       function update() {
         var mapRect = map.getBoundingClientRect();
@@ -706,22 +699,6 @@
         vehicle.style.left = x + 'px';
         vehicle.style.top = y + 'px';
         vehicle.style.transform = 'translate(-50%, -50%) rotate(' + smoothAngle.toFixed(1) + 'deg)';
-
-        var vRect = vehicle.getBoundingClientRect();
-        var overlapping = false;
-        for (var i = 0; i < photos.length; i++) {
-          if (rectsOverlap(vRect, photos[i].getBoundingClientRect())) {
-            overlapping = true;
-            break;
-          }
-        }
-
-        targetOpacity = overlapping ? 0.4 : 1;
-        currentOpacity += (targetOpacity - currentOpacity) * 0.12;
-        vehicle.style.opacity = currentOpacity.toFixed(3);
-        vehicle.style.filter = overlapping
-          ? 'drop-shadow(0 0 12px rgba(222,188,107,0.7)) drop-shadow(0 0 24px rgba(17,178,197,0.4))'
-          : 'drop-shadow(0 0 6px rgba(0,0,0,0.2))';
       }
 
       window.addEventListener('scroll', update, { passive: true });

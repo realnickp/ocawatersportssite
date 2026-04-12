@@ -653,10 +653,10 @@ a:hover {
   height: 60px;
   z-index: 10;
   pointer-events: none;
-  will-change: transform, left, top, opacity, filter;
+  will-change: transform, left, top;
   top: 0;
   left: 50%;
-  transition: filter 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
 }
 
 @media (min-width: 900px) {
@@ -708,6 +708,14 @@ a:hover {
   z-index: 1;
 }
 
+.landmark--2 .landmark__photo {
+  order: 2;
+}
+
+.landmark--2 .landmark__body {
+  order: 1;
+}
+
 .landmark--2 {
   z-index: 1;
 }
@@ -724,6 +732,14 @@ a:hover {
 
   .landmark--2 {
     padding-left: 12%;
+  }
+
+  .landmark--2 .landmark__photo {
+    order: unset;
+  }
+
+  .landmark--2 .landmark__body {
+    order: unset;
   }
 
   .landmark--3 {
