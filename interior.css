@@ -717,6 +717,15 @@ body.bar-visible .nav-int {
   transition: background 0.4s ease;
 }
 
+.wyso__overlay--heavy {
+  background: linear-gradient(
+    to top,
+    rgba(2, 25, 34, 0.97) 0%,
+    rgba(2, 25, 34, 0.7) 45%,
+    rgba(2, 25, 34, 0.3) 100%
+  );
+}
+
 .wyso__card:hover .wyso__overlay {
   background: linear-gradient(
     to top,
