@@ -651,11 +651,12 @@ a:hover {
   position: absolute;
   width: 60px;
   height: 60px;
-  z-index: 2;
+  z-index: 10;
   pointer-events: none;
-  will-change: transform, left, top;
+  will-change: transform, left, top, opacity, filter;
   top: 0;
   left: 50%;
+  transition: filter 0.3s ease;
 }
 
 @media (min-width: 900px) {
@@ -708,7 +709,7 @@ a:hover {
 }
 
 .landmark--2 {
-  z-index: 3;
+  z-index: 1;
 }
 
 @media (min-width: 900px) {
@@ -1414,6 +1415,26 @@ a:hover {
 .reveal.is-visible {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ---- Jet Ski Bento ---- */

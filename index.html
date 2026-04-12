@@ -120,7 +120,7 @@
             <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="" />
           </div>
 
-          <article class="landmark landmark--1" data-stop="1">
+          <article class="landmark landmark--1 reveal-left" data-stop="1">
             <div class="landmark__body">
               <div class="landmark__marker">
                 <img src="https://www.figma.com/api/mcp/asset/2a4d54d3-f071-4023-a01a-b3562f6210ff" alt="" />
@@ -135,7 +135,7 @@
 
           <div class="landmark__spacer"></div>
 
-          <article class="landmark landmark--2" data-stop="2">
+          <article class="landmark landmark--2 reveal-right" data-stop="2">
             <div class="landmark__photo">
               <img src="images/the-ride.jpg" alt="The Ride - 6 Mile Ride" />
             </div>
@@ -150,7 +150,7 @@
 
           <div class="landmark__spacer"></div>
 
-          <article class="landmark landmark--3" data-stop="3">
+          <article class="landmark landmark--3 reveal-left" data-stop="3">
             <div class="landmark__body">
               <div class="landmark__marker">
                 <img src="https://www.figma.com/api/mcp/asset/2a4d54d3-f071-4023-a01a-b3562f6210ff" alt="" />
@@ -656,6 +656,13 @@
       var VB_H = 2400;
       var smoothAngle = 0;
       var showingPontoon = false;
+      var photos = map.querySelectorAll('.landmark__photo');
+      var currentOpacity = 1;
+      var targetOpacity = 1;
+
+      function rectsOverlap(a, b) {
+        return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+      }
 
       function update() {
         var mapRect = map.getBoundingClientRect();
@@ -699,6 +706,22 @@
         vehicle.style.left = x + 'px';
         vehicle.style.top = y + 'px';
         vehicle.style.transform = 'translate(-50%, -50%) rotate(' + smoothAngle.toFixed(1) + 'deg)';
+
+        var vRect = vehicle.getBoundingClientRect();
+        var overlapping = false;
+        for (var i = 0; i < photos.length; i++) {
+          if (rectsOverlap(vRect, photos[i].getBoundingClientRect())) {
+            overlapping = true;
+            break;
+          }
+        }
+
+        targetOpacity = overlapping ? 0.4 : 1;
+        currentOpacity += (targetOpacity - currentOpacity) * 0.12;
+        vehicle.style.opacity = currentOpacity.toFixed(3);
+        vehicle.style.filter = overlapping
+          ? 'drop-shadow(0 0 12px rgba(222,188,107,0.7)) drop-shadow(0 0 24px rgba(17,178,197,0.4))'
+          : 'drop-shadow(0 0 6px rgba(0,0,0,0.2))';
       }
 
       window.addEventListener('scroll', update, { passive: true });
@@ -740,7 +763,7 @@
 
     // Scroll reveal
     (function () {
-      var reveals = document.querySelectorAll('.reveal');
+      var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
       if (!reveals.length) return;
 
       var observer = new IntersectionObserver(function (entries) {
