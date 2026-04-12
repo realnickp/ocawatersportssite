@@ -1698,7 +1698,7 @@ a:hover {
 .jk-strip__track {
   display: flex;
   gap: 0.75rem;
-  animation: stripScroll 60s linear infinite;
+  animation: stripScroll 35s linear infinite;
 }
 
 .jk-strip__track img {
