@@ -193,7 +193,7 @@
   }
 
   .nav-int__hamburger.open span {
-    background: var(--color-white);
+    background: var(--color-white) !important;
   }
 }
 
