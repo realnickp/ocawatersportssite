@@ -684,9 +684,9 @@ body.bar-visible .nav-int {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(2, 25, 34, 0.92) 0%,
-    rgba(2, 25, 34, 0.4) 45%,
-    rgba(2, 25, 34, 0.08) 100%
+    rgba(2, 25, 34, 0.95) 0%,
+    rgba(2, 25, 34, 0.6) 40%,
+    rgba(2, 25, 34, 0.2) 100%
   );
   transition: background 0.4s ease;
 }
@@ -775,8 +775,8 @@ body.bar-visible .nav-int {
 
 @media (max-width: 900px) {
   .wyso__grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 220px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 240px;
   }
 
   .wyso__card--tall {
@@ -795,45 +795,54 @@ body.bar-visible .nav-int {
 
 @media (max-width: 600px) {
   .wyso__grid {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 200px;
-    gap: 0.6rem;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 0.75rem;
   }
 
-  .wyso__card--tall {
-    grid-row: span 2;
+  .wyso__card {
+    min-height: 220px;
   }
 
+  .wyso__card--tall,
   .wyso__card--wide {
-    grid-column: span 2;
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  .wyso__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(2, 25, 34, 0.95) 0%,
+      rgba(2, 25, 34, 0.65) 50%,
+      rgba(2, 25, 34, 0.25) 100%
+    );
   }
 
   .wyso__content {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .wyso__title {
-    font-size: 1rem;
-  }
-
-  .wyso__card--tall .wyso__title {
     font-size: 1.2rem;
   }
 
+  .wyso__card--tall .wyso__title,
   .wyso__card--wide .wyso__title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .wyso__text {
     max-height: none;
     opacity: 1;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .wyso__tag {
-    font-size: 0.5rem;
-    padding: 0.15rem 0.45rem;
-    margin-bottom: 0.35rem;
+    font-size: 0.55rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.4rem;
   }
 }
 
