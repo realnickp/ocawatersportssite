@@ -129,7 +129,8 @@
               <p class="landmark__copy">You're stepping onto the dock where OC's most legendary ride begins. Direct bay access. Full throttle in seconds. This is where it all starts.</p>
             </div>
             <div class="landmark__photo">
-              <img src="images/the-launch.jpg" alt="The Launch - OCA Watersports" />
+              <video class="landmark__video" src="videos/the-launch.mp4" muted playsinline preload="auto"></video>
+              <img class="landmark__img" src="images/the-launch.jpg" alt="The Launch - OCA Watersports" />
             </div>
           </article>
 
@@ -137,7 +138,8 @@
 
           <article class="landmark landmark--2 reveal-right" data-stop="2">
             <div class="landmark__photo">
-              <img src="images/the-ride.jpg" alt="The Ride - 6 Mile Ride" />
+              <video class="landmark__video" src="videos/the-ride.mp4" muted playsinline preload="auto"></video>
+              <img class="landmark__img" src="images/the-ride.jpg" alt="The Ride - 6 Mile Ride" />
             </div>
             <div class="landmark__body">
               <div class="landmark__marker">
@@ -159,7 +161,8 @@
               <p class="landmark__copy">Assateague Island. Wild horses on the beach. Dolphins breaking the surface. Sandbars rising out of nowhere. This is what you came for.</p>
             </div>
             <div class="landmark__photo">
-              <img src="images/the-destination.jpg" alt="The Destination - Assateague Island" />
+              <video class="landmark__video" src="videos/the-destination.mp4" muted playsinline preload="auto"></video>
+              <img class="landmark__img" src="images/the-destination.jpg" alt="The Destination - Assateague Island" />
             </div>
           </article>
         </div>
@@ -771,6 +774,30 @@
         el.style.transitionDelay = (i % 3) * 0.12 + 's';
         observer.observe(el);
       });
+    })();
+
+    // Landmark videos: play once on scroll, then fade to static image
+    (function () {
+      var photos = document.querySelectorAll('.landmark__photo');
+      if (!photos.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var video = entry.target.querySelector('.landmark__video');
+          var img = entry.target.querySelector('.landmark__img');
+          if (!video || !img) return;
+
+          video.play();
+          observer.unobserve(entry.target);
+
+          video.addEventListener('ended', function () {
+            img.classList.add('show');
+          });
+        });
+      }, { threshold: 0.4 });
+
+      photos.forEach(function (el) { observer.observe(el); });
     })();
 
     // Counter animation for stats

@@ -778,15 +778,31 @@ a:hover {
 }
 
 .landmark__photo {
+  position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(2, 25, 34, 0.12);
 }
 
-.landmark__photo img {
+.landmark__video {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  display: block;
+}
+
+.landmark__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.landmark__img.show {
+  opacity: 1;
 }
 
 /* Services */
