@@ -791,6 +791,7 @@ a:hover {
   object-position: center;
   display: block;
   background: var(--color-navy);
+  transform: scale(1.15);
 }
 
 .landmark__img {
