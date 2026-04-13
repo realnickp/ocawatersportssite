@@ -965,6 +965,11 @@ a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.manifesto__cta {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
 .manifesto__rides {
   display: flex;
   justify-content: center;
