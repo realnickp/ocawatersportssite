@@ -2164,6 +2164,7 @@ a:hover {
 .xp-gallery__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
   gap: 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -2172,6 +2173,7 @@ a:hover {
 @media (min-width: 700px) {
   .xp-gallery__grid {
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
     gap: 0.75rem;
   }
 }
@@ -2187,8 +2189,10 @@ a:hover {
 
 .xp-gallery__item img {
   width: 100%;
-  height: 200px;
+  height: 100%;
+  min-height: 200px;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -2197,12 +2201,13 @@ a:hover {
 }
 
 @media (min-width: 700px) {
-  .xp-gallery__item img {
-    height: 260px;
+  .xp-gallery__grid {
+    grid-auto-rows: 260px;
   }
 
-  .xp-gallery__item--wide img {
-    height: 300px;
+  .xp-gallery__item img {
+    height: 100%;
+    min-height: unset;
   }
 }
 
