@@ -965,6 +965,102 @@ a:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.manifesto__rides {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.manifesto__ride {
+  flex: 1;
+  max-width: 320px;
+  text-align: center;
+}
+
+.manifesto__ride-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.manifesto__ride-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.manifesto__ride-tagline {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 0.25rem;
+}
+
+.manifesto__ride-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.manifesto__ride-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manifesto__ride-num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--color-gold);
+}
+
+.manifesto__ride-label {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.manifesto__ride-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0;
+}
+
+.manifesto__ride-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  align-self: stretch;
+}
+
+@media (max-width: 700px) {
+  .manifesto__rides {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .manifesto__ride {
+    max-width: 100%;
+  }
+
+  .manifesto__ride-divider {
+    width: 60%;
+    height: 1px;
+    align-self: center;
+  }
+}
+
 .manifesto__stats {
   display: flex;
   justify-content: center;
