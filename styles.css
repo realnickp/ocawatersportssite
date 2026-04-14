@@ -392,6 +392,7 @@ a:hover {
     justify-content: flex-start;
     padding-top: 3rem;
   }
+
 }
 
 .hero__content {
@@ -427,6 +428,15 @@ a:hover {
   color: var(--color-navy);
   text-shadow: 0 4px 4px rgba(255, 255, 255, 0.85);
   max-width: 19.8ch;
+}
+
+@media (max-width: 900px) {
+  .hero__title {
+    max-width: none;
+    font-size: clamp(1.25rem, 6.5vw, 1.5rem);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
 }
 
 .hero__sub {
