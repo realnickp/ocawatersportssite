@@ -398,12 +398,7 @@ body.bar-visible .nav-int {
 }
 
 .page-hero__eyebrow::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--color-cyan);
-  flex-shrink: 0;
+  display: none;
 }
 
 .page-hero__title {
