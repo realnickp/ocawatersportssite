@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/OCA_LogoColors-final.png" />
+  <link rel="apple-touch-icon" href="/images/OCA_LogoColors-final.png" />
   <title>Jet Ski Rentals Ocean City MD | OCA Watersports</title>
-  <meta name="description" content="Best jet ski rentals in Ocean City MD. 70-minute rides, the famous 6 Mile Ride south to Assateague Island — wild horses, dolphins &amp; open water. Book now: 410-629-RIDE (7433)." />
+  <meta name="description" content="Best jet ski rentals in Ocean City MD. 70-min rides on the 6 Mile Ride to Assateague Island — wild horses, dolphins &amp; open water. Book: 410-629-RIDE." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.ocawatersports.com/jet-skis.html" />
 
@@ -13,6 +15,14 @@
   <meta property="og:description" content="70-minute rides, the 6 Mile Route, wild horses &amp; dolphins. Ocean City's most legendary jet ski experience since 2010." />
   <meta property="og:url" content="https://www.ocawatersports.com/jet-skis.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="OCA Watersports" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jet Ski Rentals Ocean City MD | OCA Watersports" />
+  <meta name="twitter:description" content="70-minute rides, the 6 Mile Route, wild horses &amp; dolphins. Ocean City's most legendary jet ski experience." />
+  <meta name="twitter:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
 
   <!-- GEO -->
   <meta name="geo.region" content="US-MD" />
@@ -23,10 +33,20 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5XJSTK5X1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5XJSTK5X1');
+  </script>
 
   <!-- FareHarbor Lightframe API loaded before </body> -->
 
@@ -34,12 +54,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "SportsActivityLocation",
+    "@id": "https://www.ocawatersports.com/#business",
     "name": "OCA Watersports",
+    "alternateName": "Under The Bridge Watersports",
     "description": "Ocean City MD's premier jet ski and pontoon boat rental company. Home of the Famous 6 Mile Ride along Assateague Island.",
     "url": "https://www.ocawatersports.com",
     "telephone": "+14106297433",
     "email": "ride@ocawatersports.com",
+    "foundingDate": "2010",
+    "image": "https://www.ocawatersports.com/images/the-ride.jpg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "12817 Harbor Rd",
@@ -48,11 +72,13 @@
       "postalCode": "21842",
       "addressCountry": "US"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": 38.3365, "longitude": -75.0849 },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 38.33650, "longitude": -75.08490 },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640", "bestRating": "5" },
     "priceRange": "$$",
     "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"],
-    "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD"
+    "knowsAbout": ["Jet ski rentals", "Pontoon boat rentals", "Assateague Island National Seashore", "Wild horses of Assateague", "Ocean City Maryland watersports", "The 6 Mile Ride"],
+    "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD",
+    "dateModified": "2026-04-14"
   }
   </script>
 
@@ -91,6 +117,21 @@
         "@type": "Question",
         "name": "Are refunds available if I cancel?",
         "acceptedAnswer": { "@type": "Answer", "text": "All sales are final. No refunds given. In the rare case of operator cancellation due to extreme weather, you'll receive a full credit." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many people can ride on one jet ski?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each ski holds 1–3 riders with a 450 lb maximum weight limit per ski. We have up to 10 skis available per time slot. Coming with a big group? Call us at 410-629-RIDE — we'll make sure we have what you need." }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I wear and bring?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Swimwear, sunscreen (apply before arriving — it washes off fast on the water), and a sense of adventure. We provide life jackets. Leave valuables, car keys, and phones in your vehicle or bring a waterproof case." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is parking available at your location?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — there's parking available right at our location at 12817 Harbor Rd. See our Contact page for the full directions and parking guide." }
       }
     ]
   }
@@ -133,7 +174,7 @@
       <div class="page-hero__overlay"></div>
     </div>
     <div class="page-hero__content">
-      <p class="page-hero__eyebrow" data-cms="jetskis.hero.eyebrow">Ocean City Maryland</p>
+      <p class="page-hero__eyebrow">Ocean City Maryland</p>
       <h1 class="page-hero__title" data-cms="jetskis.hero.title">Jet Ski Rentals</h1>
       <p class="page-hero__sub" data-cms="jetskis.hero.sub">Ocean City &amp; Assateague's Most Legendary Ride — 6 miles south to Assateague Island National Seashore.</p>
       <div class="page-hero__badges">
@@ -146,22 +187,23 @@
     <div class="page-hero__scroll" aria-hidden="true">&#8964;</div>
   </header>
 
+  <main>
   <!-- Stats Bar -->
   <div class="stats-bar">
     <div class="stat-item reveal d1">
-      <span class="stat-item__num" data-count="70" data-suffix=" Min" data-cms="jetskis.stats.ridetime.num">0</span>
+      <span class="stat-item__num" data-count="70" data-suffix=" Min" data-cms="jetskis.stats.ridetime.num">70</span>
       <span class="stat-item__label" data-cms="jetskis.stats.ridetime.label">Ride Time</span>
     </div>
     <div class="stat-item reveal d2">
-      <span class="stat-item__num" data-count="6" data-suffix=" Miles" data-cms="jetskis.stats.routelength.num">0</span>
+      <span class="stat-item__num" data-count="6" data-suffix=" Miles" data-cms="jetskis.stats.routelength.num">6</span>
       <span class="stat-item__label" data-cms="jetskis.stats.routelength.label">Route Length</span>
     </div>
     <div class="stat-item reveal d3">
-      <span class="stat-item__num" data-count="640" data-suffix="+" data-cms="jetskis.stats.reviews.num">0</span>
+      <span class="stat-item__num" data-count="640" data-suffix="+" data-cms="jetskis.stats.reviews.num">640</span>
       <span class="stat-item__label" data-cms="jetskis.stats.reviews.label">5-Star Reviews</span>
     </div>
     <div class="stat-item reveal d4">
-      <span class="stat-item__num" data-count="2010" data-cms="jetskis.stats.est.num">0</span>
+      <span class="stat-item__num" data-count="2010" data-cms="jetskis.stats.est.num">2010</span>
       <span class="stat-item__label" data-cms="jetskis.stats.est.label">Est. Ocean City</span>
     </div>
   </div>
@@ -171,7 +213,7 @@
     <div class="container">
       <div class="alt-layout reveal">
         <div class="alt-layout__img">
-          <img src="images/_O1A8075.jpg" alt="Jet ski on the open bay in Ocean City Maryland with 6 mile riding area" />
+          <img src="images/_O1A8075.jpg" alt="Jet ski on the open bay in Ocean City Maryland with 6 mile riding area" loading="lazy" />
         </div>
         <div class="alt-layout__body">
           <p class="eyebrow" data-cms="jetskis.difference.eyebrow">The Difference</p>
@@ -277,7 +319,7 @@
     <div class="container">
       <div class="alt-layout alt-layout--reverse reveal">
         <div class="alt-layout__img">
-          <img src="images/_O1A8089.jpg" alt="Jet ski rental pricing Ocean City Maryland" />
+          <img src="images/_O1A8089.jpg" alt="Jet ski rental pricing Ocean City Maryland" loading="lazy" />
         </div>
         <div class="alt-layout__body">
           <p class="eyebrow" data-cms="jetskis.pricing.eyebrow">Simple Pricing</p>
@@ -364,35 +406,35 @@
       </div>
       <div class="gallery-grid reveal">
         <div class="gallery-item">
-          <img src="images/_O1A8089.jpg" alt="Jet ski riders flying across the open bay Ocean City MD" />
+          <img src="images/_O1A8089.jpg" alt="Jet ski riders flying across the open bay Ocean City MD" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/_O1A8053.jpg" alt="Action shot jet ski Ocean City Maryland" />
+          <img src="images/_O1A8053.jpg" alt="Action shot jet ski Ocean City Maryland" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/Delmarva_Aerial_360-419.jpg" alt="Aerial bay view Ocean City Maryland" />
+          <img src="images/Delmarva_Aerial_360-419.jpg" alt="Aerial bay view Ocean City Maryland" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item gallery-item--wide">
-          <img src="images/Delmarva_Aerial_360-413.jpg" alt="Panoramic aerial water view Ocean City Maryland Eastern Shore" />
+          <img src="images/Delmarva_Aerial_360-413.jpg" alt="Panoramic aerial water view Ocean City Maryland Eastern Shore" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/_O1A8023.jpg" alt="Jet ski fun on the water" />
+          <img src="images/_O1A8023.jpg" alt="Jet ski fun on the water" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/under-the-bridge-watersports__4.jpg" alt="Happy riders OCA Watersports Ocean City MD" />
+          <img src="images/under-the-bridge-watersports__4.jpg" alt="Happy riders OCA Watersports Ocean City MD" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/get-the-up-close-and.jpg" alt="Wild horses on Assateague Island Maryland" />
+          <img src="images/get-the-up-close-and.jpg" alt="Wild horses on Assateague Island Maryland" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
         <div class="gallery-item">
-          <img src="images/Delmarva_Aerial_360-428.jpg" alt="Sunset on the bay Ocean City Maryland" />
+          <img src="images/Delmarva_Aerial_360-428.jpg" alt="Sunset on the bay Ocean City Maryland" loading="lazy" />
           <div class="gallery-item__overlay">&#x2B2C;</div>
         </div>
       </div>
@@ -562,6 +604,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer-int">

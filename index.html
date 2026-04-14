@@ -3,11 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/OCA_LogoColors-final.png" />
+  <link rel="apple-touch-icon" href="/images/OCA_LogoColors-final.png" />
   <title>OCA Watersports | Jet Ski &amp; Pontoon Rentals | Ocean City, Maryland</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Jet ski &amp; pontoon boat rentals in Ocean City MD. Home of the Famous 6 Mile Ride to Assateague Island. 70-min rides, wild horses, dolphins. Book: 410-629-RIDE." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.ocawatersports.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OCA Watersports | Jet Ski &amp; Pontoon Rentals | Ocean City MD" />
+  <meta property="og:description" content="Ocean City MD's most legendary jet ski &amp; pontoon boat rental since 2010. Home of the 6 Mile Ride to Assateague Island." />
+  <meta property="og:url" content="https://www.ocawatersports.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="OCA Watersports" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OCA Watersports | Jet Ski &amp; Pontoon Rentals | Ocean City MD" />
+  <meta name="twitter:description" content="Ocean City MD's most legendary jet ski &amp; pontoon boat rental since 2010. Home of the 6 Mile Ride." />
+  <meta name="twitter:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
+
+  <!-- GEO -->
+  <meta name="geo.region" content="US-MD" />
+  <meta name="geo.placename" content="Ocean City, Maryland" />
+  <meta name="geo.position" content="38.3365;-75.0849" />
+  <meta name="ICBM" content="38.3365, -75.0849" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5XJSTK5X1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5XJSTK5X1');
+  </script>
+
+  <!-- Schema: LocalBusiness + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "@id": "https://www.ocawatersports.com/#business",
+    "name": "OCA Watersports",
+    "alternateName": "Under The Bridge Watersports",
+    "description": "Ocean City MD's premier jet ski and pontoon boat rental company since 2010. Home of the Famous 6 Mile Ride along Assateague Island National Seashore.",
+    "url": "https://www.ocawatersports.com",
+    "telephone": "+14106297433",
+    "email": "ride@ocawatersports.com",
+    "foundingDate": "2010",
+    "priceRange": "$$",
+    "image": "https://www.ocawatersports.com/images/the-ride.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12817 Harbor Rd",
+      "addressLocality": "Ocean City",
+      "addressRegion": "MD",
+      "postalCode": "21842",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.33650,
+      "longitude": -75.08490
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "reviewCount": "640",
+      "bestRating": "5"
+    },
+    "areaServed": [
+      "Ocean City, MD",
+      "Assateague Island, MD",
+      "Berlin, MD",
+      "Salisbury, MD",
+      "Ocean Pines, MD",
+      "Fenwick Island, DE",
+      "Rehoboth Beach, DE"
+    ],
+    "knowsAbout": [
+      "Jet ski rentals",
+      "Pontoon boat rentals",
+      "Assateague Island National Seashore",
+      "Wild horses of Assateague",
+      "Ocean City Maryland watersports",
+      "The 6 Mile Ride"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Watersports Rental Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Jet Ski Rental — The 6 Mile Ride",
+            "description": "Sea-Doo GTX jet ski rental with 70 minutes of ride time. Ride 6 miles south from the OC inlet to Assateague Island along the Verrazano Bridge. 1-3 riders per ski, 450 lb max."
+          },
+          "price": "129",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Pontoon Boat Rental",
+            "description": "Private pontoon boat for up to 12 guests. Access the entire OC bay — beach on Assateague Island, cruise to Seacrets, fish, crab, and explore."
+          },
+          "price": "199",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "199",
+            "priceCurrency": "USD",
+            "unitText": "hour"
+          }
+        }
+      ]
+    },
+    "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD",
+    "dateModified": "2026-04-14"
+  }
+  </script>
 </head>
 <body>
   <!-- Sticky Booking Banner -->
@@ -45,7 +171,7 @@
         <a class="btn btn--gold nav__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">Book Now</a>
       </nav>
       <div class="hero__content">
-        <p class="hero__eyebrow" data-cms="index.hero.eyebrow">OCEAN CITY MARYLAND'S 6&bull;MILE RIDE</p>
+        <p class="hero__eyebrow">OCEAN CITY MARYLAND'S 6&bull;MILE RIDE</p>
         <h1 class="hero__title">JETSKI &amp; PONTOON<br>RENTALS</h1>
         <p class="hero__sub" data-cms="index.hero.sub">
           Ocean City + Assateague Watersports &mdash; It's more than jet ski and boat rentals, it's an experience. Built by riders, for riders.
@@ -59,6 +185,7 @@
       </div>
     </header>
 
+    <main>
     <!-- Journey -->
     <section class="journey section--light" id="journey" aria-labelledby="journey-title">
       <div class="journey__pattern" aria-hidden="true">
@@ -84,8 +211,8 @@
           </svg>
 
           <div class="journey__vehicle" id="journeyVehicle" aria-hidden="true">
-            <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="" />
-            <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="" />
+            <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="Jet ski icon" />
+            <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="Pontoon boat icon" />
           </div>
 
           <h2 id="journey-title" class="journey__heading" data-cms="index.journey.heading">Your Adventure Starts at the Dock</h2>
@@ -145,7 +272,7 @@
          ====================================================== -->
     <section class="manifesto" id="about">
       <div class="manifesto__bg" aria-hidden="true">
-        <img src="images/Delmarva_Aerial_360-389.jpg" alt="" />
+        <img src="images/Delmarva_Aerial_360-389.jpg" alt="Aerial view of Ocean City Maryland bay and waterways" loading="lazy" />
         <div class="manifesto__overlay"></div>
       </div>
       <div class="manifesto__inner">
@@ -199,7 +326,7 @@
         <h2 class="choose__title" data-cms="index.choose.title">CHOOSE YOUR RIDE</h2>
         <div class="choose__options">
           <a href="jet-skis.html" class="choose__option reveal reveal-left">
-            <img src="images/we-need-more-love-in.jpg" alt="Jet Ski" />
+            <img src="images/we-need-more-love-in.jpg" alt="Jet Ski" loading="lazy" />
             <div class="choose__option-overlay"></div>
             <div class="choose__option-text">
               <span class="choose__option-label">Jet Skis</span>
@@ -207,7 +334,7 @@
             </div>
           </a>
           <a href="pontoon-boats.html" class="choose__option reveal reveal-right">
-            <img src="images/choose-pontoon.jpg" alt="Pontoon Boat" />
+            <img src="images/choose-pontoon.jpg" alt="Pontoon Boat" loading="lazy" />
             <div class="choose__option-overlay"></div>
             <div class="choose__option-text">
               <span class="choose__option-label">Pontoon Boats</span>
@@ -274,7 +401,7 @@
          ====================================================== -->
     <section class="jetski-deep" id="jetski">
       <div class="jetski-deep__hero">
-        <img src="images/_O1A8021.jpg" alt="Jet ski riders on the open water" />
+        <img src="images/_O1A8021.jpg" alt="Jet ski riders on the open water" loading="lazy" />
         <div class="jetski-deep__hero-overlay"></div>
         <div class="jetski-deep__hero-text">
           <p class="jetski-deep__kicker" data-cms="index.jetski.kicker">Jet Ski Rentals</p>
@@ -293,7 +420,7 @@
         <!-- BENTO ROW 1: Full width hero card -->
         <div class="jk-card jk-card--full reveal" data-reveal="up">
           <div class="jk-card__img">
-            <img src="images/Delmarva_Aerial_360-399.jpg" alt="OCA Watersports location" />
+            <img src="images/Delmarva_Aerial_360-399.jpg" alt="OCA Watersports location" loading="lazy" />
           </div>
           <div class="jk-card__overlay"></div>
           <div class="jk-card__content">
@@ -307,7 +434,7 @@
         <div class="jk-bento__row">
           <div class="jk-card jk-card--tall reveal" data-reveal="left">
             <div class="jk-card__img">
-              <img src="images/_O1A8075.jpg" alt="6 miles of open water" />
+              <img src="images/_O1A8075.jpg" alt="6 miles of open water" loading="lazy" />
             </div>
             <div class="jk-card__overlay"></div>
             <div class="jk-card__content">
@@ -319,7 +446,7 @@
           </div>
           <div class="jk-card jk-card--tall reveal" data-reveal="right">
             <div class="jk-card__img">
-              <img src="images/_O1A8089.jpg" alt="70 minutes of riding" />
+              <img src="images/_O1A8089.jpg" alt="70 minutes of riding" loading="lazy" />
             </div>
             <div class="jk-card__overlay"></div>
             <div class="jk-card__content">
@@ -334,7 +461,7 @@
         <!-- BENTO ROW 3: Full width wild horses -->
         <div class="jk-card jk-card--full jk-card--horses reveal" data-reveal="up">
           <div class="jk-card__img">
-            <img src="images/the-sights.jpg" alt="The Sights — wild horses, dolphins, sandbars" />
+            <img src="images/the-sights.jpg" alt="The Sights — wild horses, dolphins, sandbars" loading="lazy" />
           </div>
           <div class="jk-card__overlay jk-card__overlay--heavy"></div>
           <div class="jk-card__content jk-card__content--center">
@@ -347,17 +474,17 @@
         <!-- STATS BAR -->
         <div class="jk-stats reveal" data-reveal="up">
           <div class="jk-stats__item">
-            <span class="jk-stats__val" data-count="129">$0</span>
+            <span class="jk-stats__val" data-count="129">$129</span>
             <span class="jk-stats__sub">+ tax</span>
           </div>
           <div class="jk-stats__divider"></div>
           <div class="jk-stats__item">
-            <span class="jk-stats__val" data-count="6">0</span>
+            <span class="jk-stats__val" data-count="6">6</span>
             <span class="jk-stats__sub">Mile Ride</span>
           </div>
           <div class="jk-stats__divider"></div>
           <div class="jk-stats__item">
-            <span class="jk-stats__val" data-count="2">0</span>
+            <span class="jk-stats__val" data-count="2">2</span>
             <span class="jk-stats__sub">Riders Per Ski</span>
           </div>
         </div>
@@ -365,29 +492,29 @@
         <!-- PHOTO STRIP with auto scroll -->
         <div class="jk-strip">
           <div class="jk-strip__track">
-            <img src="images/strip-delmarva-aerial-360-401.jpg" alt="" />
-            <img src="images/strip-img_0912.jpg" alt="" />
-            <img src="images/strip-delmarva-aerial-360-430.jpg" alt="" />
-            <img src="images/strip-img_0957.jpg" alt="" />
-            <img src="images/strip-img_0816.jpg" alt="" />
-            <img src="images/strip-img_0980.jpg" alt="" />
-            <img src="images/strip-img_1203.jpg" alt="" />
-            <img src="images/strip-img_1239.jpg" alt="" />
-            <img src="images/strip-img_1244.jpg" alt="" />
-            <img src="images/strip-img_1254.jpg" alt="" />
-            <img src="images/strip-img_1398.jpg" alt="" />
+            <img src="images/strip-delmarva-aerial-360-401.jpg" alt="Aerial view of Assateague Island coastline" loading="lazy" />
+            <img src="images/strip-img_0912.jpg" alt="Jet ski riders on the bay in Ocean City MD" loading="lazy" />
+            <img src="images/strip-delmarva-aerial-360-430.jpg" alt="Sunset over Ocean City Maryland bay" loading="lazy" />
+            <img src="images/strip-img_0957.jpg" alt="Riders enjoying jet ski rental at OCA Watersports" loading="lazy" />
+            <img src="images/strip-img_0816.jpg" alt="Guests on a pontoon boat in Ocean City MD" loading="lazy" />
+            <img src="images/strip-img_0980.jpg" alt="Open water jet skiing near Assateague Island" loading="lazy" />
+            <img src="images/strip-img_1203.jpg" alt="Family on the water at OCA Watersports Ocean City" loading="lazy" />
+            <img src="images/strip-img_1239.jpg" alt="Watersports adventure on the OC bay" loading="lazy" />
+            <img src="images/strip-img_1244.jpg" alt="Dolphins spotted near jet ski route Ocean City MD" loading="lazy" />
+            <img src="images/strip-img_1254.jpg" alt="Scenic bay views from pontoon boat rental" loading="lazy" />
+            <img src="images/strip-img_1398.jpg" alt="Wild horses on Assateague Island seen from the water" loading="lazy" />
             <!-- duplicate for infinite scroll -->
-            <img src="images/strip-delmarva-aerial-360-401.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_0912.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-delmarva-aerial-360-430.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_0957.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_0816.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_0980.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_1203.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_1239.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_1244.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_1254.jpg" alt="" aria-hidden="true" />
-            <img src="images/strip-img_1398.jpg" alt="" aria-hidden="true" />
+            <img src="images/strip-delmarva-aerial-360-401.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_0912.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-delmarva-aerial-360-430.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_0957.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_0816.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_0980.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_1203.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_1239.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_1244.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_1254.jpg" alt="" aria-hidden="true" loading="lazy" />
+            <img src="images/strip-img_1398.jpg" alt="" aria-hidden="true" loading="lazy" />
           </div>
         </div>
 
@@ -408,7 +535,7 @@
          ====================================================== -->
     <section class="pontoon-deep" id="pontoon">
       <div class="pontoon-deep__hero">
-        <img src="images/pontoon-hero.jpg" alt="Pontoon boat on the bay" />
+        <img src="images/pontoon-hero.jpg" alt="Pontoon boat on the bay" loading="lazy" />
         <div class="pontoon-deep__hero-overlay"></div>
         <div class="pontoon-deep__hero-text">
           <p class="pontoon-deep__kicker" data-cms="index.pontoon.kicker">Pontoon Boat Rentals</p>
@@ -442,21 +569,21 @@
 
         <div class="pontoon-deep__destinations">
           <div class="pontoon-deep__dest">
-            <img src="images/pontoon-dest-assateague.jpg" alt="Assateague Island" />
+            <img src="images/pontoon-dest-assateague.jpg" alt="Assateague Island" loading="lazy" />
             <div class="pontoon-deep__dest-body">
               <h4 data-cms="index.pontoon.dest1.title">Assateague Island</h4>
               <p data-cms="index.pontoon.dest1.text">Other boat rental companies won't let you go to Assateague. That's why we're different, and in OC Watersports, being different is a good thing.</p>
             </div>
           </div>
           <div class="pontoon-deep__dest">
-            <img src="images/pontoon-dest-bay.jpg" alt="OC hotspots" />
+            <img src="images/pontoon-dest-bay.jpg" alt="OC hotspots" loading="lazy" />
             <div class="pontoon-deep__dest-body">
               <h4 data-cms="index.pontoon.dest2.title">OC's Hottest Spots</h4>
               <p data-cms="index.pontoon.dest2.text">Bar hop to Seacrets, MR Ducks, Harborside, Hoopers, and Fish Tales. Or find a sandbar and make your own party.</p>
             </div>
           </div>
           <div class="pontoon-deep__dest">
-            <img src="images/pontoon-dest-hotspots.jpg" alt="Bay cruising" />
+            <img src="images/pontoon-dest-hotspots.jpg" alt="Bay cruising" loading="lazy" />
             <div class="pontoon-deep__dest-body">
               <h4 data-cms="index.pontoon.dest3.title">The Bay Is Yours</h4>
               <p data-cms="index.pontoon.dest3.text">From a leisurely cruise to a family fun day exploring everything OC has to offer on the water &mdash; OCA is the place for the ultimate boat rental experience.</p>
@@ -489,40 +616,40 @@
       </div>
       <div class="xp-gallery__grid">
         <div class="xp-gallery__item xp-gallery__item--wide">
-          <img src="images/_O1A8089.jpg" alt="Riders on the water" />
+          <img src="images/_O1A8089.jpg" alt="Riders on the water" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/under-the-bridge-watersports__1.jpg" alt="Getting ready to ride" />
+          <img src="images/under-the-bridge-watersports__1.jpg" alt="Getting ready to ride" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/_O1A8053.jpg" alt="Action shot" />
+          <img src="images/_O1A8053.jpg" alt="Action shot" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/Delmarva_Aerial_360-419.jpg" alt="Aerial bay view" />
+          <img src="images/Delmarva_Aerial_360-419.jpg" alt="Aerial bay view" loading="lazy" />
         </div>
         <div class="xp-gallery__item xp-gallery__item--wide">
-          <img src="images/Delmarva_Aerial_360-413.jpg" alt="Panoramic water view" />
+          <img src="images/Delmarva_Aerial_360-413.jpg" alt="Panoramic water view" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/_O1A8023.jpg" alt="Jet ski fun" />
+          <img src="images/_O1A8023.jpg" alt="Jet ski fun" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/under-the-bridge-watersports__4.jpg" alt="Happy riders" />
+          <img src="images/under-the-bridge-watersports__4.jpg" alt="Happy riders" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/_O1A8029.jpg" alt="On the water" />
+          <img src="images/_O1A8029.jpg" alt="On the water" loading="lazy" />
         </div>
         <div class="xp-gallery__item xp-gallery__item--wide">
-          <img src="images/Delmarva_Aerial_360-428.jpg" alt="Sunset on the bay" />
+          <img src="images/Delmarva_Aerial_360-428.jpg" alt="Sunset on the bay" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/under-the-bridge-watersports__6.jpg" alt="Group ride" />
+          <img src="images/under-the-bridge-watersports__6.jpg" alt="Group ride" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/_O1A8099.jpg" alt="Watersports action" />
+          <img src="images/_O1A8099.jpg" alt="Watersports action" loading="lazy" />
         </div>
         <div class="xp-gallery__item">
-          <img src="images/o__2.jpg" alt="OCA riders" />
+          <img src="images/o__2.jpg" alt="OCA riders" loading="lazy" />
         </div>
       </div>
     </section>
@@ -583,7 +710,7 @@
          ====================================================== -->
     <section class="final-cta">
       <div class="final-cta__bg" aria-hidden="true">
-        <img src="images/Delmarva_Aerial_360-384.jpg" alt="" />
+        <img src="images/Delmarva_Aerial_360-384.jpg" alt="Aerial view of OCA Watersports dock Ocean City Maryland" loading="lazy" />
         <div class="final-cta__overlay"></div>
       </div>
       <div class="final-cta__inner">
@@ -603,6 +730,8 @@
         </form>
       </div>
     </section>
+
+    </main>
 
     <!-- ======================================================
          FOOTER
@@ -626,10 +755,10 @@
         <nav class="footer__nav" aria-label="Policies">
           <h4>Info</h4>
           <ul>
-            <li><a href="#">Cancellation Policy</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="jet-skis.html#faq">Jet Ski FAQ</a></li>
+            <li><a href="pontoon-boats.html#faq">Pontoon FAQ</a></li>
+            <li><a href="jet-skis.html#pricing">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">Book Now</a></li>
           </ul>
         </nav>
@@ -637,7 +766,7 @@
           <h4>Get In Touch</h4>
           <p class="footer__phone"><a href="tel:+14106297433">410-629-RIDE (7433)</a></p>
           <p>12817 Harbor Rd<br>Ocean City, MD 21842</p>
-          <p><a href="mailto:Info@OCAWatersports.com">Info@OCAWatersports.com</a></p>
+          <p><a href="mailto:ride@ocawatersports.com">ride@ocawatersports.com</a></p>
         </div>
       </div>
       <div class="footer__bottom">

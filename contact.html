@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/OCA_LogoColors-final.png" />
+  <link rel="apple-touch-icon" href="/images/OCA_LogoColors-final.png" />
   <title>Contact &amp; Find OCA Watersports | 12817 Harbor Rd Ocean City MD</title>
-  <meta name="description" content="Find OCA Watersports at 12817 Harbor Rd, Ocean City MD 21842 — at 12817 Harbor Rd dock. Directions, parking map, hours &amp; contact info. Call: 410-629-RIDE (7433)." />
+  <meta name="description" content="Find OCA Watersports at 12817 Harbor Rd, Ocean City MD — next to The Angler. Directions, parking, hours &amp; contact info. Call 410-629-RIDE (7433)." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.ocawatersports.com/contact.html" />
 
   <meta property="og:title" content="Contact OCA Watersports | 12817 Harbor Rd Ocean City MD" />
-  <meta property="og:description" content="Find us at 12817 Harbor Rd — next to 12817 Harbor Rd, direct bay access. Directions, parking, hours, and contact form." />
+  <meta property="og:description" content="Find us at 12817 Harbor Rd, Ocean City MD — next to The Angler, direct bay access. Directions, parking, hours, and contact form." />
   <meta property="og:url" content="https://www.ocawatersports.com/contact.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.ocawatersports.com/images/the-launch.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="OCA Watersports" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact OCA Watersports | Ocean City MD" />
+  <meta name="twitter:description" content="Find us at 12817 Harbor Rd, Ocean City MD. Directions, parking, hours, and contact info." />
+  <meta name="twitter:image" content="https://www.ocawatersports.com/images/the-launch.jpg" />
 
   <meta name="geo.region" content="US-MD" />
   <meta name="geo.placename" content="Ocean City, Maryland" />
@@ -20,22 +30,36 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5XJSTK5X1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5XJSTK5X1');
+  </script>
 
   <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "SportsActivityLocation",
+    "@id": "https://www.ocawatersports.com/#business",
     "name": "OCA Watersports",
+    "alternateName": "Under The Bridge Watersports",
     "description": "Ocean City MD's premier jet ski and pontoon boat rental company. Home of the Famous 6 Mile Ride along Assateague Island.",
     "url": "https://www.ocawatersports.com",
     "telephone": "+14106297433",
     "email": "ride@ocawatersports.com",
+    "foundingDate": "2010",
+    "image": "https://www.ocawatersports.com/images/the-ride.jpg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "12817 Harbor Rd",
@@ -44,15 +68,12 @@
       "postalCode": "21842",
       "addressCountry": "US"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": 38.3365, "longitude": -75.0849 },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640" },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "description": "Seasonal — call for current hours"
-    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 38.33650, "longitude": -75.08490 },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640", "bestRating": "5" },
     "priceRange": "$$",
-    "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD"
+    "knowsAbout": ["Jet ski rentals", "Pontoon boat rentals", "Assateague Island National Seashore", "Wild horses of Assateague", "Ocean City Maryland watersports", "The 6 Mile Ride"],
+    "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD",
+    "dateModified": "2026-04-14"
   }
   </script>
 
@@ -121,12 +142,13 @@
       <div class="page-hero__overlay"></div>
     </div>
     <div class="page-hero__content">
-      <p class="page-hero__eyebrow" data-cms="contact.hero.eyebrow">12817 Harbor Rd · Ocean City, MD 21842</p>
+      <p class="page-hero__eyebrow">12817 Harbor Rd · Ocean City, MD 21842</p>
       <h1 class="page-hero__title" data-cms="contact.hero.title">Find Us.</h1>
       <p class="page-hero__sub" data-cms="contact.hero.sub">Direct bay access. The biggest riding area in OC. Right in the heart of Ocean City, Maryland.</p>
     </div>
   </header>
 
+  <main>
   <!-- Main Contact + Map -->
   <section class="section section--dark" id="info">
     <div class="container">
@@ -347,6 +369,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer-int">
