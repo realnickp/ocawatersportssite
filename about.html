@@ -6,11 +6,11 @@
   <title>About OCA Watersports | Ocean City MD's Best Jet Ski &amp; Pontoon Rental Since 2010</title>
   <meta name="description" content="OCA Watersports has been Ocean City MD's most trusted watersports company since 2010. Home of the Famous 6 Mile Ride. Meet our story. 640+ Google reviews." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://ocawatersports.com/about.html" />
+  <link rel="canonical" href="https://www.ocawatersports.com/about.html" />
 
   <meta property="og:title" content="About OCA Watersports | Ocean City MD Since 2010" />
   <meta property="og:description" content="15+ years on the water. 640+ Google reviews. The home of the 6 Mile Ride. Our story, our location, and why we're different." />
-  <meta property="og:url" content="https://ocawatersports.com/about.html" />
+  <meta property="og:url" content="https://www.ocawatersports.com/about.html" />
   <meta property="og:type" content="website" />
 
   <meta name="geo.region" content="US-MD" />
@@ -33,9 +33,9 @@
     "@type": "LocalBusiness",
     "name": "OCA Watersports",
     "description": "Ocean City MD's premier jet ski and pontoon boat rental company since 2010. Home of the Famous 6 Mile Ride along Assateague Island.",
-    "url": "https://ocawatersports.com",
+    "url": "https://www.ocawatersports.com",
     "telephone": "+14106297433",
-    "email": "info@ocawatersports.com",
+    "email": "ride@ocawatersports.com",
     "foundingDate": "2010",
     "address": {
       "@type": "PostalAddress",
@@ -56,10 +56,9 @@
 <div class="page-int">
 
   <!-- Sticky Bar -->
-  <div class="sticky-bar" id="stickyBar">
-    <span class="sticky-bar__text" data-cms="about.sticky.text">See You On the Water.</span>
-    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK YOUR ADVENTURE →</a>
-  </div>
+  <a class="sticky-bar" id="stickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
+    <span class="sticky-bar__text">Ready To Ride? <u>Click here to book now</u> &rarr;</span>
+  </a>
 
   <!-- Nav -->
   <nav class="nav-int" id="navInt" aria-label="Primary navigation">
@@ -296,7 +295,7 @@
       <div class="footer-int__contact">
         <h4>Get In Touch</h4>
         <a href="tel:4106297433" class="footer-int__phone">410-629-RIDE (7433)</a>
-        <p class="footer-int__addr">12817 Harbor Rd<br>Ocean City, MD 21842<br><a href="mailto:info@ocawatersports.com">info@ocawatersports.com</a></p>
+        <p class="footer-int__addr">12817 Harbor Rd<br>Ocean City, MD 21842<br><a href="mailto:ride@ocawatersports.com">ride@ocawatersports.com</a></p>
       </div>
     </div>
     <div class="footer-int__bottom">
@@ -329,6 +328,7 @@
     var show = y > 600;
     stickyBar.classList.toggle('visible', show);
     document.body.classList.toggle('bar-visible', show);
+    if (show) document.documentElement.style.setProperty('--sticky-bar-height', stickyBar.offsetHeight + 'px');
   }, { passive: true });
 
   if (hamburger) {

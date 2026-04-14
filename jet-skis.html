@@ -6,12 +6,12 @@
   <title>Jet Ski Rentals Ocean City MD | OCA Watersports</title>
   <meta name="description" content="Best jet ski rentals in Ocean City MD. 70-minute rides, the famous 6 Mile Ride south to Assateague Island — wild horses, dolphins &amp; open water. Book now: 410-629-RIDE (7433)." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://ocawatersports.com/jet-skis.html" />
+  <link rel="canonical" href="https://www.ocawatersports.com/jet-skis.html" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Jet Ski Rentals Ocean City MD | OCA Watersports" />
   <meta property="og:description" content="70-minute rides, the 6 Mile Route, wild horses &amp; dolphins. Ocean City's most legendary jet ski experience since 2010." />
-  <meta property="og:url" content="https://ocawatersports.com/jet-skis.html" />
+  <meta property="og:url" content="https://www.ocawatersports.com/jet-skis.html" />
   <meta property="og:type" content="website" />
 
   <!-- GEO -->
@@ -37,9 +37,9 @@
     "@type": "LocalBusiness",
     "name": "OCA Watersports",
     "description": "Ocean City MD's premier jet ski and pontoon boat rental company. Home of the Famous 6 Mile Ride along Assateague Island.",
-    "url": "https://ocawatersports.com",
+    "url": "https://www.ocawatersports.com",
     "telephone": "+14106297433",
-    "email": "info@ocawatersports.com",
+    "email": "ride@ocawatersports.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "12817 Harbor Rd",
@@ -100,10 +100,9 @@
 <div class="page-int">
 
   <!-- Sticky Bar -->
-  <div class="sticky-bar" id="stickyBar">
-    <span class="sticky-bar__text" data-cms="jetskis.sticky.text">Ready to Ride? Slots fill fast.</span>
-    <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
-  </div>
+  <a class="sticky-bar" id="stickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
+    <span class="sticky-bar__text">Ready To Ride? <u>Click here to book now</u> &rarr;</span>
+  </a>
 
   <!-- Nav -->
   <nav class="nav-int" id="navInt" aria-label="Primary navigation">
@@ -606,7 +605,7 @@
           12817 Harbor Rd<br>
           Ocean City, MD 21842<br>
           <br>
-          <a href="mailto:info@ocawatersports.com">info@ocawatersports.com</a>
+          <a href="mailto:ride@ocawatersports.com">ride@ocawatersports.com</a>
         </p>
       </div>
     </div>
@@ -643,6 +642,7 @@
     var show = y > 600;
     stickyBar.classList.toggle('visible', show);
     document.body.classList.toggle('bar-visible', show);
+    if (show) document.documentElement.style.setProperty('--sticky-bar-height', stickyBar.offsetHeight + 'px');
   }, { passive: true });
 
   // Hamburger
@@ -762,15 +762,27 @@
   var mapClose = mapModal ? mapModal.querySelector('.ride-map-modal__close') : null;
 
   if (mapBtn && mapModal && mapFrame) {
+    var savedScrollY = 0;
+
     mapBtn.addEventListener('click', function () {
+      savedScrollY = window.scrollY;
       mapFrame.src = mapBtn.getAttribute('data-map-url');
       mapModal.classList.add('open');
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + savedScrollY + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
       document.body.style.overflow = 'hidden';
     });
 
     function closeMap() {
       mapModal.classList.remove('open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
       document.body.style.overflow = '';
+      window.scrollTo(0, savedScrollY);
       mapFrame.src = '';
     }
 

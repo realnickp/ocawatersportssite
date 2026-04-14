@@ -197,6 +197,27 @@
   }
 }
 
+@media (max-width: 599px) {
+  .nav-int {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-int.scrolled {
+    padding: 0.6rem 1rem;
+  }
+
+  .nav-int__logo .logo-white,
+  .nav-int__logo .logo-color {
+    width: 80px;
+  }
+
+  .nav-int__hamburger {
+    position: fixed;
+    top: 0.85rem;
+    right: 1rem;
+  }
+}
+
 /* ============================
    Sticky Booking Bar
    ============================ */
@@ -211,10 +232,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
   transform: translateY(-100%);
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
 }
+
+.sticky-bar:hover { opacity: 0.9; }
 
 .sticky-bar.visible {
   transform: translateY(0);
@@ -222,7 +246,7 @@
 
 /* When sticky bar is visible, push nav down */
 body.bar-visible .nav-int {
-  top: 40px;
+  top: var(--sticky-bar-height, 36px);
 }
 
 .sticky-bar__text {
@@ -253,8 +277,7 @@ body.bar-visible .nav-int {
 .sticky-bar__btn:hover { opacity: 0.85; }
 
 @media (max-width: 900px) {
-  .sticky-bar { display: none !important; transform: none; }
-  body.bar-visible .nav-int { top: 0; }
+  .sticky-bar { padding: 0.5rem 1rem; }
 }
 
 @media (max-width: 600px) {
@@ -265,6 +288,7 @@ body.bar-visible .nav-int {
    Floating Review Badge
    ============================ */
 .review-badge {
+  display: none !important;
   position: fixed;
   bottom: 2rem;
   right: 1.5rem;
@@ -461,6 +485,12 @@ body.bar-visible .nav-int {
 
 .section {
   padding: 6rem 1.5rem;
+}
+
+@media (max-width: 599px) {
+  .section {
+    padding: 3.5rem 1rem;
+  }
 }
 
 .section--sm  { padding: 4rem 1.5rem; }
@@ -1629,28 +1659,12 @@ body.bar-visible .nav-int {
   opacity: 0.35;
 }
 
+/* Mobile-first: card-style stacked layout */
 .timeline-stop {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 1.5rem;
-  padding-bottom: 3rem;
-}
-
-@media (min-width: 900px) {
-  .timeline::before { left: calc(50% - 1px); }
-
-  .timeline-stop {
-    grid-template-columns: 1fr 44px 1fr;
-    align-items: start;
-  }
-
-  .timeline-stop:nth-child(odd) .timeline-stop__body { grid-column: 1; grid-row: 1; text-align: right; }
-  .timeline-stop:nth-child(odd) .timeline-stop__dot  { grid-column: 2; grid-row: 1; justify-self: center; }
-  .timeline-stop:nth-child(odd) .timeline-stop__img  { grid-column: 3; grid-row: 1; }
-
-  .timeline-stop:nth-child(even) .timeline-stop__body { grid-column: 3; grid-row: 1; text-align: left; }
-  .timeline-stop:nth-child(even) .timeline-stop__dot  { grid-column: 2; grid-row: 1; justify-self: center; }
-  .timeline-stop:nth-child(even) .timeline-stop__img  { grid-column: 1; grid-row: 1; }
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 0;
 }
 
 .timeline-stop__dot {
@@ -1712,13 +1726,111 @@ body.bar-visible .nav-int {
   object-fit: cover;
 }
 
+/* Mobile: card-style timeline with image-first layout */
+@media (max-width: 899px) {
+  .timeline {
+    gap: 2rem;
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline-stop {
+    background: var(--color-navy-mid);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .timeline-stop__dot {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+    z-index: 2;
+    background: rgba(2,25,34,0.85);
+    backdrop-filter: blur(6px);
+  }
+
+  .timeline-stop__img {
+    position: relative;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .timeline-stop__img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .timeline-stop__body {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .timeline-stop__title {
+    font-size: 1.15rem;
+  }
+
+  .timeline-stop__text {
+    font-size: 0.85rem;
+    line-height: 1.75;
+  }
+}
+
+/* Desktop: classic alternating timeline */
+@media (min-width: 900px) {
+  .timeline {
+    gap: 0;
+  }
+
+  .timeline::before { left: calc(50% - 1px); display: block; }
+
+  .timeline-stop {
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr;
+    align-items: start;
+    padding-bottom: 3rem;
+  }
+
+  .timeline-stop:nth-child(odd) .timeline-stop__body { grid-column: 1; grid-row: 1; text-align: right; }
+  .timeline-stop:nth-child(odd) .timeline-stop__dot  { grid-column: 2; grid-row: 1; justify-self: center; }
+  .timeline-stop:nth-child(odd) .timeline-stop__img  { grid-column: 3; grid-row: 1; }
+
+  .timeline-stop:nth-child(even) .timeline-stop__body { grid-column: 3; grid-row: 1; text-align: left; }
+  .timeline-stop:nth-child(even) .timeline-stop__dot  { grid-column: 2; grid-row: 1; justify-self: center; }
+  .timeline-stop:nth-child(even) .timeline-stop__img  { grid-column: 1; grid-row: 1; }
+
+  .timeline-stop__img img {
+    height: 240px;
+  }
+}
+
 /* ============================
    Editorial Grid (6-mile page)
    ============================ */
 .editorial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.4rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .editorial-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
 }
 
 .editorial-card {
@@ -1731,9 +1843,15 @@ body.bar-visible .nav-int {
 }
 
 .editorial-card__img {
-  height: 210px;
+  height: 200px;
   overflow: hidden;
   flex-shrink: 0;
+}
+
+@media (max-width: 599px) {
+  .editorial-card__img {
+    height: 180px;
+  }
 }
 
 .editorial-card__img img {
@@ -1746,11 +1864,17 @@ body.bar-visible .nav-int {
 .editorial-card:hover .editorial-card__img img { transform: scale(1.05); }
 
 .editorial-card__body {
-  padding: 1.6rem;
+  padding: 1.4rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+@media (max-width: 599px) {
+  .editorial-card__body {
+    padding: 1.25rem;
+  }
 }
 
 .editorial-card__title {
@@ -1765,6 +1889,13 @@ body.bar-visible .nav-int {
   font-size: 0.87rem;
   line-height: 1.72;
   color: rgba(255,255,255,0.58);
+}
+
+@media (max-width: 599px) {
+  .editorial-card__text {
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
 }
 
 /* ============================

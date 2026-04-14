@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Mobile Book Now Banner -->
-  <div class="mobile-book-banner" aria-hidden="true">
-    <a href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW — RESERVE YOUR SPOT</a>
-  </div>
+  <!-- Sticky Booking Banner -->
+  <a class="home-sticky-bar" id="homeStickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
+    <span class="home-sticky-bar__text">Ready To Ride? <u>Click here to book now</u> →</span>
+  </a>
 
   <div class="page">
     <!-- Hero -->
@@ -27,7 +27,8 @@
       </div>
       <nav class="nav" id="navHome" aria-label="Primary">
         <a class="nav__logo" href="#top">
-          <img src="images/OCA_LogoColors-final.png" alt="OCA Watersports" width="142" height="93" />
+          <img class="logo-white" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" width="142" height="93" />
+          <img class="logo-color" src="images/OCA_LogoColors-final.png" alt="OCA Watersports" width="142" height="93" />
         </a>
         <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -50,24 +51,8 @@
           Ocean City + Assateague Watersports &mdash; It's more than jet ski and boat rentals, it's an experience. Built by riders, for riders.
         </p>
         <img class="hero__rating-img" src="images/5-star-badge.png" alt="Google 5-Star Rating" width="210" />
-      </div>
-      <div class="booking" id="book">
-        <p class="booking__label">BOOK NOW</p>
-        <div class="booking__bar">
-          <a class="booking__field" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
-            <span>Boat Type</span>
-            <svg class="booking__chev" width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 1l10 10L21 1" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="booking__field" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
-            <span>Date</span>
-            <svg class="booking__chev" width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 1l10 10L21 1" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="booking__field" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
-            <span>Time</span>
-            <svg class="booking__chev" width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M1 1l10 10L21 1" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="booking__submit" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
-        </div>
+        <a class="btn btn--gold btn--lg hero__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
+        <a class="hero__phone" href="tel:4106297433">or call 410-629-RIDE (7433)</a>
       </div>
       <div class="hero__scroll" aria-hidden="true">
         <svg width="23" height="23" viewBox="0 0 23 23" fill="none"><path d="M11.5 3v14M5 13l6.5 6.5L18 13" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -81,8 +66,6 @@
         <div class="journey__pattern-fade"></div>
       </div>
       <div class="journey__inner">
-        <h2 id="journey-title" class="journey__heading" data-cms="index.journey.heading">Your Adventure Starts at the Dock</h2>
-
         <div class="journey__map" id="journeyMap">
           <svg class="journey__route" viewBox="0 0 1000 2400" fill="none" preserveAspectRatio="none" aria-hidden="true">
             <path id="routePath"
@@ -104,6 +87,8 @@
             <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="" />
             <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="" />
           </div>
+
+          <h2 id="journey-title" class="journey__heading" data-cms="index.journey.heading">Your Adventure Starts at the Dock</h2>
 
           <article class="landmark landmark--1 reveal-left" data-stop="1">
             <div class="landmark__body">
@@ -168,7 +153,6 @@
         <h2 class="manifesto__title" data-cms="index.manifesto.title">WHERE RIDERS RIDE</h2>
         <p class="manifesto__lead" data-cms="index.manifesto.lead">Jet skis that actually let you ride. Pontoon boats that go where others won't.<br>Built by riders, for riders.</p>
         <div class="manifesto__divider" aria-hidden="true"></div>
-        <p class="manifesto__quote" data-cms="index.manifesto.quote">&ldquo;The unequal watersports rental company &mdash;<br>where being equal isn't good enough.&rdquo;</p>
         <div class="manifesto__rides">
           <div class="manifesto__ride">
             <h3 class="manifesto__ride-title" data-cms="index.manifesto.jetski.title">Jet Skis</h3>
@@ -214,7 +198,7 @@
         <p class="choose__eyebrow" data-cms="index.choose.eyebrow">Two Ways to Experience OC</p>
         <h2 class="choose__title" data-cms="index.choose.title">CHOOSE YOUR RIDE</h2>
         <div class="choose__options">
-          <a href="jet-skis.html" class="choose__option">
+          <a href="jet-skis.html" class="choose__option reveal reveal-left">
             <img src="images/we-need-more-love-in.jpg" alt="Jet Ski" />
             <div class="choose__option-overlay"></div>
             <div class="choose__option-text">
@@ -222,7 +206,7 @@
               <span class="choose__option-tag">The 6 Mile Ride</span>
             </div>
           </a>
-          <a href="pontoon-boats.html" class="choose__option">
+          <a href="pontoon-boats.html" class="choose__option reveal reveal-right">
             <img src="images/choose-pontoon.jpg" alt="Pontoon Boat" />
             <div class="choose__option-overlay"></div>
             <div class="choose__option-text">
@@ -410,7 +394,10 @@
         <!-- CTA -->
         <div class="jk-cta reveal" data-reveal="up">
           <p class="jk-cta__text" data-cms="index.jetski.cta.text">The views. The ride. The adrenaline.</p>
-          <a class="btn btn--gold btn--lg jk-cta__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">LET'S GO</a>
+          <div class="jk-cta__actions">
+            <a class="btn btn--outline btn--on-dark btn--lg" href="jet-skis.html">SEE MORE DETAILS</a>
+            <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
+          </div>
         </div>
 
       </div>
@@ -484,7 +471,10 @@
 
         <div class="pontoon-deep__cta">
           <p class="pontoon-deep__cta-text" data-cms="index.pontoon.cta.text">Relax. And let your imagination run wild.</p>
-          <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK YOUR BOAT</a>
+          <div class="pontoon-deep__cta-actions">
+            <a class="btn btn--outline btn--on-dark btn--lg" href="pontoon-boats.html">SEE MORE DETAILS</a>
+            <a class="btn btn--gold btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
+          </div>
         </div>
       </div>
     </section>
@@ -758,15 +748,27 @@
       var close = document.getElementById('imapClose');
       if (!launch || !modal || !frame) return;
 
+      var savedScrollY = 0;
+
       launch.addEventListener('click', function () {
+        savedScrollY = window.scrollY;
         frame.src = 'https://oca-scrollytelling.vercel.app/';
         modal.classList.add('open');
+        document.body.style.position = 'fixed';
+        document.body.style.top = '-' + savedScrollY + 'px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
         document.body.style.overflow = 'hidden';
       });
 
       function closeModal() {
         modal.classList.remove('open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
         document.body.style.overflow = '';
+        window.scrollTo(0, savedScrollY);
         frame.src = '';
       }
 
@@ -855,14 +857,14 @@
     (function () {
       var hamburger = document.getElementById('navHamburger');
       var links = document.getElementById('navHomeLinks');
-      var banner = document.querySelector('.mobile-book-banner');
+      var stickyBar = document.getElementById('homeStickyBar');
       if (!hamburger || !links) return;
       hamburger.addEventListener('click', function () {
         var isOpen = links.classList.toggle('open');
         hamburger.classList.toggle('open', isOpen);
         hamburger.setAttribute('aria-expanded', isOpen);
         document.body.style.overflow = isOpen ? 'hidden' : '';
-        if (banner) banner.style.display = isOpen ? 'none' : '';
+        if (stickyBar) stickyBar.style.display = isOpen ? 'none' : '';
       });
       links.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
@@ -870,8 +872,24 @@
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
-          if (banner) banner.style.display = '';
+          if (stickyBar) stickyBar.style.display = '';
         });
+      });
+    })();
+
+    // Homepage sticky bar show on scroll
+    (function () {
+      var bar = document.getElementById('homeStickyBar');
+      var nav = document.getElementById('navHome');
+      if (!bar) return;
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) {
+          bar.classList.add('visible');
+          if (nav) nav.style.top = bar.offsetHeight + 'px';
+        } else {
+          bar.classList.remove('visible');
+          if (nav) nav.style.top = '0';
+        }
       });
     })();
 

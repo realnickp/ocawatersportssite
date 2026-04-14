@@ -107,17 +107,17 @@ a:hover {
 }
 
 .btn--outline {
-  border: 1px solid var(--color-gold);
+  border: 2px solid var(--color-gold);
   background: transparent;
   color: var(--color-text);
-  min-height: 57px;
-  padding-inline: 2rem;
-  border-radius: var(--radius-sm);
+  min-height: 48px;
+  padding-inline: 1.25rem;
 }
 
 .btn--on-dark {
-  color: var(--color-white);
-  border-color: var(--color-gold);
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  background: transparent;
 }
 
 .btn--lg {
@@ -203,9 +203,31 @@ a:hover {
   padding: 0.65rem 1.25rem;
 }
 
+.nav__logo {
+  position: relative;
+  display: block;
+}
+
 .nav__logo img {
   width: clamp(100px, 14vw, 142px);
   height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.nav__logo .logo-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.nav.scrolled .nav__logo .logo-white { opacity: 0; }
+.nav.scrolled .nav__logo .logo-color { opacity: 1; }
+
+@media (max-width: 900px) {
+  .nav__logo .logo-white { opacity: 0; }
+  .nav__logo .logo-color { opacity: 1; }
 }
 
 .nav__links {
@@ -243,30 +265,43 @@ a:hover {
 }
 
 /* ============================
-   Mobile Book Banner
+   Homepage Sticky Booking Bar
    ============================ */
-.mobile-book-banner {
-  display: none;
+.home-sticky-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 300;
+  z-index: 200;
   background: var(--color-gold);
+  padding: 0.6rem 2rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem 1rem;
-  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
 }
 
-.mobile-book-banner a {
-  font-family: var(--font-nav);
-  font-size: 0.72rem;
+.home-sticky-bar:hover { opacity: 0.9; }
+
+.home-sticky-bar.visible {
+  transform: translateY(0);
+}
+
+.home-sticky-bar__text {
+  font-family: var(--font-body);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-navy);
-  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .home-sticky-bar { padding: 0.5rem 1rem; }
+  .home-sticky-bar__text { font-size: 0.72rem; }
 }
 
 /* ============================
@@ -297,8 +332,6 @@ a:hover {
 .nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 @media (max-width: 900px) {
-  .mobile-book-banner { display: none !important; }
-
   .nav {
     top: 0;
   }
@@ -336,12 +369,12 @@ a:hover {
   }
 
   .nav__hamburger {
-    position: fixed;
-    top: 52px;
-    right: 1.25rem;
+    position: relative;
+    z-index: 501;
   }
 
   .nav__hamburger.open {
+    position: fixed;
     top: 1.25rem;
     right: 1.25rem;
     z-index: 601;
@@ -353,6 +386,11 @@ a:hover {
 
   .hero {
     padding-top: 7rem;
+  }
+
+  .hero__content {
+    justify-content: flex-start;
+    padding-top: 3rem;
   }
 }
 
@@ -410,95 +448,35 @@ a:hover {
   height: auto;
 }
 
-/* Booking bar */
-.booking {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  width: 100%;
+/* Hero CTA */
+.hero__cta {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  padding: 1rem 3.5rem;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 20px rgba(222, 188, 107, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (min-width: 900px) {
-  .booking {
-    display: flex;
-  }
+.hero__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(222, 188, 107, 0.5);
 }
 
-.booking__label {
-  margin: 0;
+.hero__phone {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  letter-spacing: 0.06em;
-  color: #000;
-  text-transform: capitalize;
-}
-
-.booking__bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 0.65rem;
-  width: min(100%, 926px);
-  padding: 0.65rem 1rem;
-  background: var(--color-white);
-  border: 1.5px solid var(--color-cyan);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 8px 32px rgba(2, 25, 34, 0.12);
-}
-
-.booking__field {
-  flex: 1 1 140px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 0 5.8px 2px rgba(0, 0, 0, 0.14);
-  font-weight: 500;
-  font-size: clamp(0.95rem, 2vw, 1.3rem);
-  letter-spacing: 0.06em;
-  color: #000;
-  text-transform: capitalize;
+  color: var(--color-navy-mid);
   text-decoration: none;
-  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
-.booking__chev {
-  width: 22px;
-  height: 12px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.booking__submit {
-  flex: 1 1 160px;
-  min-height: 57px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: var(--radius-lg);
-  background: var(--color-gold);
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  color: #000;
-  text-transform: capitalize;
-  text-decoration: none;
-}
-
-.booking__submit:hover {
-  filter: brightness(1.05);
+.hero__phone:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .hero__scroll {
@@ -533,7 +511,7 @@ a:hover {
    Journey
    ============================ */
 .journey {
-  padding: 3rem 1.25rem 4rem;
+  padding: 5rem 1.25rem 6rem;
   overflow: hidden;
 }
 
@@ -560,8 +538,9 @@ a:hover {
 .journey__inner {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .journey__heading {
@@ -577,7 +556,7 @@ a:hover {
 
 .journey__map {
   position: relative;
-  padding: 3rem 0 5rem;
+  padding: 5rem 0 7rem;
 }
 
 .journey__route {
@@ -635,27 +614,31 @@ a:hover {
 }
 
 .landmark__spacer {
-  height: 6rem;
+  height: 10rem;
 }
 
 @media (min-width: 900px) {
   .landmark__spacer {
-    height: 10rem;
+    height: 16rem;
   }
 }
 
 .landmark {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   position: relative;
   z-index: 1;
 }
 
+.landmark .landmark__photo {
+  order: -1;
+}
+
 .landmark--2 .landmark__photo {
-  order: 2;
+  order: -1;
 }
 
 .landmark--2 .landmark__body {
@@ -669,15 +652,15 @@ a:hover {
 @media (min-width: 900px) {
   .landmark {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem 5rem;
+    gap: 3rem 8rem;
   }
 
   .landmark--1 {
-    padding-right: 12%;
+    padding-right: 0;
   }
 
   .landmark--2 {
-    padding-left: 12%;
+    padding-left: 0;
   }
 
   .landmark--2 .landmark__photo {
@@ -689,14 +672,15 @@ a:hover {
   }
 
   .landmark--3 {
-    padding-right: 12%;
+    padding-right: 0;
   }
 }
 
 .landmark__body {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 2rem 0;
 }
 
 .landmark__title {
@@ -708,10 +692,10 @@ a:hover {
 
 .landmark__copy {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.65;
   text-transform: capitalize;
-  max-width: 36ch;
+  max-width: 52ch;
 }
 
 .landmark__marker {
@@ -728,16 +712,19 @@ a:hover {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(2, 25, 34, 0.12);
+  aspect-ratio: 4 / 3;
+  max-width: 480px;
 }
 
 .landmark__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
   background: var(--color-navy);
-  transform: scale(1.15);
 }
 
 .landmark__img {
@@ -913,7 +900,10 @@ a:hover {
 
 .manifesto__cta {
   margin-top: 2rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .manifesto__rides {
@@ -1479,20 +1469,20 @@ a:hover {
 /* ---- Scroll reveal system ---- */
 .reveal {
   opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal[data-reveal="up"] {
-  transform: translateY(60px);
+  transform: translateY(100px);
 }
 
 .reveal[data-reveal="left"] {
-  transform: translateX(-80px);
+  transform: translateX(-120px);
 }
 
 .reveal[data-reveal="right"] {
-  transform: translateX(80px);
+  transform: translateX(120px);
 }
 
 .reveal.is-visible {
@@ -1502,16 +1492,16 @@ a:hover {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-100px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-140px);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(100px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(140px);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-left.is-visible,
@@ -1821,8 +1811,11 @@ a:hover {
   letter-spacing: 0.04em;
 }
 
-.jk-cta__btn {
-  animation: pulse 2s ease-in-out infinite;
+.jk-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 @keyframes pulse {
@@ -2068,6 +2061,13 @@ a:hover {
 
 .pontoon-deep__cta {
   text-align: center;
+}
+
+.pontoon-deep__cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .pontoon-deep__cta-text {
