@@ -693,6 +693,7 @@ body.bar-visible .nav-int {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 260px;
+  grid-auto-flow: dense;
   gap: 1rem;
 }
 
@@ -792,15 +793,6 @@ body.bar-visible .nav-int {
   font-size: 0.82rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-}
-
-.wyso__card:hover .wyso__text {
-  max-height: 120px;
-  opacity: 1;
 }
 
 .wyso__card--tall {
@@ -935,6 +927,151 @@ body.bar-visible .nav-int {
   font-size: 0.88rem;
   line-height: 1.68;
   color: rgba(255,255,255,0.58);
+}
+
+/* ============================
+   Pontoon Reasons (Image Cards)
+   ============================ */
+.pontoon-reasons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+.pontoon-reason {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pontoon-reason img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pontoon-reason:hover img {
+  transform: scale(1.05);
+}
+
+.pontoon-reason__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2,25,34,0.85) 0%, rgba(2,25,34,0.2) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.pontoon-reason__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+.pontoon-reason__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 0.35rem;
+}
+
+.pontoon-reason__text {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .pontoon-reasons {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pontoon-reasons {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 0.75rem;
+  }
+  .pontoon-reason { min-height: 240px; }
+}
+
+/* ============================
+   Pontoon Photo Strip Carousel
+   ============================ */
+.pontoon-strip-section {
+  overflow: hidden;
+}
+
+.pontoon-strip {
+  overflow: hidden;
+  margin: 0 -1.5rem;
+}
+
+.pontoon-strip + .pontoon-strip {
+  margin-top: 0.75rem;
+}
+
+.pontoon-strip__track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+}
+
+.pontoon-strip__track--left {
+  animation: pontoonScrollLeft 35s linear infinite;
+}
+
+.pontoon-strip__track--right {
+  animation: pontoonScrollRight 35s linear infinite;
+}
+
+.pontoon-strip__track img {
+  width: 300px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.pontoon-strip__track img:hover {
+  transform: scale(1.04);
+}
+
+@media (min-width: 700px) {
+  .pontoon-strip__track img {
+    width: 360px;
+    height: 240px;
+  }
+}
+
+@keyframes pontoonScrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pontoonScrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pontoon-strip__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* ============================
@@ -1161,6 +1298,8 @@ body.bar-visible .nav-int {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  grid-auto-flow: dense;
   gap: 0.5rem;
 }
 
@@ -1173,7 +1312,7 @@ body.bar-visible .nav-int {
 
 .gallery-item img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.42s ease;
   display: block;
@@ -1203,8 +1342,7 @@ body.bar-visible .nav-int {
 }
 
 @media (max-width: 768px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item img { height: 180px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
 }
 
 @media (max-width: 480px) {
@@ -1969,7 +2107,7 @@ body.bar-visible .nav-int {
 }
 
 .footer-int__logo { margin-bottom: 1rem; }
-.footer-int__logo img { width: 110px; height: auto; }
+.footer-int__logo img { width: 220px; height: auto; }
 
 .footer-int__tagline {
   font-size: 0.85rem;

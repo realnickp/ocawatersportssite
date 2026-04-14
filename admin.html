@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OCA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       LOGIN GATE
+       ====================================================== -->
+  <div class="admin-login" id="loginGate">
+    <div class="admin-login__box">
+      <img class="admin-login__logo" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
+      <h1 class="admin-login__title">ADMIN</h1>
+      <p class="admin-login__sub">Enter the admin password to continue.</p>
+      <form class="admin-login__form" id="loginForm">
+        <input
+          class="admin-login__input"
+          id="passwordInput"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        />
+        <button class="admin-login__btn" type="submit">LOG IN</button>
+        <p class="admin-login__error" id="loginError" style="display:none;">Incorrect password. Try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       DASHBOARD (hidden until login)
+       ====================================================== -->
+  <div class="admin-dash" id="dashboard" style="display:none;">
+
+    <!-- Sticky header -->
+    <header class="admin-header">
+      <img class="admin-header__logo" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
+      <div class="admin-header__right">
+        <span class="admin-header__label">Admin</span>
+        <button class="admin-header__logout" id="logoutBtn">Log Out</button>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="admin-tabs" role="tablist">
+      <button class="admin-tab active" id="tab-text" role="tab" aria-controls="panel-text" aria-selected="true">Edit Text</button>
+      <button class="admin-tab" id="tab-coupons" role="tab" aria-controls="panel-coupons" aria-selected="false">Manage Coupons</button>
+    </div>
+
+    <!-- Panel: Edit Text -->
+    <div class="admin-panel active admin-panel--split" id="panel-text" role="tabpanel" aria-labelledby="tab-text">
+      <div class="admin-editor-pane">
+        <p class="admin-panel__helper">Edit text and save. The preview refreshes automatically.</p>
+        <div class="admin-page-nav" id="pageNav"></div>
+        <div id="textFieldsContainer"></div>
+      </div>
+      <div class="admin-preview-pane" id="previewPane">
+        <div class="admin-preview-bar">
+          <span class="admin-preview-bar__label">Live Preview</span>
+          <button class="admin-preview-bar__refresh" id="previewRefreshBtn" title="Refresh preview">&#8635;</button>
+        </div>
+        <iframe class="admin-preview-frame" id="previewFrame" src="index.html"></iframe>
+      </div>
+    </div>
+
+    <!-- Panel: Manage Coupons -->
+    <div class="admin-panel" id="panel-coupons" role="tabpanel" aria-labelledby="tab-coupons">
+      <div class="admin-coupons-actions">
+        <button class="admin-add-coupon-btn" id="addCouponBtn">+ Add New Coupon</button>
+      </div>
+      <div id="couponFormContainer" style="display:none;"></div>
+      <div id="couponListContainer"></div>
+    </div>
+
+  </div>
+
+  <script src="cms.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─── Config ──────────────────────────────────────────────────── */
+    var SUPABASE_URL = 'https://kokusecmajupumitprue.supabase.co';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtva3VzZWNtYWp1cHVtaXRwcnVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxMTgxODYsImV4cCI6MjA5MTY5NDE4Nn0.bXBDmhm1nzmjxwCD4HTIh0FE_S64ej3p05uAATauhZk';
+
+    /* ─── State ──────────────────────────────────────────────────── */
+    var adminPassword = '';
+
+    /* ─── Supabase helpers ───────────────────────────────────────── */
+    function baseHeaders() {
+      return {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json'
+      };
+    }
+
+    function rpc(fn, params) {
+      return fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+        method: 'POST',
+        headers: baseHeaders(),
+        body: JSON.stringify(params || {})
+      }).then(function (res) {
+        if (!res.ok) { throw new Error('RPC ' + fn + ' failed: ' + res.status); }
+        return res.json();
+      });
+    }
+
+    function supaGet(table, query) {
+      var url = SUPABASE_URL + '/rest/v1/' + table;
+      if (query) { url += query; }
+      return fetch(url, {
+        method: 'GET',
+        headers: baseHeaders()
+      }).then(function (res) {
+        if (!res.ok) { throw new Error('GET ' + table + ' failed: ' + res.status); }
+        return res.json();
+      });
+    }
+
+    /* ─── DOM refs ───────────────────────────────────────────────── */
+    var loginGate   = document.getElementById('loginGate');
+    var dashboard   = document.getElementById('dashboard');
+    var loginForm   = document.getElementById('loginForm');
+    var passwordInput = document.getElementById('passwordInput');
+    var loginError  = document.getElementById('loginError');
+    var logoutBtn   = document.getElementById('logoutBtn');
+
+    var tabText     = document.getElementById('tab-text');
+    var tabCoupons  = document.getElementById('tab-coupons');
+    var panelText   = document.getElementById('panel-text');
+    var panelCoupons = document.getElementById('panel-coupons');
+
+    var textFieldsContainer  = document.getElementById('textFieldsContainer');
+    var addCouponBtn         = document.getElementById('addCouponBtn');
+    var couponFormContainer  = document.getElementById('couponFormContainer');
+    var couponListContainer  = document.getElementById('couponListContainer');
+
+    /* ─── Login ──────────────────────────────────────────────────── */
+    function showDashboard(pw) {
+      adminPassword = pw;
+      loginGate.style.display = 'none';
+      dashboard.style.display = 'block';
+      loadTextFields();
+      loadCouponList();
+    }
+
+    function doLogin(pw) {
+      supaGet('admin_settings', '?select=value&key=eq.admin_password').then(function (rows) {
+        if (rows && rows.length && rows[0].value === pw) {
+          sessionStorage.setItem('oca_admin', pw);
+          loginError.style.display = 'none';
+          showDashboard(pw);
+        } else {
+          loginError.style.display = 'block';
+        }
+      }).catch(function () {
+        loginError.style.display = 'block';
+      });
+    }
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var pw = passwordInput.value;
+      if (!pw) { return; }
+      doLogin(pw);
+    });
+
+    /* ─── Logout ─────────────────────────────────────────────────── */
+    logoutBtn.addEventListener('click', function () {
+      sessionStorage.removeItem('oca_admin');
+      adminPassword = '';
+      passwordInput.value = '';
+      dashboard.style.display = 'none';
+      loginGate.style.display = 'flex';
+    });
+
+    /* ─── Auto-login from sessionStorage ────────────────────────── */
+    (function () {
+      var saved = sessionStorage.getItem('oca_admin');
+      if (saved) {
+        doLogin(saved);
+      }
+    }());
+
+    /* ─── Tabs ───────────────────────────────────────────────────── */
+    function activateTab(tabEl, panelEl) {
+      tabText.classList.remove('active');
+      tabText.setAttribute('aria-selected', 'false');
+      tabCoupons.classList.remove('active');
+      tabCoupons.setAttribute('aria-selected', 'false');
+      panelText.classList.remove('active');
+      panelCoupons.classList.remove('active');
+
+      tabEl.classList.add('active');
+      tabEl.setAttribute('aria-selected', 'true');
+      panelEl.classList.add('active');
+    }
+
+    tabText.addEventListener('click', function () {
+      activateTab(tabText, panelText);
+    });
+
+    tabCoupons.addEventListener('click', function () {
+      activateTab(tabCoupons, panelCoupons);
+    });
+
+    /* ─── Fields definition ──────────────────────────────────────── */
+    var FIELDS = [
+/* Home */
+      { page: 'Home', id: 'index.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'Home', id: 'index.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'Home', id: 'index.hero.sub', label: 'Hero > Sub', type: 'textarea' },
+      { page: 'Home', id: 'index.journey.heading', label: 'Journey > Heading', type: 'input' },
+      { page: 'Home', id: 'index.landmark1.title', label: 'Landmark1 > Title', type: 'input' },
+      { page: 'Home', id: 'index.landmark1.copy', label: 'Landmark1 > Copy', type: 'textarea' },
+      { page: 'Home', id: 'index.landmark2.title', label: 'Landmark2 > Title', type: 'input' },
+      { page: 'Home', id: 'index.landmark2.copy', label: 'Landmark2 > Copy', type: 'textarea' },
+      { page: 'Home', id: 'index.landmark3.title', label: 'Landmark3 > Title', type: 'input' },
+      { page: 'Home', id: 'index.landmark3.copy', label: 'Landmark3 > Copy', type: 'textarea' },
+      { page: 'Home', id: 'index.manifesto.eyebrow', label: 'Manifesto > Eyebrow', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.title', label: 'Manifesto > Title', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.lead', label: 'Manifesto > Lead', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.quote', label: 'Manifesto > Quote', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.jetski.title', label: 'Manifesto > Jetski > Title', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.jetski.tagline', label: 'Manifesto > Jetski > Tagline', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.jetski.text', label: 'Manifesto > Jetski > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.manifesto.pontoon.title', label: 'Manifesto > Pontoon > Title', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.pontoon.tagline', label: 'Manifesto > Pontoon > Tagline', type: 'input' },
+      { page: 'Home', id: 'index.manifesto.pontoon.text', label: 'Manifesto > Pontoon > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.choose.eyebrow', label: 'Choose > Eyebrow', type: 'input' },
+      { page: 'Home', id: 'index.choose.title', label: 'Choose > Title', type: 'input' },
+      { page: 'Home', id: 'index.imap.title', label: 'Imap > Title', type: 'input' },
+      { page: 'Home', id: 'index.imap.lead', label: 'Imap > Lead', type: 'textarea' },
+      { page: 'Home', id: 'index.imap.feature1.title', label: 'Imap > Feature1 > Title', type: 'input' },
+      { page: 'Home', id: 'index.imap.feature1.text', label: 'Imap > Feature1 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.imap.feature2.title', label: 'Imap > Feature2 > Title', type: 'input' },
+      { page: 'Home', id: 'index.imap.feature2.text', label: 'Imap > Feature2 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.imap.feature3.title', label: 'Imap > Feature3 > Title', type: 'input' },
+      { page: 'Home', id: 'index.imap.feature3.text', label: 'Imap > Feature3 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.jetski.kicker', label: 'Jetski > Kicker', type: 'input' },
+      { page: 'Home', id: 'index.jetski.title', label: 'Jetski > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.sub', label: 'Jetski > Sub', type: 'input' },
+      { page: 'Home', id: 'index.jetski.intro.title', label: 'Jetski > Intro > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.intro.text', label: 'Jetski > Intro > Text', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.location.tag', label: 'Jetski > Card > Location > Tag', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.location.title', label: 'Jetski > Card > Location > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.location.text', label: 'Jetski > Card > Location > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.jetski.card.area.title', label: 'Jetski > Card > Area > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.area.text', label: 'Jetski > Card > Area > Text', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.time.title', label: 'Jetski > Card > Time > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.time.text', label: 'Jetski > Card > Time > Text', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.sights.tag', label: 'Jetski > Card > Sights > Tag', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.sights.title', label: 'Jetski > Card > Sights > Title', type: 'input' },
+      { page: 'Home', id: 'index.jetski.card.sights.text', label: 'Jetski > Card > Sights > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.jetski.cta.text', label: 'Jetski > Cta > Text', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.kicker', label: 'Pontoon > Kicker', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.title', label: 'Pontoon > Title', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.sub', label: 'Pontoon > Sub', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.callout.big', label: 'Pontoon > Callout > Big', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.callout.sub', label: 'Pontoon > Callout > Sub', type: 'textarea' },
+      { page: 'Home', id: 'index.pontoon.dest1.title', label: 'Pontoon > Dest1 > Title', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.dest1.text', label: 'Pontoon > Dest1 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.pontoon.dest2.title', label: 'Pontoon > Dest2 > Title', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.dest2.text', label: 'Pontoon > Dest2 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.pontoon.dest3.title', label: 'Pontoon > Dest3 > Title', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.dest3.text', label: 'Pontoon > Dest3 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.pontoon.intro.title', label: 'Pontoon > Intro > Title', type: 'input' },
+      { page: 'Home', id: 'index.pontoon.intro.text', label: 'Pontoon > Intro > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.pontoon.cta.text', label: 'Pontoon > Cta > Text', type: 'input' },
+      { page: 'Home', id: 'index.gallery.title', label: 'Gallery > Title', type: 'input' },
+      { page: 'Home', id: 'index.gallery.sub', label: 'Gallery > Sub', type: 'input' },
+      { page: 'Home', id: 'index.reviews.heading', label: 'Reviews > Heading', type: 'input' },
+      { page: 'Home', id: 'index.review1.text', label: 'Review1 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.review1.author', label: 'Review1 > Author', type: 'input' },
+      { page: 'Home', id: 'index.review2.text', label: 'Review2 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.review2.author', label: 'Review2 > Author', type: 'input' },
+      { page: 'Home', id: 'index.review3.text', label: 'Review3 > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.review3.author', label: 'Review3 > Author', type: 'input' },
+      { page: 'Home', id: 'index.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'Home', id: 'index.cta.text', label: 'Cta > Text', type: 'textarea' },
+      { page: 'Home', id: 'index.newsletter.label', label: 'Newsletter > Label', type: 'input' },
+
+      /* Jet Skis */
+      { page: 'Jet Skis', id: 'jetskis.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.hero.sub', label: 'Hero > Sub', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.stats.ridetime.num', label: 'Stats > Ridetime > Num', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.ridetime.label', label: 'Stats > Ridetime > Label', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.routelength.num', label: 'Stats > Routelength > Num', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.routelength.label', label: 'Stats > Routelength > Label', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.reviews.num', label: 'Stats > Reviews > Num', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.reviews.label', label: 'Stats > Reviews > Label', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.est.num', label: 'Stats > Est > Num', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.stats.est.label', label: 'Stats > Est > Label', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.difference.eyebrow', label: 'Difference > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.difference.title', label: 'Difference > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.difference.text', label: 'Difference > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.difference.text2', label: 'Difference > Text2', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.difference.text3', label: 'Difference > Text3', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.header', label: 'Vs > Them > Header', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.li1', label: 'Vs > Them > Li1', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.li2', label: 'Vs > Them > Li2', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.li3', label: 'Vs > Them > Li3', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.li4', label: 'Vs > Them > Li4', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.them.li5', label: 'Vs > Them > Li5', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.header', label: 'Vs > Us > Header', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.li1', label: 'Vs > Us > Li1', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.li2', label: 'Vs > Us > Li2', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.li3', label: 'Vs > Us > Li3', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.li4', label: 'Vs > Us > Li4', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.vs.us.li5', label: 'Vs > Us > Li5', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.eyebrow', label: 'Sights > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.title', label: 'Sights > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.sub', label: 'Sights > Sub', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.sights.horses.tag', label: 'Sights > Horses > Tag', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.horses.title', label: 'Sights > Horses > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.horses.text', label: 'Sights > Horses > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.sights.dolphins.tag', label: 'Sights > Dolphins > Tag', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.dolphins.title', label: 'Sights > Dolphins > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.dolphins.text', label: 'Sights > Dolphins > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.sights.mansion.tag', label: 'Sights > Mansion > Tag', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.mansion.title', label: 'Sights > Mansion > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.mansion.text', label: 'Sights > Mansion > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.sights.throttle.tag', label: 'Sights > Throttle > Tag', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.throttle.title', label: 'Sights > Throttle > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.throttle.text', label: 'Sights > Throttle > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.sights.skyline.tag', label: 'Sights > Skyline > Tag', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.skyline.title', label: 'Sights > Skyline > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.sights.skyline.text', label: 'Sights > Skyline > Text', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.pricing.eyebrow', label: 'Pricing > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.pricing.title', label: 'Pricing > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.pricing.price', label: 'Pricing > Price', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.pricing.label', label: 'Pricing > Label', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.pricing.highlight', label: 'Pricing > Highlight', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.rules.r1', label: 'Rules > R1', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.rules.r3', label: 'Rules > R3', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.rules.r4', label: 'Rules > R4', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.rules.r5', label: 'Rules > R5', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.rules.r6', label: 'Rules > R6', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.map.eyebrow', label: 'Map > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.map.title', label: 'Map > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.map.sub', label: 'Map > Sub', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.gallery.eyebrow', label: 'Gallery > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.gallery.title', label: 'Gallery > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.eyebrow', label: 'Faq > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.title', label: 'Faq > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q1', label: 'Faq > Q1', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a1', label: 'Faq > A1', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q2', label: 'Faq > Q2', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a2', label: 'Faq > A2', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q3', label: 'Faq > Q3', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a3', label: 'Faq > A3', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q4', label: 'Faq > Q4', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a4', label: 'Faq > A4', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q5', label: 'Faq > Q5', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a5', label: 'Faq > A5', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q6', label: 'Faq > Q6', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a6', label: 'Faq > A6', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q7', label: 'Faq > Q7', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a7', label: 'Faq > A7', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q8', label: 'Faq > Q8', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a8', label: 'Faq > A8', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.faq.q9', label: 'Faq > Q9', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.faq.a9', label: 'Faq > A9', type: 'textarea' },
+      { page: 'Jet Skis', id: 'jetskis.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'Jet Skis', id: 'jetskis.cta.sub', label: 'Cta > Sub', type: 'textarea' },
+
+      /* Pontoon Boats */
+      { page: 'Pontoon Boats', id: 'pontoons.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.hero.sub', label: 'Hero > Sub', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.guests.num', label: 'Stats > Guests > Num', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.guests.label', label: 'Stats > Guests > Label', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.popular.num', label: 'Stats > Popular > Num', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.popular.label', label: 'Stats > Popular > Label', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.reviews.num', label: 'Stats > Reviews > Num', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.reviews.label', label: 'Stats > Reviews > Label', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.private.num', label: 'Stats > Private > Num', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.stats.private.label', label: 'Stats > Private > Label', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.charter.eyebrow', label: 'Charter > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.charter.title', label: 'Charter > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.charter.text1', label: 'Charter > Text1', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.charter.text2', label: 'Charter > Text2', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.charter.text3', label: 'Charter > Text3', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.features.eyebrow', label: 'Features > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.features.title', label: 'Features > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature1.title', label: 'Feature1 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature1.text', label: 'Feature1 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature2.title', label: 'Feature2 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature2.text', label: 'Feature2 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature3.title', label: 'Feature3 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature3.text', label: 'Feature3 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature4.title', label: 'Feature4 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature4.text', label: 'Feature4 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature5.title', label: 'Feature5 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature5.text', label: 'Feature5 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature6.title', label: 'Feature6 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.feature6.text', label: 'Feature6 > Text', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.pricing.eyebrow', label: 'Pricing > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.pricing.title', label: 'Pricing > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.pricing.sub', label: 'Pricing > Sub', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.price1.duration', label: 'Price1 > Duration', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price1.price', label: 'Price1 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price1.sub', label: 'Price1 > Sub', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price2.duration', label: 'Price2 > Duration', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price2.price', label: 'Price2 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price2.sub', label: 'Price2 > Sub', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price3.duration', label: 'Price3 > Duration', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price3.price', label: 'Price3 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price3.sub', label: 'Price3 > Sub', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price4.duration', label: 'Price4 > Duration', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price4.price', label: 'Price4 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.price4.sub', label: 'Price4 > Sub', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.pricing.highlight', label: 'Pricing > Highlight', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addons.eyebrow', label: 'Addons > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addons.title', label: 'Addons > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addons.sub', label: 'Addons > Sub', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon1.title', label: 'Addon1 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon1.desc', label: 'Addon1 > Desc', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon1.price', label: 'Addon1 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon2.title', label: 'Addon2 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon2.desc', label: 'Addon2 > Desc', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon2.price', label: 'Addon2 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon3.title', label: 'Addon3 > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon3.desc', label: 'Addon3 > Desc', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.addon3.price', label: 'Addon3 > Price', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.eyebrow', label: 'Rules > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.title', label: 'Rules > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r1', label: 'Rules > R1', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r2', label: 'Rules > R2', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r3', label: 'Rules > R3', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r4', label: 'Rules > R4', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r5', label: 'Rules > R5', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r7', label: 'Rules > R7', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r9', label: 'Rules > R9', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.rules.r10', label: 'Rules > R10', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.map.eyebrow', label: 'Map > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.map.title', label: 'Map > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.map.sub', label: 'Map > Sub', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasions.eyebrow', label: 'Occasions > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasions.title', label: 'Occasions > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasion1.text', label: 'Occasion1 > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasion2.text', label: 'Occasion2 > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasion3.text', label: 'Occasion3 > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasion4.text', label: 'Occasion4 > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.occasion5.text', label: 'Occasion5 > Text', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.gallery.eyebrow', label: 'Gallery > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.gallery.title', label: 'Gallery > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.eyebrow', label: 'Faq > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.title', label: 'Faq > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q1', label: 'Faq > Q1', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a1', label: 'Faq > A1', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q2', label: 'Faq > Q2', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a2', label: 'Faq > A2', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q3', label: 'Faq > Q3', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a3', label: 'Faq > A3', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q4', label: 'Faq > Q4', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a4', label: 'Faq > A4', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q5', label: 'Faq > Q5', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a5', label: 'Faq > A5', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q6', label: 'Faq > Q6', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a6', label: 'Faq > A6', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q7', label: 'Faq > Q7', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a7', label: 'Faq > A7', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.q8', label: 'Faq > Q8', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.faq.a8', label: 'Faq > A8', type: 'textarea' },
+      { page: 'Pontoon Boats', id: 'pontoons.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'Pontoon Boats', id: 'pontoons.cta.sub', label: 'Cta > Sub', type: 'textarea' },
+
+      /* The 6 Mile Ride */
+      { page: 'The 6 Mile Ride', id: '6mile.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.hero.sub', label: 'Hero > Sub', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.hero.lead', label: 'Hero > Lead', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.eyebrow', label: 'Origin > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.title', label: 'Origin > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.p1', label: 'Origin > P1', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.p2', label: 'Origin > P2', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.p3', label: 'Origin > P3', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.p4', label: 'Origin > P4', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.origin.pullquote', label: 'Origin > Pullquote', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.route.eyebrow', label: 'Route > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.route.title', label: 'Route > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.route.sub', label: 'Route > Sub', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop1.num', label: 'Stop1 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop1.title', label: 'Stop1 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop1.dist', label: 'Stop1 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop1.text', label: 'Stop1 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop2.num', label: 'Stop2 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop2.title', label: 'Stop2 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop2.dist', label: 'Stop2 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop2.text', label: 'Stop2 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop3.num', label: 'Stop3 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop3.title', label: 'Stop3 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop3.dist', label: 'Stop3 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop3.text', label: 'Stop3 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop4.num', label: 'Stop4 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop4.title', label: 'Stop4 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop4.dist', label: 'Stop4 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop4.text', label: 'Stop4 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop5.num', label: 'Stop5 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop5.title', label: 'Stop5 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop5.dist', label: 'Stop5 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop5.text', label: 'Stop5 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop6.num', label: 'Stop6 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop6.title', label: 'Stop6 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop6.dist', label: 'Stop6 > Dist', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.stop6.text', label: 'Stop6 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.map.eyebrow', label: 'Map > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.map.title', label: 'Map > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.map.sub', label: 'Map > Sub', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.assateague.eyebrow', label: 'Assateague > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.assateague.title', label: 'Assateague > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.assateague.sub', label: 'Assateague > Sub', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact1.num', label: 'Fact1 > Num', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact1.title', label: 'Fact1 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact1.text', label: 'Fact1 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact2.title', label: 'Fact2 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact2.text', label: 'Fact2 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact3.title', label: 'Fact3 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact3.text', label: 'Fact3 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact4.title', label: 'Fact4 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact4.text', label: 'Fact4 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact5.title', label: 'Fact5 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact5.text', label: 'Fact5 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact6.title', label: 'Fact6 > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.fact6.text', label: 'Fact6 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.eyebrow', label: 'Vs > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.title', label: 'Vs > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.header', label: 'Vs > Them > Header', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li1', label: 'Vs > Them > Li1', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li2', label: 'Vs > Them > Li2', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li3', label: 'Vs > Them > Li3', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li4', label: 'Vs > Them > Li4', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li5', label: 'Vs > Them > Li5', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.them.li6', label: 'Vs > Them > Li6', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.header', label: 'Vs > Us > Header', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li1', label: 'Vs > Us > Li1', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li2', label: 'Vs > Us > Li2', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li3', label: 'Vs > Us > Li3', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li4', label: 'Vs > Us > Li4', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li5', label: 'Vs > Us > Li5', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.vs.us.li6', label: 'Vs > Us > Li6', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.reviews.eyebrow', label: 'Reviews > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.reviews.title', label: 'Reviews > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.review1.text', label: 'Review1 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.review1.author', label: 'Review1 > Author', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.review2.text', label: 'Review2 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.review2.author', label: 'Review2 > Author', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.review3.text', label: 'Review3 > Text', type: 'textarea' },
+      { page: 'The 6 Mile Ride', id: '6mile.review3.author', label: 'Review3 > Author', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'The 6 Mile Ride', id: '6mile.cta.sub', label: 'Cta > Sub', type: 'textarea' },
+
+      /* About */
+      { page: 'About', id: 'about.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'About', id: 'about.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'About', id: 'about.hero.sub', label: 'Hero > Sub', type: 'input' },
+      { page: 'About', id: 'about.stats.years.num', label: 'Stats > Years > Num', type: 'input' },
+      { page: 'About', id: 'about.stats.years.label', label: 'Stats > Years > Label', type: 'input' },
+      { page: 'About', id: 'about.stats.reviews.num', label: 'Stats > Reviews > Num', type: 'input' },
+      { page: 'About', id: 'about.stats.reviews.label', label: 'Stats > Reviews > Label', type: 'input' },
+      { page: 'About', id: 'about.stats.rating.num', label: 'Stats > Rating > Num', type: 'input' },
+      { page: 'About', id: 'about.stats.rating.label', label: 'Stats > Rating > Label', type: 'input' },
+      { page: 'About', id: 'about.stats.families.num', label: 'Stats > Families > Num', type: 'input' },
+      { page: 'About', id: 'about.stats.families.label', label: 'Stats > Families > Label', type: 'input' },
+      { page: 'About', id: 'about.story.eyebrow', label: 'Story > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.story.title', label: 'Story > Title', type: 'input' },
+      { page: 'About', id: 'about.story.p1', label: 'Story > P1', type: 'textarea' },
+      { page: 'About', id: 'about.story.p2', label: 'Story > P2', type: 'textarea' },
+      { page: 'About', id: 'about.story.p3', label: 'Story > P3', type: 'textarea' },
+      { page: 'About', id: 'about.story.p4', label: 'Story > P4', type: 'textarea' },
+      { page: 'About', id: 'about.evolution.eyebrow', label: 'Evolution > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.evolution.title', label: 'Evolution > Title', type: 'input' },
+      { page: 'About', id: 'about.evolution.p1', label: 'Evolution > P1', type: 'input' },
+      { page: 'About', id: 'about.evolution.p2', label: 'Evolution > P2', type: 'textarea' },
+      { page: 'About', id: 'about.location.eyebrow', label: 'Location > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.location.title', label: 'Location > Title', type: 'input' },
+      { page: 'About', id: 'about.location.p1', label: 'Location > P1', type: 'textarea' },
+      { page: 'About', id: 'about.location.p2', label: 'Location > P2', type: 'textarea' },
+      { page: 'About', id: 'about.partner.title', label: 'Partner > Title', type: 'input' },
+      { page: 'About', id: 'about.partner.text', label: 'Partner > Text', type: 'input' },
+      { page: 'About', id: 'about.diff.eyebrow', label: 'Diff > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.diff.title', label: 'Diff > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.sub', label: 'Diff > Sub', type: 'input' },
+      { page: 'About', id: 'about.diff.feature1.title', label: 'Diff > Feature1 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature1.text', label: 'Diff > Feature1 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.diff.feature2.title', label: 'Diff > Feature2 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature2.text', label: 'Diff > Feature2 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.diff.feature3.title', label: 'Diff > Feature3 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature3.text', label: 'Diff > Feature3 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.diff.feature4.title', label: 'Diff > Feature4 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature4.text', label: 'Diff > Feature4 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.diff.feature5.title', label: 'Diff > Feature5 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature5.text', label: 'Diff > Feature5 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.diff.feature6.title', label: 'Diff > Feature6 > Title', type: 'input' },
+      { page: 'About', id: 'about.diff.feature6.text', label: 'Diff > Feature6 > Text', type: 'textarea' },
+      { page: 'About', id: 'about.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'About', id: 'about.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'About', id: 'about.cta.sub', label: 'Cta > Sub', type: 'textarea' },
+
+      /* Contact */
+      { page: 'Contact', id: 'contact.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'Contact', id: 'contact.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'Contact', id: 'contact.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.hero.sub', label: 'Hero > Sub', type: 'textarea' },
+      { page: 'Contact', id: 'contact.info.phone.label', label: 'Info > Phone > Label', type: 'input' },
+      { page: 'Contact', id: 'contact.info.phone.text', label: 'Info > Phone > Text', type: 'input' },
+      { page: 'Contact', id: 'contact.info.email.label', label: 'Info > Email > Label', type: 'input' },
+      { page: 'Contact', id: 'contact.info.address.label', label: 'Info > Address > Label', type: 'input' },
+      { page: 'Contact', id: 'contact.info.address.text', label: 'Info > Address > Text', type: 'input' },
+      { page: 'Contact', id: 'contact.info.hours.label', label: 'Info > Hours > Label', type: 'input' },
+      { page: 'Contact', id: 'contact.info.hours.text', label: 'Info > Hours > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.partner.title', label: 'Partner > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.partner.text', label: 'Partner > Text', type: 'input' },
+      { page: 'Contact', id: 'contact.reviews.title', label: 'Reviews > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.reviews.text', label: 'Reviews > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.directions.eyebrow', label: 'Directions > Eyebrow', type: 'input' },
+      { page: 'Contact', id: 'contact.directions.title', label: 'Directions > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.dir1.from', label: 'Dir1 > From', type: 'input' },
+      { page: 'Contact', id: 'contact.dir1.text', label: 'Dir1 > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.dir2.from', label: 'Dir2 > From', type: 'input' },
+      { page: 'Contact', id: 'contact.dir2.text', label: 'Dir2 > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.dir3.from', label: 'Dir3 > From', type: 'input' },
+      { page: 'Contact', id: 'contact.dir3.text', label: 'Dir3 > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.dir4.from', label: 'Dir4 > From', type: 'input' },
+      { page: 'Contact', id: 'contact.dir4.text', label: 'Dir4 > Text', type: 'textarea' },
+      { page: 'Contact', id: 'contact.parking.title', label: 'Parking > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.eyebrow', label: 'Faq > Eyebrow', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.title', label: 'Faq > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.q1', label: 'Faq > Q1', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.a1', label: 'Faq > A1', type: 'textarea' },
+      { page: 'Contact', id: 'contact.faq.q2', label: 'Faq > Q2', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.a2', label: 'Faq > A2', type: 'textarea' },
+      { page: 'Contact', id: 'contact.faq.q3', label: 'Faq > Q3', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.a3', label: 'Faq > A3', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.q4', label: 'Faq > Q4', type: 'input' },
+      { page: 'Contact', id: 'contact.faq.a4', label: 'Faq > A4', type: 'textarea' },
+      { page: 'Contact', id: 'contact.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'Contact', id: 'contact.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'Contact', id: 'contact.cta.sub', label: 'Cta > Sub', type: 'textarea' },
+
+      /* Deals */
+      { page: 'Deals', id: 'deals.sticky.text', label: 'Sticky > Text', type: 'input' },
+      { page: 'Deals', id: 'deals.hero.eyebrow', label: 'Hero > Eyebrow', type: 'input' },
+      { page: 'Deals', id: 'deals.hero.title', label: 'Hero > Title', type: 'input' },
+      { page: 'Deals', id: 'deals.hero.sub', label: 'Hero > Sub', type: 'input' },
+      { page: 'Deals', id: 'deals.section.jetski.label', label: 'Section > Jetski > Label', type: 'input' },
+      { page: 'Deals', id: 'deals.section.boat.label', label: 'Section > Boat > Label', type: 'input' },
+      { page: 'Deals', id: 'deals.section.special.label', label: 'Section > Special > Label', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.title', label: 'Fineprint > Title', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li1', label: 'Fineprint > Li1', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li2', label: 'Fineprint > Li2', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li3', label: 'Fineprint > Li3', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li4', label: 'Fineprint > Li4', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li5', label: 'Fineprint > Li5', type: 'input' },
+      { page: 'Deals', id: 'deals.fineprint.li6', label: 'Fineprint > Li6', type: 'input' },
+      { page: 'Deals', id: 'deals.cta.eyebrow', label: 'Cta > Eyebrow', type: 'input' },
+      { page: 'Deals', id: 'deals.cta.title', label: 'Cta > Title', type: 'input' },
+      { page: 'Deals', id: 'deals.cta.text', label: 'Cta > Text', type: 'textarea' },
+    ];
+
+    /* ─── Text Fields ────────────────────────────────────────────── */
+    function loadTextFields() {
+      textFieldsContainer.innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:.875rem;">Loading fields...</p>';
+
+      supaGet('site_content', '?select=id,content').then(function (rows) {
+        var map = {};
+        for (var i = 0; i < rows.length; i++) {
+          map[rows[i].id] = rows[i].content;
+        }
+        renderTextFields(map);
+      }).catch(function () {
+        renderTextFields({});
+      });
+    }
+
+    function escHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = String(str || '');
+      return div.innerHTML;
+    }
+
+    function renderTextFields(map) {
+      /* Group by page */
+      var pages = [];
+      var pageMap = {};
+      for (var i = 0; i < FIELDS.length; i++) {
+        var f = FIELDS[i];
+        if (!pageMap[f.page]) {
+          pageMap[f.page] = [];
+          pages.push(f.page);
+        }
+        pageMap[f.page].push(f);
+      }
+
+      /* Build page nav buttons */
+      var navHtml = '';
+      for (var n = 0; n < pages.length; n++) {
+        var activeClass = n === 0 ? ' active' : '';
+        navHtml += '<button class="admin-page-nav__btn' + activeClass + '" data-page="' + escHtml(pages[n]) + '">' + escHtml(pages[n]) + '</button>';
+      }
+      document.getElementById('pageNav').innerHTML = navHtml;
+
+      /* Build field groups — only first page visible initially */
+      var html = '';
+      for (var p = 0; p < pages.length; p++) {
+        var pageName = pages[p];
+        var fields = pageMap[pageName];
+        var visClass = p === 0 ? ' visible' : '';
+        var slug = pageName.toLowerCase().replace(/\s+/g, '-');
+        html += '<div class="admin-page-group' + visClass + '" data-page-group="' + escHtml(pageName) + '">';
+        html += '<h2 class="admin-page-group__title">' + escHtml(pageName) + '</h2>';
+        for (var j = 0; j < fields.length; j++) {
+          var field = fields[j];
+          var val = map[field.id] !== undefined ? map[field.id] : '';
+          html += '<div class="admin-field">';
+          html += '<label class="admin-field__label" for="field-' + escHtml(field.id) + '">' + escHtml(field.label) + '</label>';
+          if (field.type === 'textarea') {
+            html += '<textarea class="admin-field__textarea" id="field-' + escHtml(field.id) + '" data-field-id="' + escHtml(field.id) + '">' + escHtml(val) + '</textarea>';
+          } else {
+            html += '<input class="admin-field__input" type="text" id="field-' + escHtml(field.id) + '" data-field-id="' + escHtml(field.id) + '" value="' + escHtml(val) + '" />';
+          }
+          html += '</div>';
+        }
+        html += '<div class="admin-page-group__footer">';
+        html += '<button class="admin-save-btn" data-save-page="' + escHtml(pageName) + '">SAVE ' + escHtml(pageName).toUpperCase() + '</button>';
+        html += '<span class="admin-status" data-status-page="' + escHtml(pageName) + '"></span>';
+        html += '</div>';
+        html += '</div>';
+      }
+
+      textFieldsContainer.innerHTML = html;
+
+      /* Page → URL mapping for preview iframe */
+      var PAGE_URLS = {
+        'Home': 'index.html',
+        'Jet Skis': 'jet-skis.html',
+        'Pontoon Boats': 'pontoon-boats.html',
+        'The 6 Mile Ride': 'the-6-mile-ride.html',
+        'About': 'about.html',
+        'Contact': 'contact.html',
+        'Deals': 'deals.html'
+      };
+      var previewFrame = document.getElementById('previewFrame');
+      var previewRefreshBtn = document.getElementById('previewRefreshBtn');
+
+      /* Refresh preview helper */
+      function refreshPreview() {
+        if (previewFrame) {
+          previewFrame.src = previewFrame.src;
+        }
+      }
+
+      if (previewRefreshBtn) {
+        previewRefreshBtn.addEventListener('click', refreshPreview);
+      }
+
+      /* Page nav click handlers */
+      var navBtns = document.querySelectorAll('.admin-page-nav__btn');
+      var groups = document.querySelectorAll('.admin-page-group');
+      for (var nb = 0; nb < navBtns.length; nb++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            for (var x = 0; x < navBtns.length; x++) { navBtns[x].classList.remove('active'); }
+            for (var y = 0; y < groups.length; y++) { groups[y].classList.remove('visible'); }
+            btn.classList.add('active');
+            var pageName = btn.getAttribute('data-page');
+            var target = document.querySelector('[data-page-group="' + pageName + '"]');
+            if (target) { target.classList.add('visible'); }
+            /* Switch preview iframe to matching page */
+            if (previewFrame && PAGE_URLS[pageName]) {
+              previewFrame.src = PAGE_URLS[pageName];
+            }
+          });
+        }(navBtns[nb]));
+      }
+
+      /* Per-page save button handlers */
+      var saveBtns = document.querySelectorAll('[data-save-page]');
+      for (var sb = 0; sb < saveBtns.length; sb++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            savePageFields(btn.getAttribute('data-save-page'));
+          });
+        }(saveBtns[sb]));
+      }
+
+      /* Live preview — send changes to iframe as user types */
+      var allFields = textFieldsContainer.querySelectorAll('[data-field-id]');
+      for (var lf = 0; lf < allFields.length; lf++) {
+        (function (field) {
+          field.addEventListener('input', function () {
+            if (previewFrame && previewFrame.contentWindow) {
+              previewFrame.contentWindow.postMessage({
+                cmsKey: field.getAttribute('data-field-id'),
+                cmsValue: field.value
+              }, '*');
+            }
+          });
+        }(allFields[lf]));
+      }
+    }
+
+    function savePageFields(pageName) {
+      var group = document.querySelector('[data-page-group="' + pageName + '"]');
+      if (!group) { return; }
+      var inputs = group.querySelectorAll('[data-field-id]');
+      var statusEl = group.querySelector('[data-status-page="' + pageName + '"]');
+      var btn = group.querySelector('[data-save-page="' + pageName + '"]');
+      var total = inputs.length;
+      var done = 0;
+      var errors = 0;
+
+      if (!total) { return; }
+
+      btn.disabled = true;
+      btn.textContent = 'SAVING...';
+      statusEl.className = 'admin-status visible';
+      statusEl.textContent = '';
+
+      function finish() {
+        btn.disabled = false;
+        btn.textContent = 'SAVE ' + pageName.toUpperCase();
+        if (errors > 0) {
+          statusEl.className = 'admin-status visible admin-status--error';
+          statusEl.textContent = 'Saved with ' + errors + ' error(s).';
+        } else {
+          statusEl.className = 'admin-status visible admin-status--success';
+          statusEl.textContent = 'Saved!';
+          /* Auto-refresh the preview iframe after successful save */
+          setTimeout(refreshPreview, 300);
+        }
+        setTimeout(function () {
+          statusEl.className = 'admin-status';
+          statusEl.textContent = '';
+        }, 3500);
+      }
+
+      for (var i = 0; i < inputs.length; i++) {
+        (function (el) {
+          var key = el.getAttribute('data-field-id');
+          var value = el.value;
+          rpc('update_content', { p_id: key, p_content: value, p_password: adminPassword })
+            .then(function () {
+              done++;
+              if (done === total) { finish(); }
+            })
+            .catch(function () {
+              errors++;
+              done++;
+              if (done === total) { finish(); }
+            });
+        }(inputs[i]));
+      }
+    }
+
+    /* ─── Coupon Manager ─────────────────────────────────────────── */
+    function loadCouponList() {
+      couponListContainer.innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:.875rem;">Loading coupons...</p>';
+
+      supaGet('coupons', '?select=*&order=created_at.asc').then(function (coupons) {
+        renderCouponList(coupons);
+      }).catch(function () {
+        couponListContainer.innerHTML = '<p style="color:#ff6b6b;font-size:.875rem;">Failed to load coupons.</p>';
+      });
+    }
+
+    function renderCouponList(coupons) {
+      if (!coupons || !coupons.length) {
+        couponListContainer.innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:.875rem;">No coupons yet. Add one above.</p>';
+        return;
+      }
+
+      var html = '<div class="admin-coupon-list">';
+      for (var i = 0; i < coupons.length; i++) {
+        var c = coupons[i];
+        html += '<div class="admin-coupon-card">';
+        html += '<div class="admin-coupon-card__body">';
+        html += '<span class="admin-coupon-card__category">' + escHtml(c.category || '') + '</span>';
+        html += '<p class="admin-coupon-card__code">' + escHtml(c.code || c.type_label || '') + '</p>';
+        html += '<p class="admin-coupon-card__offer">' + escHtml(c.offer || '') + '</p>';
+        html += '</div>';
+        html += '<div class="admin-coupon-card__actions">';
+        html += '<button class="admin-coupon-card__edit" data-coupon-id="' + escHtml(String(c.id)) + '">Edit</button>';
+        html += '<button class="admin-coupon-card__delete" data-coupon-id="' + escHtml(String(c.id)) + '">Delete</button>';
+        html += '</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+
+      couponListContainer.innerHTML = html;
+
+      /* Bind edit/delete */
+      var editBtns = couponListContainer.querySelectorAll('.admin-coupon-card__edit');
+      var deleteBtns = couponListContainer.querySelectorAll('.admin-coupon-card__delete');
+
+      for (var e = 0; e < editBtns.length; e++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('data-coupon-id');
+            var coupon = null;
+            for (var k = 0; k < coupons.length; k++) {
+              if (String(coupons[k].id) === id) { coupon = coupons[k]; break; }
+            }
+            showCouponForm(coupon);
+          });
+        }(editBtns[e]));
+      }
+
+      for (var d = 0; d < deleteBtns.length; d++) {
+        (function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('data-coupon-id');
+            if (!confirm('Delete this coupon? This cannot be undone.')) { return; }
+            rpc('delete_coupon', { p_id: id, p_password: adminPassword })
+              .then(function () { loadCouponList(); })
+              .catch(function () { alert('Failed to delete coupon.'); });
+          });
+        }(deleteBtns[d]));
+      }
+    }
+
+    function showCouponForm(coupon) {
+      var isEdit = !!(coupon && coupon.id);
+      var c = coupon || {};
+
+      var html = '<div class="coupon-form">';
+      html += '<p class="coupon-form__title">' + (isEdit ? 'Edit Coupon' : 'New Coupon') + '</p>';
+      html += '<div class="coupon-form__grid">';
+
+      /* Category + Code in 2-col row */
+      html += '<div class="coupon-form__field">';
+      html += '<label class="coupon-form__label" for="cf-category">Category</label>';
+      html += '<select class="coupon-form__select" id="cf-category">';
+      html += '<option value="jet-ski"' + (c.category === 'jet-ski' ? ' selected' : '') + '>Jet Ski</option>';
+      html += '<option value="boat"' + (c.category === 'boat' ? ' selected' : '') + '>Boat</option>';
+      html += '<option value="special"' + (c.category === 'special' ? ' selected' : '') + '>Special</option>';
+      html += '</select>';
+      html += '</div>';
+
+      html += '<div class="coupon-form__field">';
+      html += '<label class="coupon-form__label" for="cf-code">Code (optional)</label>';
+      html += '<input class="coupon-form__input" type="text" id="cf-code" value="' + escHtml(c.code || '') + '" placeholder="e.g. RIDE10" />';
+      html += '</div>';
+
+      /* Full-width fields */
+      html += '<div class="coupon-form__field coupon-form__field--full">';
+      html += '<label class="coupon-form__label" for="cf-type-label">Type Label</label>';
+      html += '<input class="coupon-form__input" type="text" id="cf-type-label" value="' + escHtml(c.type_label || '') + '" placeholder="e.g. JET SKI DISCOUNT" />';
+      html += '</div>';
+
+      html += '<div class="coupon-form__field coupon-form__field--full">';
+      html += '<label class="coupon-form__label" for="cf-offer">Offer</label>';
+      html += '<input class="coupon-form__input" type="text" id="cf-offer" value="' + escHtml(c.offer || '') + '" placeholder="e.g. 10% off your rental" />';
+      html += '</div>';
+
+      html += '<div class="coupon-form__field coupon-form__field--full">';
+      html += '<label class="coupon-form__label" for="cf-detail">Detail (optional)</label>';
+      html += '<textarea class="coupon-form__textarea" id="cf-detail" placeholder="Fine print, restrictions...">' + escHtml(c.detail || '') + '</textarea>';
+      html += '</div>';
+
+      html += '</div>'; /* .coupon-form__grid */
+
+      html += '<div class="coupon-form__actions">';
+      html += '<button class="coupon-form__save" id="cfSaveBtn">SAVE</button>';
+      html += '<button class="coupon-form__cancel" id="cfCancelBtn">Cancel</button>';
+      html += '<span class="admin-coupon-status" id="couponStatus"></span>';
+      html += '</div>';
+      html += '</div>';
+
+      couponFormContainer.innerHTML = html;
+      couponFormContainer.style.display = 'block';
+
+      document.getElementById('cfCancelBtn').addEventListener('click', function () {
+        couponFormContainer.style.display = 'none';
+        couponFormContainer.innerHTML = '';
+      });
+
+      document.getElementById('cfSaveBtn').addEventListener('click', function () {
+        saveCoupon(isEdit ? c.id : null);
+      });
+    }
+
+    function saveCoupon(existingId) {
+      var statusEl = document.getElementById('couponStatus');
+      var category   = document.getElementById('cf-category').value;
+      var code       = document.getElementById('cf-code').value.trim();
+      var typeLabel  = document.getElementById('cf-type-label').value.trim();
+      var offer      = document.getElementById('cf-offer').value.trim();
+      var detail     = document.getElementById('cf-detail').value.trim();
+
+      if (!typeLabel) {
+        statusEl.className = 'admin-coupon-status visible admin-coupon-status--error';
+        statusEl.textContent = 'Type Label is required.';
+        return;
+      }
+
+      statusEl.className = 'admin-coupon-status visible';
+      statusEl.textContent = 'Saving...';
+
+      var params = {
+        p_password:  adminPassword,
+        p_category:  category,
+        p_code:      code || null,
+        p_type_label: typeLabel,
+        p_offer:     offer || null,
+        p_detail:    detail || null,
+        p_active:    true
+      };
+
+      params.p_id = existingId || null;
+
+      rpc('upsert_coupon', params).then(function () {
+        statusEl.className = 'admin-coupon-status visible admin-coupon-status--success';
+        statusEl.textContent = 'Saved!';
+        setTimeout(function () {
+          couponFormContainer.style.display = 'none';
+          couponFormContainer.innerHTML = '';
+          loadCouponList();
+        }, 800);
+      }).catch(function () {
+        statusEl.className = 'admin-coupon-status visible admin-coupon-status--error';
+        statusEl.textContent = 'Save failed. Check console.';
+      });
+    }
+
+    /* ─── Add coupon button ──────────────────────────────────────── */
+    addCouponBtn.addEventListener('click', function () {
+      showCouponForm(null);
+    });
+
+  }());
+  </script>
+
+</body>
+</html>

@@ -97,6 +97,73 @@
       height: 1px;
       background: rgba(255,255,255,0.1);
     }
+
+    .coupon-card__code-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0 0 0.85rem;
+    }
+
+    .coupon-card__code-row .coupon-card__code {
+      margin: 0;
+    }
+
+    .coupon-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
+      background: rgba(222,188,107,0.12);
+      border: 1px solid rgba(222,188,107,0.3);
+      border-radius: 6px;
+      color: var(--color-gold);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .coupon-copy-btn:hover {
+      background: rgba(222,188,107,0.22);
+      transform: scale(1.05);
+    }
+
+    .coupon-copy-btn:active {
+      transform: scale(0.96);
+    }
+
+    .coupon-copy-btn.copied {
+      background: rgba(46,204,113,0.2);
+      border-color: rgba(46,204,113,0.4);
+      color: #2ecc71;
+    }
+
+    .coupon-card__foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      padding: 1rem 1.75rem;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .coupon-card__book-btn {
+      font-size: 0.75rem !important;
+      padding: 0.5rem 1rem !important;
+      min-height: 36px;
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .coupon-card__call-btn {
+      font-size: 0.72rem !important;
+      padding: 0.5rem 0.85rem !important;
+      min-height: 36px;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -104,7 +171,7 @@
 
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
-    <span class="sticky-bar__text">Ready to Book with Your Deal?</span>
+    <span class="sticky-bar__text" data-cms="deals.sticky.text">Ready to Book with Your Deal?</span>
     <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
   </div>
 
@@ -132,9 +199,9 @@
   <!-- Hero — no image, dark with radial glow -->
   <header class="deals-hero" id="top">
     <div style="position:relative;z-index:1;">
-      <p class="page-hero__eyebrow" style="justify-content:center;margin-bottom:1rem;">Save More. Ride More.</p>
-      <h1 class="deals-hero__title">Deals &amp; Coupons</h1>
-      <p class="deals-hero__sub">Save some money. Spend more time on the water.</p>
+      <p class="page-hero__eyebrow" data-cms="deals.hero.eyebrow" style="justify-content:center;margin-bottom:1rem;">Save More. Ride More.</p>
+      <h1 class="deals-hero__title" data-cms="deals.hero.title">Deals &amp; Coupons</h1>
+      <p class="deals-hero__sub" data-cms="deals.hero.sub">Save some money. Spend more time on the water.</p>
     </div>
   </header>
 
@@ -142,63 +209,9 @@
   <section class="section section--dark">
     <div class="container">
       <div class="deals-section-label reveal">
-        <p class="eyebrow" style="margin:0;">Jet Ski Deals</p>
+        <p class="eyebrow" style="margin:0;" data-cms="deals.section.jetski.label">Jet Ski Coupons</p>
       </div>
-      <div class="coupon-grid">
-
-        <div class="coupon-card reveal d1">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">Early Bird Special</p>
-            <p class="coupon-card__code">EARLYBIRD</p>
-            <p class="coupon-card__offer">Book before 10am — Ride for less.</p>
-            <p class="coupon-card__detail">Our early morning slots are the best time to ride. Glassy water, no boat traffic, dolphins are more active. Book the first ride of the day and save. Call for current early bird pricing — rates change by season.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Call for pricing</span>
-            <a class="btn btn--gold" href="tel:4106297433" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">CALL NOW</a>
-          </div>
-        </div>
-
-        <div class="coupon-card reveal d2">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">Promo Code</p>
-            <p class="coupon-card__code">JETSKI15</p>
-            <p class="coupon-card__offer">$15 off any Jet Ski rental.</p>
-            <p class="coupon-card__detail">Apply at checkout when booking online, or mention this code when calling. One code per booking. Cannot be combined with other offers.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Use at checkout</span>
-            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
-          </div>
-        </div>
-
-        <div class="coupon-card reveal d3">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">Promo Code</p>
-            <p class="coupon-card__code">JETSKI20</p>
-            <p class="coupon-card__offer">$20 off any ride before Noon.</p>
-            <p class="coupon-card__detail">Morning rides are our favorites anyway. Less traffic, better light, and now $20 more in your pocket. Book a ride with a scheduled start time before 12:00 PM and apply this code at checkout.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Before noon rides only</span>
-            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
-          </div>
-        </div>
-
-        <div class="coupon-card reveal d1">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">Seasonal Deal · Starts June 16th</p>
-            <p class="coupon-card__code">SUNSETRIDE</p>
-            <p class="coupon-card__offer">Buy 1 Jet Ski, get the 2nd ½ off — last ride of the day.</p>
-            <p class="coupon-card__detail">The last ride of the day is the best ride of the day. Golden hour on the bay, the horses are usually out, the light is unreal. Buy one ski at full price, get the second 50% off. Best ride AND best deal in Ocean City.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Starts June 16th</span>
-            <a class="btn btn--gold" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">BOOK ONLINE</a>
-          </div>
-        </div>
-
-      </div>
+      <div class="coupon-grid" id="coupon-grid-jetski"></div>
     </div>
   </section>
 
@@ -206,24 +219,9 @@
   <section class="section section--mid">
     <div class="container">
       <div class="deals-section-label reveal">
-        <p class="eyebrow" style="margin:0;">Pontoon Boat Deals</p>
+        <p class="eyebrow" style="margin:0;" data-cms="deals.section.boat.label">Boat Coupons</p>
       </div>
-      <div class="coupon-grid">
-
-        <div class="coupon-card reveal d1" style="max-width:600px;">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">Early Bird Boat Special</p>
-            <p class="coupon-card__code">EARLYBIRDBOAT</p>
-            <p class="coupon-card__offer">Book by 9am — Get 1 Hour FREE.</p>
-            <p class="coupon-card__detail">Book a 3-hour rental and pay for 2 hours only. Book a 2-hour rental and pay for 1 hour only. Limited early morning slots available — first come, first served. Max 4-hour boat for this special. Extra hours paid separately. If 9am slots are sold out, call us — earlier slots may open at the same deal.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">9am slots only · Call in advance</span>
-            <a class="btn btn--gold" href="tel:4106297433" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">CALL 410-629-RIDE (7433)</a>
-          </div>
-        </div>
-
-      </div>
+      <div class="coupon-grid" id="coupon-grid-boat"></div>
     </div>
   </section>
 
@@ -231,37 +229,9 @@
   <section class="section section--dark">
     <div class="container">
       <div class="deals-section-label reveal">
-        <p class="eyebrow" style="margin:0;">Special Discounts</p>
+        <p class="eyebrow" style="margin:0;" data-cms="deals.section.special.label">Special Discounts</p>
       </div>
-      <div class="coupon-grid">
-
-        <div class="coupon-card coupon-card--military reveal d1">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type" style="color:var(--color-white);opacity:0.6;">🇺🇸 Military Discount</p>
-            <p class="coupon-card__code" style="font-size:1.2rem;">10% OFF</p>
-            <p class="coupon-card__offer">Active Duty &amp; Veterans — Any Day of the Week.</p>
-            <p class="coupon-card__detail">10% off any jet ski rental. $30 off any boat rental. Valid ID required at check-in. Applies to the service member + 1 guest ski. Thank you for your service — come out and ride.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Valid ID required at check-in</span>
-            <a class="btn btn--gold" href="tel:4106297433" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">CALL TO BOOK</a>
-          </div>
-        </div>
-
-        <div class="coupon-card coupon-card--local reveal d2">
-          <div class="coupon-card__body">
-            <p class="coupon-card__type">🏠 Local Discount</p>
-            <p class="coupon-card__code" style="font-size:1.1rem;">OC LOCAL</p>
-            <p class="coupon-card__offer">Live nearby? You qualify for local pricing.</p>
-            <p class="coupon-card__detail">Live in Wicomico, Worcester, Somerset, Dorchester, or Sussex County? You qualify for our local discount. Applies any day pre-season (before Memorial Day Weekend &amp; after Labor Day Weekend) and Mon–Wed during season. Call for best price — discount depends on day and time.</p>
-          </div>
-          <div class="coupon-card__foot">
-            <span class="coupon-card__cta-label">Call for current local rate</span>
-            <a class="btn btn--gold" href="tel:4106297433" style="font-size:0.75rem;padding:0.4rem 0.9rem;min-height:36px;">CALL 410-629-RIDE (7433)</a>
-          </div>
-        </div>
-
-      </div>
+      <div class="coupon-grid" id="coupon-grid-special"></div>
     </div>
   </section>
 
@@ -269,14 +239,14 @@
   <section class="section section--mid section--sm">
     <div class="container container--narrow">
       <div class="info-box reveal">
-        <p class="info-box__title">Good to Know</p>
+        <p class="info-box__title" data-cms="deals.fineprint.title">Good to Know</p>
         <ul>
-          <li>Specials and coupons <strong>cannot be combined</strong> with other offers.</li>
-          <li>Must arrive <strong>45 minutes early</strong> to ensure full time on the water.</li>
-          <li>Have a larger group or want a customized trip? Call us — we'll work with you.</li>
-          <li>Want to save more? Call to save on online software / credit card processing fees.</li>
-          <li>Reservations are recommended — slots fill fast in peak season.</li>
-          <li>All sales final. No refunds. See <a href="jet-skis.html#pricing" style="color:var(--color-gold)">full pricing page</a> for cancellation policy.</li>
+          <li data-cms="deals.fineprint.li1">Specials and coupons <strong>cannot be combined</strong>.</li>
+          <li data-cms="deals.fineprint.li2">Must arrive <strong>45 minutes early</strong> to ensure you get your full time on the water.</li>
+          <li data-cms="deals.fineprint.li3">Discount limited to <strong>1 jet ski for you and 1 ski for a guest</strong>. Max $30 off any boat rental.</li>
+          <li data-cms="deals.fineprint.li4">Have a larger group or want a customized trip? <strong>Give us a call</strong> and let us help you plan it!</li>
+          <li data-cms="deals.fineprint.li5">Want to save more money? <strong>Call us</strong> to save on the online software / credit card processing fees!</li>
+          <li data-cms="deals.fineprint.li6">Applies to any day of the week (unless stated otherwise).</li>
         </ul>
       </div>
     </div>
@@ -289,9 +259,9 @@
       <div class="cta-section__overlay"></div>
     </div>
     <div class="cta-section__inner reveal">
-      <p class="eyebrow eyebrow--gold">Ready to Book?</p>
-      <h2 class="cta-section__title">Ready to Book?</h2>
-      <p class="cta-section__sub">Apply your deal at checkout — or call us and mention your code. Our team will make sure you get the best rate available for your date.</p>
+      <p class="eyebrow eyebrow--gold" data-cms="deals.cta.eyebrow">Ready to Book?</p>
+      <h2 class="cta-section__title" data-cms="deals.cta.title">Ready to Book?</h2>
+      <p class="cta-section__sub" data-cms="deals.cta.text">Apply your deal at checkout — or call us and mention your code. Our team will make sure you get the best rate available for your date.</p>
       <div class="cta-section__actions">
         <a class="btn btn--gold btn--lg" href="tel:4106297433">CALL 410-629-RIDE (7433)</a>
         <a class="btn btn--outline btn--on-dark btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK ONLINE</a>
@@ -325,6 +295,7 @@
     <div class="footer-int__bottom">
       <p class="footer-int__copy">&copy; 2026 OCA Watersports. All rights reserved.</p>
       <p class="footer-int__partner">Partner: <a href="https://angleroc.net" target="_blank" rel="noopener">12817 Harbor Rd</a> — 10% off with OCA confirmation email</p>
+      <a href="admin.html" style="color:rgba(255,255,255,0.15);font-size:0.7rem;text-decoration:none;">Admin</a>
     </div>
     <p class="footer-int__seo">OCA Watersports — Jet Ski Rentals &amp; Pontoon Boat Rentals in Ocean City, Maryland. Serving Ocean City MD, Assateague Island, Berlin MD, Salisbury MD, Ocean Pines, Fenwick Island DE, Rehoboth Beach DE, and the entire Maryland Eastern Shore.</p>
   </footer>
@@ -378,8 +349,10 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
+
 }());
 </script>
+<script src="cms.js"></script>
 <!-- FareHarbor Lightframe API -->
 <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>

@@ -95,7 +95,7 @@
 
   <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
-    <span class="sticky-bar__text">Reserve Your Boat — Slots Fill Fast</span>
+    <span class="sticky-bar__text" data-cms="pontoons.sticky.text">Reserve Your Boat — Slots Fill Fast</span>
     <a class="sticky-bar__btn" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW →</a>
   </div>
 
@@ -128,9 +128,9 @@
       <div class="page-hero__overlay"></div>
     </div>
     <div class="page-hero__content">
-      <p class="page-hero__eyebrow">Ocean City Maryland</p>
-      <h1 class="page-hero__title">Pontoon Boat Rentals</h1>
-      <p class="page-hero__sub">Your private boat. Ocean City's entire bay. No strangers. No tour guide. Your group, your adventure.</p>
+      <p class="page-hero__eyebrow" data-cms="pontoons.hero.eyebrow">Ocean City Maryland</p>
+      <h1 class="page-hero__title" data-cms="pontoons.hero.title">Pontoon Boat Rentals</h1>
+      <p class="page-hero__sub" data-cms="pontoons.hero.sub">Your private boat. Ocean City's entire bay. No strangers. No tour guide. Your group, your adventure.</p>
       <div class="page-hero__badges">
         <span class="badge badge--gold">Up to 12 Guests</span>
         <span class="badge">Beach on Assateague Island</span>
@@ -144,20 +144,20 @@
   <!-- Stats Bar -->
   <div class="stats-bar">
     <div class="stat-item reveal d1">
-      <span class="stat-item__num" data-count="12">0</span>
-      <span class="stat-item__label">Max Guests</span>
+      <span class="stat-item__num" data-count="12" data-cms="pontoons.stats.guests.num">0</span>
+      <span class="stat-item__label" data-cms="pontoons.stats.guests.label">Max Guests</span>
     </div>
     <div class="stat-item reveal d2">
-      <span class="stat-item__num">3 Hrs</span>
-      <span class="stat-item__label">Most Popular Rental</span>
+      <span class="stat-item__num" data-cms="pontoons.stats.popular.num">3 Hrs</span>
+      <span class="stat-item__label" data-cms="pontoons.stats.popular.label">Most Popular Rental</span>
     </div>
     <div class="stat-item reveal d3">
-      <span class="stat-item__num" data-count="640" data-suffix="+">0</span>
-      <span class="stat-item__label">5-Star Reviews</span>
+      <span class="stat-item__num" data-count="640" data-suffix="+" data-cms="pontoons.stats.reviews.num">0</span>
+      <span class="stat-item__label" data-cms="pontoons.stats.reviews.label">5-Star Reviews</span>
     </div>
     <div class="stat-item reveal d4">
-      <span class="stat-item__num">100%</span>
-      <span class="stat-item__label">Private — Just Your Group</span>
+      <span class="stat-item__num" data-cms="pontoons.stats.private.num">100%</span>
+      <span class="stat-item__label" data-cms="pontoons.stats.private.label">Private — Just Your Group</span>
     </div>
   </div>
 
@@ -169,12 +169,12 @@
           <img src="images/choose-pontoon.jpg" alt="Private pontoon boat rental Ocean City Maryland bay" />
         </div>
         <div class="alt-layout__body">
-          <p class="eyebrow">Private Charter</p>
-          <h2 class="section-title section-title--dark">Your Boat. Your Rules.</h2>
-          <p>This isn't a tour. There's no captain telling you where to go or how long to stay. You rent the boat — the whole thing, just for your group — and you captain your own adventure across Ocean City Maryland's entire bay.</p>
-          <p>Want to <strong>beach directly on Assateague Island</strong> and let the wild horses walk up to you? Do it. Want to <strong>bar hop to Seacrets or Fish Tales</strong> from the water like a local? Pull up and dock. Want to drop anchor on a sandbar and make it a full-day party in the sun? That's the most popular move on the bay all summer.</p>
-          <p>The Assateague Island shoreline is a 37-mile protected National Seashore. Pull your pontoon right up to the bay-side sandbars — some just inches deep. No parking lot. No boardwalk. Just you, the wild horses, and one of the most untouched stretches of coastline on the East Coast.</p>
-          <p><strong>Other boat rental companies won't let you go to Assateague.</strong> That's exactly why we're different.</p>
+          <p class="eyebrow" data-cms="pontoons.charter.eyebrow">Private Charter</p>
+          <h2 class="section-title section-title--dark" data-cms="pontoons.charter.title">Your Boat. Your Rules.</h2>
+          <p data-cms="pontoons.charter.text1">This isn't a tour. There's no captain telling you where to go or how long to stay. You rent the boat — the whole thing, just for your group — and you captain your own adventure across Ocean City Maryland's entire bay.</p>
+          <p data-cms="pontoons.charter.text2">Want to <strong>beach directly on Assateague Island</strong> and let the wild horses walk up to you? Do it. Want to <strong>bar hop to Seacrets or Fish Tales</strong> from the water like a local? Pull up and dock. Want to drop anchor on a sandbar and make it a full-day party in the sun? That's the most popular move on the bay all summer.</p>
+          <p data-cms="pontoons.charter.text3">The Assateague Island shoreline is a 37-mile protected National Seashore. Pull your pontoon right up to the bay-side sandbars — some just inches deep. No parking lot. No boardwalk. Just you, the wild horses, and one of the most untouched stretches of coastline on the East Coast.</p>
+          <p data-cms="pontoons.charter.text4"><strong>Other boat rental companies won't let you go to Assateague.</strong> That's exactly why we're different.</p>
         </div>
       </div>
     </div>
@@ -187,37 +187,124 @@
         <p class="eyebrow">Why OCA Pontoons</p>
         <h2 class="section-title section-title--dark">Six Reasons Your Group Will Love It</h2>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card reveal d1">
-          <div class="feature-card__icon">🏝️</div>
-          <h3 class="feature-card__title">Beach on Assateague Island</h3>
-          <p class="feature-card__text">Pull your boat right up to the sand on the bay side of Assateague Island National Seashore. The wild horses may walk straight up to you. No other OC rental lets you do this.</p>
+      <div class="pontoon-reasons">
+
+        <div class="pontoon-reason reveal d1">
+          <img src="images/pontoon-strip-22.jpg" alt="Wild horses on Assateague Island" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">Wild Horse Spotting</h3>
+            <p class="pontoon-reason__text">Anchor near Assateague and watch the famous horses roam the beach. They've been free since the 1600s.</p>
+          </div>
         </div>
-        <div class="feature-card reveal d2">
-          <div class="feature-card__icon">🎣</div>
-          <h3 class="feature-card__title">Fish &amp; Crab the Bay</h3>
-          <p class="feature-card__text">Add on our fishing or crabbing package and make it a full-day experience. The bay between Ocean City and Assateague Island is some of the best crabbing on the Eastern Shore.</p>
+
+        <div class="pontoon-reason reveal d2">
+          <img src="images/pontoon-strip-08.jpg" alt="Group on a pontoon boat at Assateague Island" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">Beach on Assateague</h3>
+            <p class="pontoon-reason__text">Pull your boat right up to the sand on the bay side of Assateague Island. No other OC rental lets you do this.</p>
+          </div>
         </div>
-        <div class="feature-card reveal d3">
-          <div class="feature-card__icon">🍻</div>
-          <h3 class="feature-card__title">Food &amp; Drinks Welcome</h3>
-          <p class="feature-card__text">Bring your own cooler, snacks, and beverages. The driver stays sober — everyone else can enjoy the ride. Ocean City's best floating party is the one you bring yourself.</p>
+
+        <div class="pontoon-reason reveal d3">
+          <img src="images/pontoon-strip-10.jpg" alt="Family fishing on a pontoon boat" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">Fish &amp; Crab the Bay</h3>
+            <p class="pontoon-reason__text">Add on our fishing or crabbing package. Some of the best crabbing on the Eastern Shore.</p>
+          </div>
         </div>
-        <div class="feature-card reveal d1">
-          <div class="feature-card__icon">🌅</div>
-          <h3 class="feature-card__title">VIP Bay Access</h3>
-          <p class="feature-card__text">Dock at Seacrets, Fish Tales, or Fager's Island from the water like a local. Pull right up to Ocean City's most iconic waterfront spots without fighting for parking.</p>
+
+        <div class="pontoon-reason reveal d1">
+          <img src="images/pontoon-strip-01.jpg" alt="Friends on pontoon boat OC Maryland" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">Food &amp; Drinks Welcome</h3>
+            <p class="pontoon-reason__text">Bring your own cooler, snacks, and beverages. The driver stays sober &mdash; everyone else enjoys the ride.</p>
+          </div>
         </div>
-        <div class="feature-card reveal d2">
-          <div class="feature-card__icon">🐴</div>
-          <h3 class="feature-card__title">Wild Horse Spotting</h3>
-          <p class="feature-card__text">Anchor near Assateague Island and watch the famous horses roam the beach. They've been free since the 1600s. Seeing them from the water is an experience that doesn't exist anywhere else.</p>
+
+        <div class="pontoon-reason reveal d2">
+          <img src="images/pontoon-strip-05.jpg" alt="Pontoon boat docked at waterfront bar Ocean City" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">VIP Bay Access</h3>
+            <p class="pontoon-reason__text">Dock at Seacrets, Fish Tales, or Fager's Island from the water. Skip the parking and pull right up.</p>
+          </div>
         </div>
-        <div class="feature-card reveal d3">
-          <div class="feature-card__icon">🌊</div>
-          <h3 class="feature-card__title">Calm Bay Waters</h3>
-          <p class="feature-card__text">Perfect for families, birthday parties, bachelorettes, corporate groups — any occasion. The protected bay between OC and Assateague stays calm and shallow, ideal for all skill levels.</p>
+
+        <div class="pontoon-reason reveal d3">
+          <img src="images/pontoon-strip-09.jpg" alt="Kids playing in calm bay water" loading="lazy" />
+          <div class="pontoon-reason__overlay"></div>
+          <div class="pontoon-reason__content">
+            <h3 class="pontoon-reason__title">Calm Bay Waters</h3>
+            <p class="pontoon-reason__text">Perfect for families, birthdays, bachelorettes &mdash; any occasion. The protected bay stays calm and shallow.</p>
+          </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Strip Carousel -->
+  <section class="section section--dark pontoon-strip-section">
+    <div class="text-center reveal" style="margin-bottom:2.5rem;">
+      <p class="eyebrow">The Experience</p>
+      <h2 class="section-title section-title--dark">Your Boat. Your Bay. Your Day.</h2>
+    </div>
+
+    <div class="pontoon-strip">
+      <div class="pontoon-strip__track pontoon-strip__track--left">
+        <img src="images/pontoon-strip-01.jpg" alt="Pontoon boat OCA Watersports" loading="lazy" />
+        <img src="images/pontoon-strip-02.jpg" alt="Family on pontoon boat" loading="lazy" />
+        <img src="images/pontoon-strip-03.jpg" alt="Pontoon cruising OC bay" loading="lazy" />
+        <img src="images/pontoon-strip-04.jpg" alt="Bay views from pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-05.jpg" alt="OC waterfront from the water" loading="lazy" />
+        <img src="images/pontoon-strip-06.jpg" alt="Sunset pontoon ride" loading="lazy" />
+        <img src="images/pontoon-strip-07.jpg" alt="Pontoon adventure OC" loading="lazy" />
+        <img src="images/pontoon-strip-08.jpg" alt="Group on a pontoon boat" loading="lazy" />
+        <img src="images/pontoon-strip-09.jpg" alt="Kids in calm bay water" loading="lazy" />
+        <img src="images/pontoon-strip-10.jpg" alt="Family fishing from pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-22.jpg" alt="Wild horses on Assateague Island" loading="lazy" />
+        <img src="images/pontoon-strip-01.jpg" alt="Pontoon boat OCA Watersports" loading="lazy" />
+        <img src="images/pontoon-strip-02.jpg" alt="Family on pontoon boat" loading="lazy" />
+        <img src="images/pontoon-strip-03.jpg" alt="Pontoon cruising OC bay" loading="lazy" />
+        <img src="images/pontoon-strip-04.jpg" alt="Bay views from pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-05.jpg" alt="OC waterfront from the water" loading="lazy" />
+        <img src="images/pontoon-strip-06.jpg" alt="Sunset pontoon ride" loading="lazy" />
+        <img src="images/pontoon-strip-07.jpg" alt="Pontoon adventure OC" loading="lazy" />
+        <img src="images/pontoon-strip-08.jpg" alt="Group on a pontoon boat" loading="lazy" />
+        <img src="images/pontoon-strip-09.jpg" alt="Kids in calm bay water" loading="lazy" />
+        <img src="images/pontoon-strip-10.jpg" alt="Family fishing from pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-22.jpg" alt="Wild horses on Assateague Island" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="pontoon-strip">
+      <div class="pontoon-strip__track pontoon-strip__track--right">
+        <img src="images/pontoon-strip-11.jpg" alt="Pontoon on the bay" loading="lazy" />
+        <img src="images/pontoon-strip-12.jpg" alt="OC bay aerial" loading="lazy" />
+        <img src="images/pontoon-strip-13.jpg" alt="Assateague from the water" loading="lazy" />
+        <img src="images/pontoon-strip-14.jpg" alt="Bay life OC" loading="lazy" />
+        <img src="images/pontoon-strip-15.jpg" alt="Pontoon boat sunset" loading="lazy" />
+        <img src="images/pontoon-strip-16.jpg" alt="Riders on the water" loading="lazy" />
+        <img src="images/pontoon-strip-17.jpg" alt="OCA Watersports pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-18.jpg" alt="Bay cruising OC" loading="lazy" />
+        <img src="images/pontoon-strip-19.jpg" alt="OCA dock" loading="lazy" />
+        <img src="images/pontoon-strip-20.jpg" alt="Ready to ride" loading="lazy" />
+        <img src="images/pontoon-strip-21.jpg" alt="OCA Watersports team" loading="lazy" />
+        <img src="images/pontoon-strip-11.jpg" alt="Pontoon on the bay" loading="lazy" />
+        <img src="images/pontoon-strip-12.jpg" alt="OC bay aerial" loading="lazy" />
+        <img src="images/pontoon-strip-13.jpg" alt="Assateague from the water" loading="lazy" />
+        <img src="images/pontoon-strip-14.jpg" alt="Bay life OC" loading="lazy" />
+        <img src="images/pontoon-strip-15.jpg" alt="Pontoon boat sunset" loading="lazy" />
+        <img src="images/pontoon-strip-16.jpg" alt="Riders on the water" loading="lazy" />
+        <img src="images/pontoon-strip-17.jpg" alt="OCA Watersports pontoon" loading="lazy" />
+        <img src="images/pontoon-strip-18.jpg" alt="Bay cruising OC" loading="lazy" />
+        <img src="images/pontoon-strip-19.jpg" alt="OCA dock" loading="lazy" />
+        <img src="images/pontoon-strip-20.jpg" alt="Ready to ride" loading="lazy" />
+        <img src="images/pontoon-strip-21.jpg" alt="OCA Watersports team" loading="lazy" />
       </div>
     </div>
   </section>
@@ -226,36 +313,36 @@
   <section class="section section--dark" id="pricing">
     <div class="container container--narrow">
       <div class="text-center reveal" style="margin-bottom:3rem;">
-        <p class="eyebrow">Pontoon Boat Rates</p>
-        <h2 class="section-title section-title--dark">Pick Your Length. Own the Bay.</h2>
-        <p class="section-sub section-sub--center">Prices are subject to change. April availability — call us directly for bookings.</p>
+        <p class="eyebrow" data-cms="pontoons.pricing.eyebrow">Pontoon Boat Rates</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.pricing.title">Pick Your Length. Own the Bay.</h2>
+        <p class="section-sub section-sub--center" data-cms="pontoons.pricing.sub">Prices are subject to change. April availability — call us directly for bookings.</p>
       </div>
 
       <div class="pricing-grid reveal">
         <div class="price-card">
-          <div class="price-card__duration">1 Hour</div>
-          <div class="price-card__price">$199</div>
-          <div class="price-card__sub">+ tax</div>
+          <div class="price-card__duration" data-cms="pontoons.price1.duration">1 Hour</div>
+          <div class="price-card__price" data-cms="pontoons.price1.price">$199</div>
+          <div class="price-card__sub" data-cms="pontoons.price1.sub">+ tax</div>
         </div>
         <div class="price-card price-card--featured">
-          <div class="price-card__duration">2 Hours</div>
-          <div class="price-card__price">$329</div>
-          <div class="price-card__sub">+ tax</div>
+          <div class="price-card__duration" data-cms="pontoons.price2.duration">2 Hours</div>
+          <div class="price-card__price" data-cms="pontoons.price2.price">$329</div>
+          <div class="price-card__sub" data-cms="pontoons.price2.sub">+ tax</div>
         </div>
         <div class="price-card price-card--featured">
-          <div class="price-card__duration">3 Hours</div>
-          <div class="price-card__price">$419</div>
-          <div class="price-card__sub">+ tax · Most Popular</div>
+          <div class="price-card__duration" data-cms="pontoons.price3.duration">3 Hours</div>
+          <div class="price-card__price" data-cms="pontoons.price3.price">$419</div>
+          <div class="price-card__sub" data-cms="pontoons.price3.sub">+ tax · Most Popular</div>
         </div>
         <div class="price-card">
-          <div class="price-card__duration">Additional Hours</div>
-          <div class="price-card__price">$100</div>
-          <div class="price-card__sub">per hour, if available — call to arrange</div>
+          <div class="price-card__duration" data-cms="pontoons.price4.duration">Additional Hours</div>
+          <div class="price-card__price" data-cms="pontoons.price4.price">$100</div>
+          <div class="price-card__sub" data-cms="pontoons.price4.sub">per hour, if available — call to arrange</div>
         </div>
       </div>
 
       <div class="highlight-box reveal">
-        <p>All rentals are <strong>100% private</strong> — your group only. No strangers. No shared tours. The boat is yours for the entire rental period.</p>
+        <p data-cms="pontoons.pricing.highlight">All rentals are <strong>100% private</strong> — your group only. No strangers. No shared tours. The boat is yours for the entire rental period.</p>
       </div>
 
       <div class="btn-row btn-row--center reveal" style="margin-top:2rem;">
@@ -269,31 +356,38 @@
   <section class="section section--mid">
     <div class="container container--narrow">
       <div class="text-center reveal" style="margin-bottom:2.5rem;">
-        <p class="eyebrow">Upgrades</p>
-        <h2 class="section-title section-title--dark">Add-Ons for the Full Experience</h2>
-        <p class="section-sub section-sub--center">Must be reserved in advance when booking. Call to add these to your reservation.</p>
+        <p class="eyebrow" data-cms="pontoons.addons.eyebrow">Upgrades</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.addons.title">Add-Ons for the Full Experience</h2>
+        <p class="section-sub section-sub--center" data-cms="pontoons.addons.sub">Must be reserved in advance when booking. Call to add these to your reservation.</p>
       </div>
       <div class="addon-grid reveal">
         <div class="addon-card">
           <div class="addon-card__info">
-            <h4>Bluetooth Speaker</h4>
-            <p>Waterproof, loud, all-day battery</p>
+            <h4 data-cms="pontoons.addon1.title">Bluetooth Speaker</h4>
+            <p data-cms="pontoons.addon1.desc">Waterproof, loud, all-day battery</p>
           </div>
-          <div class="addon-card__price">$50</div>
+          <div class="addon-card__price" data-cms="pontoons.addon1.price">$50</div>
         </div>
         <div class="addon-card">
           <div class="addon-card__info">
-            <h4>Fishing Package</h4>
-            <p>2 rods, bait &amp; tackle tray</p>
+            <h4 data-cms="pontoons.addon2.title">Fishing Package</h4>
+            <p data-cms="pontoons.addon2.desc">2 rods, bait &amp; tackle tray</p>
           </div>
-          <div class="addon-card__price">$39</div>
+          <div class="addon-card__price" data-cms="pontoons.addon2.price">$39</div>
         </div>
         <div class="addon-card">
           <div class="addon-card__info">
-            <h4>Crabbing Package</h4>
-            <p>2 baskets, bait, crab pot</p>
+            <h4 data-cms="pontoons.addon3.title">Crabbing Package</h4>
+            <p data-cms="pontoons.addon3.desc">2 baskets, bait, crab pot</p>
           </div>
-          <div class="addon-card__price">$39</div>
+          <div class="addon-card__price" data-cms="pontoons.addon3.price">$39</div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-card__info">
+            <h4>Tube</h4>
+            <p>If available &mdash; first come, first served</p>
+          </div>
+          <div class="addon-card__price">$75</div>
         </div>
       </div>
     </div>
@@ -307,48 +401,48 @@
           <img src="images/Delmarva_Aerial_360-401.jpg" alt="Pontoon boat near Assateague Island bay side sandbar Ocean City Maryland" />
         </div>
         <div class="alt-layout__body">
-          <p class="eyebrow">Before You Go</p>
-          <h2 class="section-title section-title--dark">Good to Know</h2>
+          <p class="eyebrow" data-cms="pontoons.rules.eyebrow">Before You Go</p>
+          <h2 class="section-title section-title--dark" data-cms="pontoons.rules.title">Good to Know</h2>
           <div class="rules-grid" style="margin-top:1rem;">
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p>Driver must be <strong>21+ with valid driver's license</strong></p>
+              <p data-cms="pontoons.rules.r1">Driver must be <strong>21+ with valid driver's license</strong></p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p>Max <strong>12 guests</strong> / max 1,900–2,100 lb total weight</p>
+              <p data-cms="pontoons.rules.r2">Max <strong>12 guests</strong> / max 1,900–2,100 lb total weight</p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">!</div>
-              <p>Weight limit is <strong>Maryland law</strong> — no exceptions</p>
+              <p data-cms="pontoons.rules.r3">Weight limit is <strong>Maryland law</strong> — no exceptions</p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p>All IDs &amp; credit cards must <strong>match the booking name</strong></p>
+              <p data-cms="pontoons.rules.r4">All IDs &amp; credit cards must <strong>match the booking name</strong></p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p>Card holder <strong>must be present</strong> at time of rental</p>
+              <p data-cms="pontoons.rules.r5">Card holder <strong>must be present</strong> at time of rental</p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">!</div>
-              <p><strong>Driver must remain sober</strong> for entire rental — breathalyzer policy</p>
+              <p data-cms="pontoons.rules.r6"><strong>Driver must remain sober</strong> for entire rental — breathalyzer policy</p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p>Food &amp; drinks welcome for all <strong>passengers</strong></p>
+              <p data-cms="pontoons.rules.r7">Food &amp; drinks welcome for all <strong>passengers</strong></p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">✓</div>
-              <p><strong>Arrive 45 minutes early</strong> for paperwork &amp; orientation</p>
+              <p data-cms="pontoons.rules.r8"><strong>Arrive 45 minutes early</strong> for paperwork &amp; orientation</p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">!</div>
-              <p>Late arrival = reduced water time. <strong>No extensions.</strong></p>
+              <p data-cms="pontoons.rules.r9">Late arrival = reduced water time. <strong>No extensions.</strong></p>
             </div>
             <div class="rule-item">
               <div class="rule-item__dot">!</div>
-              <p>All sales final. <strong>No refunds.</strong></p>
+              <p data-cms="pontoons.rules.r10">All sales final. <strong>No refunds.</strong></p>
             </div>
           </div>
         </div>
@@ -360,9 +454,9 @@
   <section class="section section--mid" id="ride-map">
     <div class="container">
       <div class="text-center reveal" style="margin-bottom:2rem;">
-        <p class="eyebrow">Explore Your Routes</p>
-        <h2 class="section-title section-title--dark">Interactive Bay Map</h2>
-        <p class="section-sub section-sub--center">Head north to OC's hottest spots or south along Assateague Island. Choose your direction and explore every destination.</p>
+        <p class="eyebrow" data-cms="pontoons.map.eyebrow">Explore Your Routes</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.map.title">Interactive Bay Map</h2>
+        <p class="section-sub section-sub--center" data-cms="pontoons.map.sub">Head north to OC's hottest spots or south along Assateague Island. Choose your direction and explore every destination.</p>
       </div>
       <div class="ride-map-preview reveal">
         <div class="ride-map-preview__phone">
@@ -384,34 +478,34 @@
   <section class="section section--mid">
     <div class="container">
       <div class="text-center reveal" style="margin-bottom:2.5rem;">
-        <p class="eyebrow">Every Occasion</p>
-        <h2 class="section-title section-title--dark">Perfect For Any Group</h2>
+        <p class="eyebrow" data-cms="pontoons.occasions.eyebrow">Every Occasion</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.occasions.title">Perfect For Any Group</h2>
       </div>
       <div class="use-case-grid reveal">
         <div class="use-case-card">
           <img src="images/Delmarva_Aerial_360-428.jpg" alt="Family day on pontoon boat Ocean City MD" />
           <div class="use-case-card__overlay"></div>
-          <div class="use-case-card__text">Family Day on the Water</div>
+          <div class="use-case-card__text" data-cms="pontoons.occasion1.text">Family Day on the Water</div>
         </div>
         <div class="use-case-card">
           <img src="images/under-the-bridge-watersports__2.jpg" alt="Bachelorette party pontoon boat Ocean City Maryland" />
           <div class="use-case-card__overlay"></div>
-          <div class="use-case-card__text">Bachelorette on the Bay</div>
+          <div class="use-case-card__text" data-cms="pontoons.occasion2.text">Bachelorette on the Bay</div>
         </div>
         <div class="use-case-card">
           <img src="images/under-the-bridge-watersports__3.jpg" alt="Birthday party pontoon rental Ocean City MD" />
           <div class="use-case-card__overlay"></div>
-          <div class="use-case-card__text">Birthday on the Bay</div>
+          <div class="use-case-card__text" data-cms="pontoons.occasion3.text">Birthday on the Bay</div>
         </div>
         <div class="use-case-card">
           <img src="images/Delmarva_Aerial_360-405.jpg" alt="Date night sunset cruise pontoon boat Ocean City Maryland" />
           <div class="use-case-card__overlay"></div>
-          <div class="use-case-card__text">Date Night Sunset Cruise</div>
+          <div class="use-case-card__text" data-cms="pontoons.occasion4.text">Date Night Sunset Cruise</div>
         </div>
         <div class="use-case-card">
           <img src="images/Delmarva_Aerial_360-413.jpg" alt="Corporate group event pontoon boat rental Ocean City MD" />
           <div class="use-case-card__overlay"></div>
-          <div class="use-case-card__text">Corporate &amp; Group Events</div>
+          <div class="use-case-card__text" data-cms="pontoons.occasion5.text">Corporate &amp; Group Events</div>
         </div>
       </div>
     </div>
@@ -421,8 +515,8 @@
   <section class="section section--dark" id="gallery">
     <div class="container">
       <div class="text-center reveal" style="margin-bottom:2.5rem;">
-        <p class="eyebrow">Out on the Bay</p>
-        <h2 class="section-title section-title--dark">Pontoon Life</h2>
+        <p class="eyebrow" data-cms="pontoons.gallery.eyebrow">Out on the Bay</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.gallery.title">Pontoon Life</h2>
       </div>
       <div class="gallery-grid reveal">
         <div class="gallery-item gallery-item--wide">
@@ -475,103 +569,103 @@
   <section class="section section--mid" id="faq">
     <div class="container container--narrow">
       <div class="text-center reveal" style="margin-bottom:3rem;">
-        <p class="eyebrow">Know Before You Go</p>
-        <h2 class="section-title section-title--dark">Pontoon Boat FAQ</h2>
+        <p class="eyebrow" data-cms="pontoons.faq.eyebrow">Know Before You Go</p>
+        <h2 class="section-title section-title--dark" data-cms="pontoons.faq.title">Pontoon Boat FAQ</h2>
       </div>
       <div class="faq reveal">
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q1">
             Who drives the boat?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>You do. The renter must be 21+ with a valid driver's license. We issue a temporary boater's license at the dock during your orientation. No prior boating experience required — we'll walk you through everything before you leave the dock.</p>
+              <p data-cms="pontoons.faq.a1">You do. The renter must be 21+ with a valid driver's license. We issue a temporary boater's license at the dock during your orientation. No prior boating experience required — we'll walk you through everything before you leave the dock.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q2">
             Can we bring our own food and drinks?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>Absolutely. Bring your cooler, food, and beverages. The driver must remain completely sober for the entire rental. Passengers 21+ are welcome to enjoy drinks responsibly. Think of it like driving a car — same rules apply on the water.</p>
+              <p data-cms="pontoons.faq.a2">Absolutely. Bring your cooler, food, and beverages. The driver must remain completely sober for the entire rental. Passengers 21+ are welcome to enjoy drinks responsibly. Think of it like driving a car — same rules apply on the water.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q3">
             What's the maximum capacity?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>12 people maximum per boat. Weight limit is 1,900–2,100 lb total (including people, coolers, and gear). This is Maryland maritime law — no exceptions can be made. Count your group and gear before you book.</p>
+              <p data-cms="pontoons.faq.a3">12 people maximum per boat. Weight limit is 1,900–2,100 lb total (including people, coolers, and gear). This is Maryland maritime law — no exceptions can be made. Count your group and gear before you book.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q4">
             Where exactly can we take the pontoon?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>The entire bay is yours — from the Verrazano Bridge to the Rt. 90 Bridge. Beach on Assateague Island's bay-side sandbars, cruise to Seacrets, Fish Tales, or Fager's Island, drop anchor on a sandbar, or just explore. We give you a full briefing at the dock including route suggestions and must-see spots.</p>
+              <p data-cms="pontoons.faq.a4">The entire bay is yours — from the Verrazano Bridge to the Rt. 90 Bridge. Beach on Assateague Island's bay-side sandbars, cruise to Seacrets, Fish Tales, or Fager's Island, drop anchor on a sandbar, or just explore. We give you a full briefing at the dock including route suggestions and must-see spots.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q5">
             Can we fish and crab from the boat?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>Yes! Add our fishing or crabbing package when you book. The packages include gear — you just need a valid Maryland fishing or crabbing license, which are available at local tackle shops around Ocean City MD before you arrive at our dock.</p>
+              <p data-cms="pontoons.faq.a5">Yes! Add our fishing or crabbing package when you book. The packages include gear — you just need a valid Maryland fishing or crabbing license, which are available at local tackle shops around Ocean City MD before you arrive at our dock.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q6">
             Do we need boating experience?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>No. We provide a full dock orientation covering navigation, safety rules, operating the boat, and what to do if you have a question out on the water. The bay is calm and the pontoon is easy to handle. First-timers do this every day.</p>
+              <p data-cms="pontoons.faq.a6">No. We provide a full dock orientation covering navigation, safety rules, operating the boat, and what to do if you have a question out on the water. The bay is calm and the pontoon is easy to handle. First-timers do this every day.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q7">
             How do we get to Assateague Island by boat?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>You beach the pontoon directly on the bay-side of Assateague Island — no parking lot, no trail, no ferry. Just pull up to the shallow sandbars, cut the engine, step off into ankle-deep water, and you're on one of the most beautiful stretches of coastline on the East Coast. We'll show you exactly where to go in your briefing.</p>
+              <p data-cms="pontoons.faq.a7">You beach the pontoon directly on the bay-side of Assateague Island — no parking lot, no trail, no ferry. Just pull up to the shallow sandbars, cut the engine, step off into ankle-deep water, and you're on one of the most beautiful stretches of coastline on the East Coast. We'll show you exactly where to go in your briefing.</p>
             </div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
+          <button class="faq-btn" aria-expanded="false" data-cms="pontoons.faq.q8">
             Is alcohol allowed on the pontoon boat?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer__inner">
-              <p>Passengers may consume alcohol. The driver must remain completely sober — this is the same as operating a motor vehicle under Maryland law. We reserve the right to administer a breathalyzer test at any point. Violations end the rental immediately with no refund.</p>
+              <p data-cms="pontoons.faq.a8">Passengers may consume alcohol. The driver must remain completely sober — this is the same as operating a motor vehicle under Maryland law. We reserve the right to administer a breathalyzer test at any point. Violations end the rental immediately with no refund.</p>
             </div>
           </div>
         </div>
@@ -607,9 +701,9 @@
       <div class="cta-section__overlay"></div>
     </div>
     <div class="cta-section__inner reveal">
-      <p class="eyebrow eyebrow--gold">Your Perfect Day Starts Here</p>
-      <h2 class="cta-section__title">Your Perfect Day on the Water.</h2>
-      <p class="cta-section__sub">Call to reserve your pontoon — slots go fast in season. April bookings: call us directly for availability.</p>
+      <p class="eyebrow eyebrow--gold" data-cms="pontoons.cta.eyebrow">Your Perfect Day Starts Here</p>
+      <h2 class="cta-section__title" data-cms="pontoons.cta.title">Your Perfect Day on the Water.</h2>
+      <p class="cta-section__sub" data-cms="pontoons.cta.sub">Call to reserve your pontoon — slots go fast in season. April bookings: call us directly for availability.</p>
       <div class="cta-section__actions">
         <a class="btn btn--gold btn--lg" href="tel:4106297433">CALL 410-629-RIDE (7433)</a>
         <a class="btn btn--outline btn--on-dark btn--lg" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK ONLINE</a>
@@ -661,6 +755,7 @@
     <div class="footer-int__bottom">
       <p class="footer-int__copy">&copy; 2026 OCA Watersports. All rights reserved.</p>
       <p class="footer-int__partner">Partner: <a href="https://angleroc.net" target="_blank" rel="noopener">12817 Harbor Rd</a> — 10% off with OCA confirmation email</p>
+      <a href="admin.html" style="color:rgba(255,255,255,0.15);font-size:0.7rem;text-decoration:none;">Admin</a>
     </div>
     <p class="footer-int__seo">OCA Watersports — Jet Ski Rentals &amp; Pontoon Boat Rentals in Ocean City, Maryland. Serving Ocean City MD, Assateague Island, Berlin MD, Salisbury MD, Ocean Pines, Fenwick Island DE, Rehoboth Beach DE, and the entire Maryland Eastern Shore.</p>
   </footer>
@@ -795,6 +890,7 @@
 }());
 </script>
 <!-- FareHarbor Lightframe API -->
+<script src="cms.js"></script>
 <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 </html>
