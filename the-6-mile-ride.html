@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/OCA_LogoColors-final.png" />
+  <link rel="apple-touch-icon" href="/images/OCA_LogoColors-final.png" />
   <title>The 6 Mile Ride — Assateague Island Jet Ski Tour | OCA Watersports Ocean City MD</title>
   <meta name="description" content="The only 6 mile guided jet ski experience in Ocean City MD. Ride to Assateague Island, see wild horses, dolphins &amp; sandbars. 70-min rides. Book: 410-629-RIDE (7433)." />
   <meta name="robots" content="index, follow" />
@@ -12,6 +14,14 @@
   <meta property="og:description" content="The only true 6 mile open-water jet ski route in Ocean City Maryland. Created by OCA Watersports in 2010. Wild horses, dolphins, sandbars." />
   <meta property="og:url" content="https://www.ocawatersports.com/the-6-mile-ride.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="OCA Watersports" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The 6 Mile Ride — Assateague Island Jet Ski Tour | OCA Watersports" />
+  <meta name="twitter:description" content="The only 6 mile open-water jet ski route in Ocean City MD. Wild horses, dolphins, sandbars." />
+  <meta name="twitter:image" content="https://www.ocawatersports.com/images/the-ride.jpg" />
 
   <meta name="geo.region" content="US-MD" />
   <meta name="geo.placename" content="Ocean City, Maryland" />
@@ -20,22 +30,36 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Encode+Sans+Expanded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interior.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5XJSTK5X1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5XJSTK5X1');
+  </script>
 
   <!-- FareHarbor Lightframe API loaded before </body> -->
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "SportsActivityLocation",
+    "@id": "https://www.ocawatersports.com/#business",
     "name": "OCA Watersports",
+    "alternateName": "Under The Bridge Watersports",
     "description": "Ocean City MD's premier jet ski and pontoon boat rental company. Home of the Famous 6 Mile Ride along Assateague Island.",
     "url": "https://www.ocawatersports.com",
     "telephone": "+14106297433",
     "email": "ride@ocawatersports.com",
+    "foundingDate": "2010",
+    "image": "https://www.ocawatersports.com/images/the-ride.jpg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "12817 Harbor Rd",
@@ -44,10 +68,27 @@
       "postalCode": "21842",
       "addressCountry": "US"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": 38.3365, "longitude": -75.0849 },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 38.33650, "longitude": -75.08490 },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640", "bestRating": "5" },
     "priceRange": "$$",
-    "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"]
+    "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"],
+    "founder": [
+      { "@type": "Person", "name": "Cliff Miller" },
+      { "@type": "Person", "name": "Adam Roop" }
+    ],
+    "knowsAbout": ["Jet ski rentals", "Pontoon boat rentals", "Assateague Island National Seashore", "Wild horses of Assateague", "Ocean City Maryland watersports", "The 6 Mile Ride"],
+    "dateModified": "2026-04-14"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ocawatersports.com/" },
+      { "@type": "ListItem", "position": 2, "name": "The 6 Mile Ride", "item": "https://www.ocawatersports.com/the-6-mile-ride.html" }
+    ]
   }
   </script>
 
@@ -436,6 +477,7 @@
     </div>
   </header>
 
+  <main>
   <!-- The Origin Story -->
   <section class="origin-story">
     <div class="origin-story__inner">
@@ -717,6 +759,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer-int">

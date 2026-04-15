@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+Disallow: /oca-scrollytelling.html
+Disallow: /cms-seed-data.json
+Disallow: /admin-fields-generated.js
+
+# Allow AI search crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.ocawatersports.com/sitemap.xml

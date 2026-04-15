@@ -72,6 +72,10 @@
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640", "bestRating": "5" },
     "priceRange": "$$",
     "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"],
+    "founder": [
+      { "@type": "Person", "name": "Cliff Miller" },
+      { "@type": "Person", "name": "Adam Roop" }
+    ],
     "knowsAbout": ["Jet ski rentals", "Pontoon boat rentals", "Assateague Island National Seashore", "Wild horses of Assateague", "Ocean City Maryland watersports", "The 6 Mile Ride"],
     "dateModified": "2026-04-14"
   }
@@ -125,6 +129,36 @@
     ]
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ocawatersports.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Pontoon Boats", "item": "https://www.ocawatersports.com/pontoon-boats.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pontoon Boat Rental — Ocean City MD",
+    "description": "Self-drive pontoon boat rental on the bay. Up to 12 passengers, BYOB, explore Assateague Island sandbars and wild horses. No experience required.",
+    "provider": { "@id": "https://www.ocawatersports.com/#business" },
+    "areaServed": { "@type": "Place", "name": "Ocean City, Maryland" },
+    "serviceType": "Pontoon Boat Rental",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "250",
+      "highPrice": "600",
+      "url": "https://www.ocawatersports.com/pontoon-boats.html"
+    }
+  }
+  </script>
 </head>
 <body>
 <div class="page-int">
@@ -158,7 +192,7 @@
   <!-- Hero -->
   <header class="page-hero" id="top">
     <div class="page-hero__bg">
-      <video class="page-hero__video" src="videos/pontoon-hero-video.mp4" autoplay muted loop playsinline></video>
+      <video class="page-hero__video" src="videos/pontoon-hero-video.mp4" poster="images/pontoon-hero.jpg" autoplay muted loop playsinline></video>
       <img src="images/pontoon-hero.jpg" alt="Pontoon boat on the calm bay in Ocean City Maryland at golden hour" />
       <div class="page-hero__overlay"></div>
     </div>

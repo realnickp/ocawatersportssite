@@ -76,6 +76,10 @@
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "640", "bestRating": "5" },
     "priceRange": "$$",
     "areaServed": ["Ocean City, MD","Assateague Island, MD","Berlin, MD","Salisbury, MD","Ocean Pines, MD","Fenwick Island, DE","Rehoboth Beach, DE"],
+    "founder": [
+      { "@type": "Person", "name": "Cliff Miller" },
+      { "@type": "Person", "name": "Adam Roop" }
+    ],
     "knowsAbout": ["Jet ski rentals", "Pontoon boat rentals", "Assateague Island National Seashore", "Wild horses of Assateague", "Ocean City Maryland watersports", "The 6 Mile Ride"],
     "hasMap": "https://maps.google.com/?q=12817+Harbor+Rd+Ocean+City+MD",
     "dateModified": "2026-04-14"
@@ -136,6 +140,36 @@
     ]
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ocawatersports.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Jet Skis", "item": "https://www.ocawatersports.com/jet-skis.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Jet Ski Rental — The Famous 6 Mile Ride",
+    "description": "70-minute guided jet ski rental along Assateague Island. Sea-Doo GTX jet skis, full throttle freedom, wild horses, dolphins, and sandbars. Ocean City MD's original 6 Mile Ride.",
+    "provider": { "@id": "https://www.ocawatersports.com/#business" },
+    "areaServed": { "@type": "Place", "name": "Ocean City, Maryland" },
+    "serviceType": "Jet Ski Rental",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "85",
+      "highPrice": "250",
+      "url": "https://www.ocawatersports.com/jet-skis.html"
+    }
+  }
+  </script>
 </head>
 <body>
 <div class="page-int">
@@ -169,7 +203,7 @@
   <!-- Hero -->
   <header class="page-hero" id="top">
     <div class="page-hero__bg">
-      <video class="page-hero__video" src="videos/jetski-hero.mp4" autoplay muted loop playsinline></video>
+      <video class="page-hero__video" src="videos/jetski-hero.mp4" poster="images/_O1A8021.jpg" autoplay muted loop playsinline></video>
       <img src="images/_O1A8021.jpg" alt="Jet ski riders on open water in Ocean City MD" />
       <div class="page-hero__overlay"></div>
     </div>
