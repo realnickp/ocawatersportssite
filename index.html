@@ -141,10 +141,8 @@
   </script>
 </head>
 <body>
-  <!-- Sticky Booking Banner -->
-  <a class="home-sticky-bar" id="homeStickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
-    <span class="home-sticky-bar__text">Ready To Ride? <u>Click here to book now</u> →</span>
-  </a>
+  <!-- Sticky Book Tab -->
+  <a class="book-tab" id="homeStickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
 
   <div class="page">
     <!-- Hero -->
@@ -1011,19 +1009,12 @@
       });
     })();
 
-    // Homepage sticky bar show on scroll
+    // Homepage book tab show on scroll
     (function () {
       var bar = document.getElementById('homeStickyBar');
-      var nav = document.getElementById('navHome');
       if (!bar) return;
       window.addEventListener('scroll', function () {
-        if (window.scrollY > 400) {
-          bar.classList.add('visible');
-          if (nav) nav.style.top = bar.offsetHeight + 'px';
-        } else {
-          bar.classList.remove('visible');
-          if (nav) nav.style.top = '0';
-        }
+        bar.classList.toggle('visible', window.scrollY > 400);
       });
     })();
 

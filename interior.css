@@ -66,7 +66,7 @@
 
 .nav-int__logo .logo-white,
 .nav-int__logo .logo-color {
-  width: clamp(90px, 14vw, 128px);
+  width: clamp(110px, 16vw, 160px);
   height: auto;
   transition: opacity 0.3s ease;
   display: block;
@@ -136,7 +136,7 @@
 .nav-int__hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
@@ -146,16 +146,16 @@
 
 .nav-int__hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   background: var(--color-white);
   border-radius: 2px;
   transition: transform 0.3s, opacity 0.3s;
 }
 
-.nav-int__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-int__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
 .nav-int__hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-int__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav-int__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
 @media (max-width: 900px) {
   .nav-int__hamburger { display: flex; z-index: 501; }
@@ -221,68 +221,7 @@
 /* ============================
    Sticky Booking Bar
    ============================ */
-.sticky-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  background: var(--color-gold);
-  padding: 0.6rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  transform: translateY(-100%);
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
-}
-
-.sticky-bar:hover { opacity: 0.9; }
-
-.sticky-bar.visible {
-  transform: translateY(0);
-}
-
-/* When sticky bar is visible, push nav down */
-body.bar-visible .nav-int {
-  top: var(--sticky-bar-height, 36px);
-}
-
-.sticky-bar__text {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-navy);
-}
-
-.sticky-bar__btn {
-  padding: 0.35rem 1.1rem;
-  background: var(--color-navy);
-  color: var(--color-white);
-  border: none;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.sticky-bar__btn:hover { opacity: 0.85; }
-
-@media (max-width: 900px) {
-  .sticky-bar { padding: 0.5rem 1rem; }
-}
-
-@media (max-width: 600px) {
-  .sticky-bar__text { font-size: 0.72rem; }
-}
+/* Book tab is defined in styles.css — shared across all pages */
 
 /* ============================
    Floating Review Badge

@@ -97,9 +97,7 @@
 <div class="page-int">
 
   <!-- Sticky Bar -->
-  <a class="sticky-bar" id="stickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">
-    <span class="sticky-bar__text">Ready To Ride? <u>Click here to book now</u> &rarr;</span>
-  </a>
+  <a class="book-tab" id="stickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
 
   <!-- Nav -->
   <nav class="nav-int" id="navInt" aria-label="Primary navigation">
@@ -371,8 +369,6 @@
     navInt.classList.toggle('scrolled', y > 60);
     var show = y > 600;
     stickyBar.classList.toggle('visible', show);
-    document.body.classList.toggle('bar-visible', show);
-    if (show) document.documentElement.style.setProperty('--sticky-bar-height', stickyBar.offsetHeight + 'px');
   }, { passive: true });
 
   if (hamburger) {

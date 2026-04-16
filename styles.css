@@ -210,7 +210,7 @@ a:hover {
 }
 
 .nav__logo img {
-  width: clamp(100px, 14vw, 142px);
+  width: clamp(120px, 16vw, 170px);
   height: auto;
   display: block;
   transition: opacity 0.3s ease;
@@ -268,41 +268,33 @@ a:hover {
 /* ============================
    Homepage Sticky Booking Bar
    ============================ */
-.home-sticky-bar {
+.book-tab {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
   z-index: 200;
   background: var(--color-gold);
-  padding: 0.6rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  transform: translateY(-100%);
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
-}
-
-.home-sticky-bar:hover { opacity: 0.9; }
-
-.home-sticky-bar.visible {
-  transform: translateY(0);
-}
-
-.home-sticky-bar__text {
-  font-family: var(--font-body);
+  padding: 0.5rem 1.6rem;
+  border-radius: 0 0 8px 8px;
+  font-family: var(--font-nav);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--color-navy);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), background 0.2s;
 }
 
-@media (max-width: 900px) {
-  .home-sticky-bar { padding: 0.5rem 1rem; }
-  .home-sticky-bar__text { font-size: 0.72rem; }
+.book-tab:hover {
+  background: var(--color-gold-bright, #f0d78c);
+}
+
+.book-tab.visible {
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ============================
@@ -311,7 +303,7 @@ a:hover {
 .nav__hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
@@ -321,16 +313,16 @@ a:hover {
 
 .nav__hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   background: var(--color-navy);
   border-radius: 2px;
   transition: transform 0.3s, opacity 0.3s;
 }
 
-.nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
 .nav__hamburger.open span:nth-child(2) { opacity: 0; }
-.nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
 @media (max-width: 900px) {
   .nav {
