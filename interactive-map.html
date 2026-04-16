@@ -431,32 +431,33 @@
       color: rgba(255, 255, 255, 0.55);
     }
 
-    /* Mobile: our modal X visually collides with the scrollytelling app's
-       own top-right close X inside the iframe. Move to a distinct gold
-       pill at bottom-center so users can't confuse the two. */
+    /* Mobile: a small circular back arrow in the bottom-left, away from
+       the app's top-right close X and its bottom route selector. */
     @media (max-width: 600px) {
       .imap-modal__close {
         top: auto;
-        right: 50%;
+        right: auto;
         bottom: 1rem;
-        transform: translateX(50%);
-        width: auto;
-        height: auto;
-        padding: 0.65rem 1.25rem;
-        border-radius: 999px;
+        left: 1rem;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 50%;
         font-size: 0;
         background: var(--color-gold);
         color: var(--color-navy);
         border: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
         backdrop-filter: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .imap-modal__close::before {
-        content: "\00d7  CLOSE MAP";
-        font-size: 0.78rem;
+        content: "\2190";
+        font-size: 1.2rem;
         font-weight: 700;
-        letter-spacing: 0.14em;
-        font-family: var(--font-nav);
+        line-height: 1;
       }
       .imap-modal__close:hover {
         background: #f0c97a;
