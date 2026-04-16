@@ -430,6 +430,38 @@
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.55);
     }
+
+    /* Mobile: our modal X visually collides with the scrollytelling app's
+       own top-right close X inside the iframe. Move to a distinct gold
+       pill at bottom-center so users can't confuse the two. */
+    @media (max-width: 600px) {
+      .imap-modal__close {
+        top: auto;
+        right: 50%;
+        bottom: 1rem;
+        transform: translateX(50%);
+        width: auto;
+        height: auto;
+        padding: 0.65rem 1.25rem;
+        border-radius: 999px;
+        font-size: 0;
+        background: var(--color-gold);
+        color: var(--color-navy);
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        backdrop-filter: none;
+      }
+      .imap-modal__close::before {
+        content: "\00d7  CLOSE MAP";
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        font-family: var(--font-nav);
+      }
+      .imap-modal__close:hover {
+        background: #f0c97a;
+      }
+    }
   </style>
 </head>
 <body>
