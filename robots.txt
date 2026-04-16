@@ -5,6 +5,8 @@ Disallow: /admin.html
 Disallow: /oca-scrollytelling.html
 Disallow: /cms-seed-data.json
 Disallow: /admin-fields-generated.js
+Disallow: /claim-free-gift
+Disallow: /claim-free-gift.html
 
 # Allow AI search crawlers
 User-agent: GPTBot
