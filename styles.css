@@ -1,5 +1,6 @@
 /* Design tokens from Figma (node 2072:62) */
 :root {
+  color-scheme: dark light;
   --color-navy: #021922;
   --color-navy-mid: #122227;
   --color-teal: #28484e;
