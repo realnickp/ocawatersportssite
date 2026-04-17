@@ -2171,8 +2171,8 @@
   margin: 0 auto 3rem;
 }
 
-.footer-int__logo { margin-bottom: 1rem; }
-.footer-int__logo img { width: 220px; height: auto; }
+.footer-int__logo { margin: 0 0 1rem; padding: 0; text-align: left; }
+.footer-int__logo img { width: 220px; height: auto; display: block; margin: 0; }
 
 .footer-int__tagline {
   font-size: 0.85rem;

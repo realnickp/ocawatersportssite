@@ -2070,22 +2070,24 @@ a:hover {
   color: var(--color-muted);
 }
 
-.pontoon-deep__addons {
+.pontoon-deep__addons-header {
   text-align: center;
-  margin: -2.5rem 0 3.5rem;
-  color: var(--color-gold);
-  font-family: var(--font-display);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-  line-height: 1;
+  margin: 0 0 1.25rem;
 }
 
-.pontoon-deep__addons span {
-  color: rgba(255, 255, 255, 0.35);
-  margin: 0 0.5rem;
-  font-family: var(--font-body);
-  font-weight: 300;
+.pontoon-deep__addons-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0.4rem 0 0;
+}
+
+.pontoon-deep__rates-cta {
+  text-align: center;
+  margin: 2rem 0 1rem;
 }
 
 .pontoon-deep__cta {

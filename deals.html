@@ -101,12 +101,35 @@
       overflow: hidden;
     }
 
-    .deals-hero::before {
+    .deals-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .deals-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.04);
+      opacity: 0.55;
+    }
+
+    .deals-hero__bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(222,188,107,0.08) 0%, transparent 65%);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(222,188,107,0.18) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(2,25,34,0.65) 0%, rgba(2,25,34,0.88) 60%, rgba(2,25,34,1) 100%);
       pointer-events: none;
+    }
+
+    .deals-hero > *:not(.deals-hero__bg) {
+      position: relative;
+      z-index: 1;
     }
 
     .deals-hero__title {
@@ -236,8 +259,11 @@
     <a class="btn btn--gold nav-int__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
   </nav>
 
-  <!-- Hero — no image, dark with radial glow -->
+  <!-- Hero -->
   <header class="deals-hero" id="top">
+    <div class="deals-hero__bg">
+      <img src="images/_O1A8089.jpg" alt="Jet ski riders on the Ocean City MD bay" />
+    </div>
     <div style="position:relative;z-index:1;">
       <p class="page-hero__eyebrow" style="justify-content:center;margin-bottom:1rem;">Save More. Ride More.</p>
       <h1 class="deals-hero__title" data-cms="deals.hero.title">Deals &amp; Coupons</h1>
@@ -317,7 +343,7 @@
     <div class="footer-int__top">
       <div>
         <div class="footer-int__logo">
-          <img src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
+          <img src="images/OCA_LogoWhite-trimmed.png" alt="OCA Watersports" />
         </div>
         <p class="footer-int__tagline">Home of OC's Famous 6 Mile Ride.<br>Built by riders, for riders. Est. 2010.</p>
         <div class="footer-int__social">
@@ -328,7 +354,7 @@
         </div>
       </div>
       <nav class="footer-int__nav" aria-label="Explore"><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/jet-skis">Jet Skis</a></li><li><a href="/pontoon-boats">Pontoon Boats</a></li><li><a href="/the-6-mile-ride">The 6 Mile Ride</a></li><li><a href="/about">About</a></li></ul></nav>
-      <nav class="footer-int__nav" aria-label="Info"><h4>Info</h4><ul><li><a href="/deals">Deals &amp; Coupons</a></li><li><a href="/contact">Contact &amp; Find Us</a></li><li><a href="/jet-skis#faq">Jet Ski FAQ</a></li><li><a href="/pontoon-boats#faq">Pontoon FAQ</a></li><li><a href="/jet-skis#pricing">Pricing</a></li></ul></nav>
+      <nav class="footer-int__nav" aria-label="Info"><h4>Info</h4><ul><li><a href="/deals">Deals &amp; Coupons</a></li><li><a href="/contact">Contact &amp; Find Us</a></li><li><a href="/jet-skis#faq">Jet Ski FAQ</a></li><li><a href="/pontoon-boats#faq">Pontoon FAQ</a></li><li><a href="/jet-skis#pricing">Jet Ski Pricing</a></li><li><a href="/pontoon-boats#pricing">Boat Rental Pricing</a></li></ul></nav>
       <div class="footer-int__contact">
         <h4>Get In Touch</h4>
         <a href="tel:4106297433" class="footer-int__phone">410-629-RIDE (7433)</a>
