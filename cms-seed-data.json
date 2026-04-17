@@ -801,15 +801,39 @@
   },
   {
     "key": "pontoons.price4.duration",
-    "text": "Additional Hours"
+    "text": "6 Hours"
   },
   {
     "key": "pontoons.price4.price",
-    "text": "$100"
+    "text": "$659"
   },
   {
     "key": "pontoons.price4.sub",
-    "text": "per hour, if available — call to arrange"
+    "text": "+ tax"
+  },
+  {
+    "key": "pontoons.price5.duration",
+    "text": "8 Hours"
+  },
+  {
+    "key": "pontoons.price5.price",
+    "text": "$879"
+  },
+  {
+    "key": "pontoons.price5.sub",
+    "text": "+ tax"
+  },
+  {
+    "key": "pontoons.price6.duration",
+    "text": "Custom Times"
+  },
+  {
+    "key": "pontoons.price6.price",
+    "text": "Call Us"
+  },
+  {
+    "key": "pontoons.price6.sub",
+    "text": "Tailored trips — phone to arrange"
   },
   {
     "key": "pontoons.pricing.highlight",
@@ -1192,68 +1216,12 @@
     "text": "Every stop. Every view. Every moment. Explore the full route on our satellite map loaded with photos and videos from the actual ride."
   },
   {
-    "key": "6mile.assateague.eyebrow",
-    "text": "Know the Destination"
+    "key": "6mile.strip.eyebrow",
+    "text": "The 6 Mile Experience"
   },
   {
-    "key": "6mile.assateague.title",
-    "text": "The Place You'll Be Riding To."
-  },
-  {
-    "key": "6mile.assateague.sub",
-    "text": "Here's what you should know about Assateague Island before you ride there."
-  },
-  {
-    "key": "6mile.fact1.num",
-    "text": "37"
-  },
-  {
-    "key": "6mile.fact1.title",
-    "text": "Miles of Protected Coastline"
-  },
-  {
-    "key": "6mile.fact1.text",
-    "text": "Assateague Island stretches 37 miles along the Atlantic coast, shared between Maryland and Virginia. As a National Seashore protected by the National Park Service, the land looks exactly as it did hundreds of years ago. No hotels. No condos. No development. Just wilderness."
-  },
-  {
-    "key": "6mile.fact2.title",
-    "text": "Wild Horses Since the 1600s"
-  },
-  {
-    "key": "6mile.fact2.text",
-    "text": "The Assateague horses have roamed freely for over 400 years. Local legend says they swam ashore from a Spanish shipwreck. Whether true or not, they are a recognized wonder — and you might see them just feet from the waterline on the bay side of the island during your ride."
-  },
-  {
-    "key": "6mile.fact3.title",
-    "text": "Dolphins in the Inlet"
-  },
-  {
-    "key": "6mile.fact3.text",
-    "text": "Atlantic bottlenose dolphins are regularly spotted in the waters between Ocean City and Assateague Island. We can't promise them on every ride — but it happens often enough that we talk about it in every pre-ride briefing. When it happens, riders go quiet. It's that good."
-  },
-  {
-    "key": "6mile.fact4.title",
-    "text": "A National Seashore — Not a Resort"
-  },
-  {
-    "key": "6mile.fact4.text",
-    "text": "Assateague is protected federal land. No hotels, no condos, no development. Just 37 miles of wilderness, barrier dunes, and wild shoreline. The contrast to Ocean City — just 6 miles away by water — is staggering. One of the most unique natural experiences on the Eastern Seaboard."
-  },
-  {
-    "key": "6mile.fact5.title",
-    "text": "The Bay-Side Sandbars"
-  },
-  {
-    "key": "6mile.fact5.text",
-    "text": "On the bay side of Assateague, shallow sandbars emerge from the water — some just inches deep. Pontoon riders beach here and walk on the island. Jet ski riders carve through the shallows. This is where Ocean City's summer bustle completely disappears and the wilderness takes over."
-  },
-  {
-    "key": "6mile.fact6.title",
-    "text": "OC From the Water"
-  },
-  {
-    "key": "6mile.fact6.text",
-    "text": "The view of Ocean City, Maryland from the middle of the bay — skyline, the Ferris wheel, the Rt. 50 bridge — is something most visitors never see. From Assateague looking back toward OC, the entire resort city appears like a thin strip between two bodies of water. It reframes everything."
+    "key": "6mile.strip.title",
+    "text": "Moments From the Ride"
   },
   {
     "key": "6mile.vs.eyebrow",
