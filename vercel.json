@@ -1,3 +1,7 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/interactive-map", "destination": "/", "permanent": false },
+    { "source": "/interactive-map.html", "destination": "/", "permanent": false }
+  ]
 }
