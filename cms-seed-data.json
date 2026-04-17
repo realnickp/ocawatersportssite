@@ -1,0 +1,1774 @@
+[
+  {
+    "key": "index.hero.eyebrow",
+    "text": "— OCEAN CITY MARYLAND'S 6•MILE RIDE —"
+  },
+  {
+    "key": "index.hero.title",
+    "text": "JETSKI & PONTOON RENTALS"
+  },
+  {
+    "key": "index.hero.sub",
+    "text": "Ocean City + Assateague Watersports — It's more than jet ski and boat rentals, it's an experience. Built by riders, for riders."
+  },
+  {
+    "key": "index.journey.heading",
+    "text": "6 Mile Ride Starts Here"
+  },
+  {
+    "key": "index.landmark1.title",
+    "text": "The Launch"
+  },
+  {
+    "key": "index.landmark1.copy",
+    "text": "You're stepping onto the dock where OC's most legendary ride begins. Direct bay access. Full throttle in seconds. This is where it all starts."
+  },
+  {
+    "key": "index.landmark2.title",
+    "text": "The Ride"
+  },
+  {
+    "key": "index.landmark2.copy",
+    "text": "6 miles of wide open bay. No circles. No buoys. No babysitters. Just you, full throttle, and 70 minutes of pure freedom across the largest riding area in OC."
+  },
+  {
+    "key": "index.landmark3.title",
+    "text": "The Destination"
+  },
+  {
+    "key": "index.landmark3.copy",
+    "text": "Assateague Island. Wild horses on the beach. Dolphins breaking the surface. Sandbars rising out of nowhere. This is what you came for."
+  },
+  {
+    "key": "index.manifesto.eyebrow",
+    "text": "Ocean City + Assateague Watersports"
+  },
+  {
+    "key": "index.manifesto.title",
+    "text": "WHERE RIDERS RIDE"
+  },
+  {
+    "key": "index.manifesto.lead",
+    "text": "Jet skis that actually let you ride. Pontoon boats that go where others won't."
+  },
+  {
+    "key": "index.manifesto.quote",
+    "text": ").replace(/&rdquo;/g,The unequal watersports rental company —"
+  },
+  {
+    "key": "index.manifesto.jetski.title",
+    "text": "Jet Skis"
+  },
+  {
+    "key": "index.manifesto.jetski.tagline",
+    "text": "The 6 Mile Ride"
+  },
+  {
+    "key": "index.manifesto.jetski.text",
+    "text": "6 miles south from the inlet to the Verrazano Bridge along Assateague. No circles. No buoys. Just open water and real throttle."
+  },
+  {
+    "key": "index.manifesto.pontoon.title",
+    "text": "Pontoon Boats"
+  },
+  {
+    "key": "index.manifesto.pontoon.tagline",
+    "text": "Your Bay. Your Rules."
+  },
+  {
+    "key": "index.manifesto.pontoon.text",
+    "text": "It's your boat. You drive it. Bridge to bridge, OC to Assateague — the biggest riding area in OC and it's all yours."
+  },
+  {
+    "key": "index.choose.eyebrow",
+    "text": "Two Ways to Experience OC"
+  },
+  {
+    "key": "index.choose.title",
+    "text": "CHOOSE YOUR RIDE"
+  },
+  {
+    "key": "index.imap.title",
+    "text": "EXPLORE THE RIDE"
+  },
+  {
+    "key": "index.imap.lead",
+    "text": "An interactive map loaded with every stop, every view, and every moment along the way — from the Southbound 6 Mile Ride to every pontoon destination on the Bay."
+  },
+  {
+    "key": "index.imap.feature1.title",
+    "text": "Stops Along the Ride"
+  },
+  {
+    "key": "index.imap.feature1.text",
+    "text": "Pontoon boat destinations heading north and south — sandbars, restaurants, Assateague, and more."
+  },
+  {
+    "key": "index.imap.feature2.title",
+    "text": "The Full 6 Mile Ride"
+  },
+  {
+    "key": "index.imap.feature2.text",
+    "text": "See the entire southbound jet ski route — the largest free riding area in all of OC."
+  },
+  {
+    "key": "index.imap.feature3.title",
+    "text": "Photos & Videos at Every Stop"
+  },
+  {
+    "key": "index.imap.feature3.text",
+    "text": "Wild horses, dolphins, million-dollar yachts, hidden sandbars — see it all before you even leave the dock."
+  },
+  {
+    "key": "index.jetski.kicker",
+    "text": "Jet Ski Rentals"
+  },
+  {
+    "key": "index.jetski.title",
+    "text": "THE 6 MILE RIDE"
+  },
+  {
+    "key": "index.jetski.sub",
+    "text": "OC Famous for a reason."
+  },
+  {
+    "key": "index.jetski.intro.title",
+    "text": "WE DON'T RIDE IN CIRCLES."
+  },
+  {
+    "key": "index.jetski.intro.text",
+    "text": "Most rental companies put you in a confined area and call it a ride."
+  },
+  {
+    "key": "index.jetski.card.location.tag",
+    "text": "Why Location Matters"
+  },
+  {
+    "key": "index.jetski.card.location.title",
+    "text": "THE LOCATION"
+  },
+  {
+    "key": "index.jetski.card.location.text",
+    "text": "Positioned right on the bay in the biggest riding area in all of OC. Direct water access, straight shot to Assateague, and every sight worth seeing along the way. You're riding within seconds of leaving the dock."
+  },
+  {
+    "key": "index.jetski.card.area.title",
+    "text": "THE LARGEST RIDING AREA IN OC"
+  },
+  {
+    "key": "index.jetski.card.area.text",
+    "text": "No circles. No buoys. No confined areas. Just you, the Bay, and pure throttle."
+  },
+  {
+    "key": "index.jetski.card.time.title",
+    "text": "NOT 60."
+  },
+  {
+    "key": "index.jetski.card.time.text",
+    "text": "Because we ride too. We know what riders want — more time on the water."
+  },
+  {
+    "key": "index.jetski.card.sights.tag",
+    "text": "Along the Route"
+  },
+  {
+    "key": "index.jetski.card.sights.title",
+    "text": "THE SIGHTS"
+  },
+  {
+    "key": "index.jetski.card.sights.text",
+    "text": "Horses that've been wild since before America was a country. Dolphins that race you through the inlet. Sandbars that appear out of thin air. You're not sightseeing — you're living it."
+  },
+  {
+    "key": "index.jetski.cta.text",
+    "text": "The views. The ride. The adrenaline."
+  },
+  {
+    "key": "index.pontoon.kicker",
+    "text": "Pontoon Boat Rentals"
+  },
+  {
+    "key": "index.pontoon.title",
+    "text": "YOUR BAY."
+  },
+  {
+    "key": "index.pontoon.sub",
+    "text": "From the RT 90 Bridge to Assateague Island."
+  },
+  {
+    "key": "index.pontoon.callout.big",
+    "text": "BIGGEST RIDING AREA IN ALL OF OC"
+  },
+  {
+    "key": "index.pontoon.callout.sub",
+    "text": "From the RT 90 Bridge to the Assateague Island (Verrazano Bridge). We know, other boat rental companies won't let you go to Assateague."
+  },
+  {
+    "key": "index.pontoon.dest1.title",
+    "text": "Assateague Island"
+  },
+  {
+    "key": "index.pontoon.dest1.text",
+    "text": "Other boat rental companies won't let you go to Assateague. That's why we're different, and in OC Watersports, being different is a good thing."
+  },
+  {
+    "key": "index.pontoon.dest2.title",
+    "text": "OC's Hottest Spots"
+  },
+  {
+    "key": "index.pontoon.dest2.text",
+    "text": "Bar hop to Seacrets, MR Ducks, Harborside, Hoopers, and Fish Tales. Or find a sandbar and make your own party."
+  },
+  {
+    "key": "index.pontoon.dest3.title",
+    "text": "The Bay Is Yours"
+  },
+  {
+    "key": "index.pontoon.dest3.text",
+    "text": "From a leisurely cruise to a family fun day exploring everything OC has to offer on the water — OCA is the place for the ultimate boat rental experience."
+  },
+  {
+    "key": "index.pontoon.intro.title",
+    "text": "Boating in the middle of the action."
+  },
+  {
+    "key": "index.pontoon.intro.text",
+    "text": "Million dollar houses. Million dollar yachts. The Assateague Wild Horses. Dolphins. Restaurants. Marinas. Vibes. Pull the boat up on the Assateague beaches and explore, hit OC's hottest sandbars and party, or just cruise the Bay and take it easy."
+  },
+  {
+    "key": "index.pontoon.cta.text",
+    "text": "Relax. And let your imagination run wild."
+  },
+  {
+    "key": "index.gallery.title",
+    "text": "THE EXPERIENCE"
+  },
+  {
+    "key": "index.gallery.sub",
+    "text": "Don't take our word for it — see for yourself."
+  },
+  {
+    "key": "index.reviews.heading",
+    "text": "WHAT RIDERS SAY"
+  },
+  {
+    "key": "index.review1.text",
+    "text": ").replace(/&rdquo;/g,First time jet skiing… it's love at first ride!! Jayden, Bryan and the team were very nice, helpful and accommodating. Was able to rent 2 jet skis last min and had a blast. If in the area and want good fun for your money I'd recommend OCA Watersports, you won't be disappointed!!&rdquo;"
+  },
+  {
+    "key": "index.review1.author",
+    "text": "— Stewart M."
+  },
+  {
+    "key": "index.review2.text",
+    "text": ").replace(/&rdquo;/g,The 6 mile ride was absolutely incredible. No other jet ski place in OC even comes close. You actually get to RIDE, not just go in circles. We saw dolphins and got to cruise by Assateague. Already booked again for next weekend.&rdquo;"
+  },
+  {
+    "key": "index.review2.author",
+    "text": "— Jessica T."
+  },
+  {
+    "key": "index.review3.text",
+    "text": ").replace(/&rdquo;/g,Rented a pontoon for my family reunion and it was the best decision we made all trip. Pulled up to Assateague, saw the wild horses, and hit a sandbar on the way back. The kids are STILL talking about it.&rdquo;"
+  },
+  {
+    "key": "index.review3.author",
+    "text": "— Marcus D."
+  },
+  {
+    "key": "index.cta.title",
+    "text": "READY TO RIDE?"
+  },
+  {
+    "key": "index.cta.text",
+    "text": "Same price — or better — than any other jet ski and boat rental company out there. But with OCA, you get the experience they can't give you."
+  },
+  {
+    "key": "index.newsletter.label",
+    "text": "Get discounts, deals, and announcements"
+  },
+  {
+    "key": "jetskis.sticky.text",
+    "text": "Ready to Ride? Slots fill fast."
+  },
+  {
+    "key": "jetskis.hero.eyebrow",
+    "text": "Ocean City Maryland"
+  },
+  {
+    "key": "jetskis.hero.title",
+    "text": "Jet Ski Rentals"
+  },
+  {
+    "key": "jetskis.hero.sub",
+    "text": "Ocean City & Assateague's Most Legendary Ride — 6 miles south to Assateague Island National Seashore."
+  },
+  {
+    "key": "jetskis.stats.ridetime.num",
+    "text": "0"
+  },
+  {
+    "key": "jetskis.stats.ridetime.label",
+    "text": "Ride Time"
+  },
+  {
+    "key": "jetskis.stats.routelength.num",
+    "text": "0"
+  },
+  {
+    "key": "jetskis.stats.routelength.label",
+    "text": "Route Length"
+  },
+  {
+    "key": "jetskis.stats.reviews.num",
+    "text": "0"
+  },
+  {
+    "key": "jetskis.stats.reviews.label",
+    "text": "5-Star Reviews"
+  },
+  {
+    "key": "jetskis.stats.est.num",
+    "text": "0"
+  },
+  {
+    "key": "jetskis.stats.est.label",
+    "text": "Est. Ocean City"
+  },
+  {
+    "key": "jetskis.difference.eyebrow",
+    "text": "The Difference"
+  },
+  {
+    "key": "jetskis.difference.title",
+    "text": "This Isn't Your Average Jet Ski Rental."
+  },
+  {
+    "key": "jetskis.difference.text",
+    "text": "While other Ocean City companies keep you circling the bay in a confined, buoyed-off zone — we take you on an adventure. From the inlet, you ride 6 miles down to the Verrazano Bridge along Assateague Island National Seashore — one of the longest open-water jet ski routes on the East Coast."
+  },
+  {
+    "key": "jetskis.difference.text2",
+    "text": "Our signature"
+  },
+  {
+    "key": "jetskis.difference.text3",
+    "text": "We built this route. Every other company talking about riding to Assateague is following our lead."
+  },
+  {
+    "key": "jetskis.vs.them.header",
+    "text": "Other Companies"
+  },
+  {
+    "key": "jetskis.vs.them.li1",
+    "text": "60-minute rides"
+  },
+  {
+    "key": "jetskis.vs.them.li2",
+    "text": "Confined bay circle"
+  },
+  {
+    "key": "jetskis.vs.them.li3",
+    "text": "Buoyed-off riding zone"
+  },
+  {
+    "key": "jetskis.vs.them.li4",
+    "text": "Nothing to see"
+  },
+  {
+    "key": "jetskis.vs.them.li5",
+    "text": "Supervised \"babysitter\" ride"
+  },
+  {
+    "key": "jetskis.vs.us.header",
+    "text": "OCA Watersports"
+  },
+  {
+    "key": "jetskis.vs.us.li1",
+    "text": "70-minute rides"
+  },
+  {
+    "key": "jetskis.vs.us.li2",
+    "text": "6 mile southbound route"
+  },
+  {
+    "key": "jetskis.vs.us.li3",
+    "text": "Straight to Assateague Island"
+  },
+  {
+    "key": "jetskis.vs.us.li4",
+    "text": "Wild horses & dolphins"
+  },
+  {
+    "key": "jetskis.vs.us.li5",
+    "text": "Real freedom. Real riding."
+  },
+  {
+    "key": "jetskis.sights.eyebrow",
+    "text": "Along the Route"
+  },
+  {
+    "key": "jetskis.sights.title",
+    "text": "The Sights"
+  },
+  {
+    "key": "jetskis.sights.sub",
+    "text": "Wild horses. Dolphins. Hidden sandbars. Million-dollar views. This isn't a rental — it's a front-row seat to everything the bay has to offer."
+  },
+  {
+    "key": "jetskis.sights.horses.tag",
+    "text": "Assateague Island"
+  },
+  {
+    "key": "jetskis.sights.horses.title",
+    "text": "Wild Horses"
+  },
+  {
+    "key": "jetskis.sights.horses.text",
+    "text": "They've roamed free since the 1600s. You'll see them right on the beach from your jet ski — no zoo, no fence, no tour bus. Just you and 400 years of wild."
+  },
+  {
+    "key": "jetskis.sights.dolphins.tag",
+    "text": "Inlet Waters"
+  },
+  {
+    "key": "jetskis.sights.dolphins.title",
+    "text": "Dolphins"
+  },
+  {
+    "key": "jetskis.sights.dolphins.text",
+    "text": "Atlantic bottlenose dolphins breaking the surface right next to you. It happens so often we bring it up in every single pre-ride briefing."
+  },
+  {
+    "key": "jetskis.sights.mansion.tag",
+    "text": "Bay Side"
+  },
+  {
+    "key": "jetskis.sights.mansion.title",
+    "text": "Mansion Row"
+  },
+  {
+    "key": "jetskis.sights.mansion.text",
+    "text": "Waterfront estates, private docks, mega yachts. OC from the water hits different — this is the side tourists never see."
+  },
+  {
+    "key": "jetskis.sights.throttle.tag",
+    "text": "6 Miles South"
+  },
+  {
+    "key": "jetskis.sights.throttle.title",
+    "text": "Wide Open Throttle"
+  },
+  {
+    "key": "jetskis.sights.throttle.text",
+    "text": "6 miles of open water from the inlet to the Verrazano Bridge. No circles. No buoys. No one telling you to slow down. Pin it and ride."
+  },
+  {
+    "key": "jetskis.sights.skyline.tag",
+    "text": "Golden Hour"
+  },
+  {
+    "key": "jetskis.sights.skyline.title",
+    "text": "The OC Skyline"
+  },
+  {
+    "key": "jetskis.sights.skyline.text",
+    "text": "The whole city glowing from the water — Ferris wheel, boardwalk, high-rises. The ride back is the photo everyone posts."
+  },
+  {
+    "key": "jetskis.pricing.eyebrow",
+    "text": "Simple Pricing"
+  },
+  {
+    "key": "jetskis.pricing.title",
+    "text": "No Surprises. No Hidden Fees."
+  },
+  {
+    "key": "jetskis.pricing.price",
+    "text": "$129"
+  },
+  {
+    "key": "jetskis.pricing.label",
+    "text": "Per Jet Ski · 70 Minutes"
+  },
+  {
+    "key": "jetskis.pricing.highlight",
+    "text": "You get"
+  },
+  {
+    "key": "jetskis.rules.r1",
+    "text": "1–3 riders per ski."
+  },
+  {
+    "key": "jetskis.rules.r3",
+    "text": "Minimum age to drive:"
+  },
+  {
+    "key": "jetskis.rules.r4",
+    "text": "Must be"
+  },
+  {
+    "key": "jetskis.rules.r5",
+    "text": "All sales final."
+  },
+  {
+    "key": "jetskis.rules.r6",
+    "text": "Reservations highly recommended — slots fill fast."
+  },
+  {
+    "key": "jetskis.map.eyebrow",
+    "text": "Explore the Route"
+  },
+  {
+    "key": "jetskis.map.title",
+    "text": "The 6 Mile Ride — Interactive Map"
+  },
+  {
+    "key": "jetskis.map.sub",
+    "text": "Follow the full southbound route to Assateague Island. Every stop, every landmark, every moment."
+  },
+  {
+    "key": "jetskis.gallery.eyebrow",
+    "text": "See It For Yourself"
+  },
+  {
+    "key": "jetskis.gallery.title",
+    "text": "Out on the Water"
+  },
+  {
+    "key": "jetskis.faq.eyebrow",
+    "text": "Know Before You Go"
+  },
+  {
+    "key": "jetskis.faq.title",
+    "text": "Jet Ski FAQ"
+  },
+  {
+    "key": "jetskis.faq.q1",
+    "text": "How fast do your jet skis go?"
+  },
+  {
+    "key": "jetskis.faq.a1",
+    "text": "Our Sea-Doo GTX skis are capable of 40–42 mph on open water. Speed depends on conditions, weight, and currents. You have full throttle freedom — we're not running alongside you telling you to slow down."
+  },
+  {
+    "key": "jetskis.faq.q2",
+    "text": "Where do the jet skis ride?"
+  },
+  {
+    "key": "jetskis.faq.a2",
+    "text": "Our jet ski route runs south from the inlet along Assateague Island down to the Verrazano Bridge — a 6-mile stretch of wide open water. You'll ride past wild horses, dolphins, hidden sandbars, and some of the most scenic coastline on the East Coast. This is a one-direction ride south, not a circle — the way jet skiing should be. We brief you on the full route before you launch."
+  },
+  {
+    "key": "jetskis.faq.q3",
+    "text": "Does instruction time count toward my ride time?"
+  },
+  {
+    "key": "jetskis.faq.a3",
+    "text": "No. Your 70 minutes starts the moment you hit the water — not when you walk in the door, not when you sign waivers. That's why we ask you to arrive 45 minutes before your scheduled time. Show up early, get the full 70."
+  },
+  {
+    "key": "jetskis.faq.q4",
+    "text": "What is the minimum age to rent a jet ski in Ocean City?"
+  },
+  {
+    "key": "jetskis.faq.a4",
+    "text": "You must be at least 16 years old to operate a ski. Riders under 21 require a parent or guardian present at the time of rental. All riders must sign a liability waiver."
+  },
+  {
+    "key": "jetskis.faq.q5",
+    "text": "How many people can ride on one jet ski?"
+  },
+  {
+    "key": "jetskis.faq.a5",
+    "text": "You can absolutely ride with more than one person. Each ski holds 1–3 riders with a"
+  },
+  {
+    "key": "jetskis.faq.q6",
+    "text": "Do I need experience to ride a jet ski?"
+  },
+  {
+    "key": "jetskis.faq.a6",
+    "text": "None required. We give every rider a full orientation at the dock before you launch — controls, safety, boundaries, the route. If you can drive a car, you can ride a jet ski. Most first-timers are flying within 10 minutes."
+  },
+  {
+    "key": "jetskis.faq.q7",
+    "text": "What should I wear and bring?"
+  },
+  {
+    "key": "jetskis.faq.a7",
+    "text": "Swimwear, sunscreen (apply before arriving — it washes off fast on the water), and a sense of adventure. We provide life jackets. Leave valuables, car keys, and phones in your vehicle or bring a waterproof case."
+  },
+  {
+    "key": "jetskis.faq.q8",
+    "text": "Are refunds available if I cancel?"
+  },
+  {
+    "key": "jetskis.faq.a8",
+    "text": "All sales are final. No refunds given. In the rare event that we cancel due to extreme weather or mechanical issues on our end, you'll receive a full credit to rebook at your convenience."
+  },
+  {
+    "key": "jetskis.faq.q9",
+    "text": "Is parking available at your location?"
+  },
+  {
+    "key": "jetskis.faq.a9",
+    "text": "Yes — there's parking available right at our location at 12817 Harbor Rd. See our"
+  },
+  {
+    "key": "jetskis.cta.eyebrow",
+    "text": "Don't Wait"
+  },
+  {
+    "key": "jetskis.cta.title",
+    "text": "Ready to Ride?"
+  },
+  {
+    "key": "jetskis.cta.sub",
+    "text": "Book your jet ski today. Slots fill fast in peak season — and there's nothing like this anywhere else in Ocean City, MD."
+  },
+  {
+    "key": "pontoons.sticky.text",
+    "text": "Reserve Your Boat — Slots Fill Fast"
+  },
+  {
+    "key": "pontoons.hero.eyebrow",
+    "text": "Ocean City Maryland"
+  },
+  {
+    "key": "pontoons.hero.title",
+    "text": "Pontoon Boat Rentals"
+  },
+  {
+    "key": "pontoons.hero.sub",
+    "text": "Your private boat. Ocean City's entire bay. No strangers. No tour guide. Your group, your adventure."
+  },
+  {
+    "key": "pontoons.stats.guests.num",
+    "text": "0"
+  },
+  {
+    "key": "pontoons.stats.guests.label",
+    "text": "Max Guests"
+  },
+  {
+    "key": "pontoons.stats.popular.num",
+    "text": "3 Hrs"
+  },
+  {
+    "key": "pontoons.stats.popular.label",
+    "text": "Most Popular Rental"
+  },
+  {
+    "key": "pontoons.stats.reviews.num",
+    "text": "0"
+  },
+  {
+    "key": "pontoons.stats.reviews.label",
+    "text": "5-Star Reviews"
+  },
+  {
+    "key": "pontoons.stats.private.num",
+    "text": "100%"
+  },
+  {
+    "key": "pontoons.stats.private.label",
+    "text": "Private — Just Your Group"
+  },
+  {
+    "key": "pontoons.charter.eyebrow",
+    "text": "Private Charter"
+  },
+  {
+    "key": "pontoons.charter.title",
+    "text": "Your Boat. Your Rules."
+  },
+  {
+    "key": "pontoons.charter.text1",
+    "text": "This isn't a tour. There's no captain telling you where to go or how long to stay. You rent the boat — the whole thing, just for your group — and you captain your own adventure across Ocean City Maryland's entire bay."
+  },
+  {
+    "key": "pontoons.charter.text2",
+    "text": "Want to"
+  },
+  {
+    "key": "pontoons.charter.text3",
+    "text": "The Assateague Island shoreline is a 37-mile protected National Seashore. Pull your pontoon right up to the bay-side sandbars — some just inches deep. No parking lot. No boardwalk. Just you, the wild horses, and one of the most untouched stretches of coastline on the East Coast."
+  },
+  {
+    "key": "pontoons.features.eyebrow",
+    "text": "Why OCA Pontoons"
+  },
+  {
+    "key": "pontoons.features.title",
+    "text": "Six Reasons Your Group Will Love It"
+  },
+  {
+    "key": "pontoons.feature1.title",
+    "text": "Beach on Assateague Island"
+  },
+  {
+    "key": "pontoons.feature1.text",
+    "text": "Pull your boat right up to the sand on the bay side of Assateague Island National Seashore. The wild horses may walk straight up to you. No other OC rental lets you do this."
+  },
+  {
+    "key": "pontoons.feature2.title",
+    "text": "Fish & Crab the Bay"
+  },
+  {
+    "key": "pontoons.feature2.text",
+    "text": "Add on our fishing or crabbing package and make it a full-day experience. The bay between Ocean City and Assateague Island is some of the best crabbing on the Eastern Shore."
+  },
+  {
+    "key": "pontoons.feature3.title",
+    "text": "Food & Drinks Welcome"
+  },
+  {
+    "key": "pontoons.feature3.text",
+    "text": "Bring your own cooler, snacks, and beverages. The driver stays sober — everyone else can enjoy the ride. Ocean City's best floating party is the one you bring yourself."
+  },
+  {
+    "key": "pontoons.feature4.title",
+    "text": "VIP Bay Access"
+  },
+  {
+    "key": "pontoons.feature4.text",
+    "text": "Dock at Seacrets, Fish Tales, or Fager's Island from the water like a local. Pull right up to Ocean City's most iconic waterfront spots without fighting for parking."
+  },
+  {
+    "key": "pontoons.feature5.title",
+    "text": "Wild Horse Spotting"
+  },
+  {
+    "key": "pontoons.feature5.text",
+    "text": "Anchor near Assateague Island and watch the famous horses roam the beach. They've been free since the 1600s. Seeing them from the water is an experience that doesn't exist anywhere else."
+  },
+  {
+    "key": "pontoons.feature6.title",
+    "text": "Tubing"
+  },
+  {
+    "key": "pontoons.feature6.text",
+    "text": "Add a tube to your rental and let the kids (or the kids-at-heart) get pulled across the bay. Pure summer fun behind the boat."
+  },
+  {
+    "key": "pontoons.pricing.eyebrow",
+    "text": "Pontoon Boat Rates"
+  },
+  {
+    "key": "pontoons.pricing.title",
+    "text": "Pick Your Length. Own the Bay."
+  },
+  {
+    "key": "pontoons.pricing.sub",
+    "text": "Prices are subject to change. April availability — call us directly for bookings."
+  },
+  {
+    "key": "pontoons.price1.duration",
+    "text": "1 Hour"
+  },
+  {
+    "key": "pontoons.price1.price",
+    "text": "$199"
+  },
+  {
+    "key": "pontoons.price1.sub",
+    "text": "+ tax"
+  },
+  {
+    "key": "pontoons.price2.duration",
+    "text": "2 Hours"
+  },
+  {
+    "key": "pontoons.price2.price",
+    "text": "$329"
+  },
+  {
+    "key": "pontoons.price2.sub",
+    "text": "+ tax"
+  },
+  {
+    "key": "pontoons.price3.duration",
+    "text": "3 Hours"
+  },
+  {
+    "key": "pontoons.price3.price",
+    "text": "$419"
+  },
+  {
+    "key": "pontoons.price3.sub",
+    "text": "+ tax · Most Popular"
+  },
+  {
+    "key": "pontoons.price4.duration",
+    "text": "Additional Hours"
+  },
+  {
+    "key": "pontoons.price4.price",
+    "text": "$100"
+  },
+  {
+    "key": "pontoons.price4.sub",
+    "text": "per hour, if available — call to arrange"
+  },
+  {
+    "key": "pontoons.pricing.highlight",
+    "text": "All rentals are"
+  },
+  {
+    "key": "pontoons.addons.eyebrow",
+    "text": "Upgrades"
+  },
+  {
+    "key": "pontoons.addons.title",
+    "text": "Add-Ons for the Full Experience"
+  },
+  {
+    "key": "pontoons.addons.sub",
+    "text": "Must be reserved in advance when booking. Call to add these to your reservation."
+  },
+  {
+    "key": "pontoons.addon2.title",
+    "text": "Fishing Package"
+  },
+  {
+    "key": "pontoons.addon2.desc",
+    "text": "2 rods, bait & tackle tray"
+  },
+  {
+    "key": "pontoons.addon2.price",
+    "text": "$39"
+  },
+  {
+    "key": "pontoons.addon3.title",
+    "text": "Crabbing Package"
+  },
+  {
+    "key": "pontoons.addon3.desc",
+    "text": "2 baskets, bait, crab pot"
+  },
+  {
+    "key": "pontoons.addon3.price",
+    "text": "$39"
+  },
+  {
+    "key": "pontoons.rules.eyebrow",
+    "text": "Before You Go"
+  },
+  {
+    "key": "pontoons.rules.title",
+    "text": "Good to Know"
+  },
+  {
+    "key": "pontoons.rules.r1",
+    "text": "Driver must be"
+  },
+  {
+    "key": "pontoons.rules.r2",
+    "text": "Max"
+  },
+  {
+    "key": "pontoons.rules.r3",
+    "text": "Weight limit is"
+  },
+  {
+    "key": "pontoons.rules.r4",
+    "text": "All IDs & credit cards must"
+  },
+  {
+    "key": "pontoons.rules.r5",
+    "text": "Card holder"
+  },
+  {
+    "key": "pontoons.rules.r7",
+    "text": "Food & drinks welcome for all"
+  },
+  {
+    "key": "pontoons.rules.r9",
+    "text": "Late arrival = reduced water time."
+  },
+  {
+    "key": "pontoons.rules.r10",
+    "text": "All sales final."
+  },
+  {
+    "key": "pontoons.map.eyebrow",
+    "text": "Explore Your Routes"
+  },
+  {
+    "key": "pontoons.map.title",
+    "text": "Interactive Bay Map"
+  },
+  {
+    "key": "pontoons.map.sub",
+    "text": "Head north to OC's hottest spots or south along Assateague Island. Choose your direction and explore every destination."
+  },
+  {
+    "key": "pontoons.occasions.eyebrow",
+    "text": "Every Occasion"
+  },
+  {
+    "key": "pontoons.occasions.title",
+    "text": "Perfect For Any Group"
+  },
+  {
+    "key": "pontoons.occasion1.text",
+    "text": "Family Day on the Water"
+  },
+  {
+    "key": "pontoons.occasion2.text",
+    "text": "Bachelorette on the Bay"
+  },
+  {
+    "key": "pontoons.occasion3.text",
+    "text": "Best Activity for Kids in OC"
+  },
+  {
+    "key": "pontoons.occasion4.text",
+    "text": "Date Night Sunset Cruise"
+  },
+  {
+    "key": "pontoons.occasion5.text",
+    "text": "Corporate & Group Events"
+  },
+  {
+    "key": "pontoons.gallery.eyebrow",
+    "text": "Out on the Bay"
+  },
+  {
+    "key": "pontoons.gallery.title",
+    "text": "Pontoon Life"
+  },
+  {
+    "key": "pontoons.faq.eyebrow",
+    "text": "Know Before You Go"
+  },
+  {
+    "key": "pontoons.faq.title",
+    "text": "Pontoon Boat FAQ"
+  },
+  {
+    "key": "pontoons.faq.q1",
+    "text": "Who drives the boat?"
+  },
+  {
+    "key": "pontoons.faq.a1",
+    "text": "You do. The renter must be 21+ with a valid driver's license. We issue a temporary boater's license at the dock during your orientation. No prior boating experience required — we'll walk you through everything before you leave the dock."
+  },
+  {
+    "key": "pontoons.faq.q2",
+    "text": "Can we bring our own food and drinks?"
+  },
+  {
+    "key": "pontoons.faq.a2",
+    "text": "Absolutely. Bring your cooler, food, and beverages. The driver must remain completely sober for the entire rental. Passengers 21+ are welcome to enjoy drinks responsibly. Think of it like driving a car — same rules apply on the water."
+  },
+  {
+    "key": "pontoons.faq.q3",
+    "text": "What's the maximum capacity?"
+  },
+  {
+    "key": "pontoons.faq.a3",
+    "text": "12 people maximum per boat. Weight limit is 1,900–2,100 lb total (including people, coolers, and gear). This is Maryland maritime law — no exceptions can be made. Count your group and gear before you book."
+  },
+  {
+    "key": "pontoons.faq.q4",
+    "text": "Where exactly can we take the pontoon?"
+  },
+  {
+    "key": "pontoons.faq.a4",
+    "text": "The entire bay is yours — from the Verrazano Bridge to the Rt. 90 Bridge. Beach on Assateague Island's bay-side sandbars, cruise to Seacrets, Fish Tales, or Fager's Island, drop anchor on a sandbar, or just explore. We give you a full briefing at the dock including route suggestions and must-see spots."
+  },
+  {
+    "key": "pontoons.faq.q5",
+    "text": "Can we fish and crab from the boat?"
+  },
+  {
+    "key": "pontoons.faq.a5",
+    "text": "Yes! Add our fishing or crabbing package when you book. The packages include gear — you just need a valid Maryland fishing or crabbing license, which are available at local tackle shops around Ocean City MD before you arrive at our dock."
+  },
+  {
+    "key": "pontoons.faq.q6",
+    "text": "Do we need boating experience?"
+  },
+  {
+    "key": "pontoons.faq.a6",
+    "text": "No. We provide a full dock orientation covering navigation, safety rules, operating the boat, and what to do if you have a question out on the water. The bay is calm and the pontoon is easy to handle. First-timers do this every day."
+  },
+  {
+    "key": "pontoons.faq.q7",
+    "text": "How do we get to Assateague Island by boat?"
+  },
+  {
+    "key": "pontoons.faq.a7",
+    "text": "You beach the pontoon directly on the bay-side of Assateague Island — no parking lot, no trail, no ferry. Just pull up to the shallow sandbars, cut the engine, step off into ankle-deep water, and you're on one of the most beautiful stretches of coastline on the East Coast. We'll show you exactly where to go in your briefing."
+  },
+  {
+    "key": "pontoons.faq.q8",
+    "text": "Is alcohol allowed on the pontoon boat?"
+  },
+  {
+    "key": "pontoons.faq.a8",
+    "text": "Passengers may consume alcohol. The driver must remain completely sober — this is the same as operating a motor vehicle under Maryland law. We reserve the right to administer a breathalyzer test at any point. Violations end the rental immediately with no refund."
+  },
+  {
+    "key": "pontoons.cta.eyebrow",
+    "text": "Your Perfect Day Starts Here"
+  },
+  {
+    "key": "pontoons.cta.title",
+    "text": "Your Perfect Day on the Water."
+  },
+  {
+    "key": "pontoons.cta.sub",
+    "text": "Call to reserve your pontoon — slots go fast in season. April bookings: call us directly for availability."
+  },
+  {
+    "key": "6mile.sticky.text",
+    "text": "You've Read About It. Now Ride It."
+  },
+  {
+    "key": "6mile.hero.eyebrow",
+    "text": "OCA Watersports Signature Experience"
+  },
+  {
+    "key": "6mile.hero.title",
+    "text": "The 6 Mile"
+  },
+  {
+    "key": "6mile.hero.sub",
+    "text": "Ocean City MD → Assateague Island National Seashore"
+  },
+  {
+    "key": "6mile.hero.lead",
+    "text": "The most talked-about jet ski experience on the East Coast. Wild horses. Dolphins. Open ocean. We didn't just name it — we built it."
+  },
+  {
+    "key": "6mile.origin.eyebrow",
+    "text": "The Origin"
+  },
+  {
+    "key": "6mile.origin.title",
+    "text": "Where OCA Watersports Earned Its Reputation."
+  },
+  {
+    "key": "6mile.origin.p1",
+    "text": "It started in 2010. While every other jet ski rental company in Ocean City Maryland was keeping riders locked in a buoyed-off bay circle, we were thinking about what a real ride could look like. Open water. Real distance. Something worth remembering."
+  },
+  {
+    "key": "6mile.origin.p2",
+    "text": "We mapped the bay. We scouted the route from our dock at 12817 Harbor Rd all the way to Assateague Island National Seashore — a 6 mile stretch of water that passed sandbars, million-dollar waterfront homes, open bay, and ended at one of the most protected, untouched shorelines in the entire country."
+  },
+  {
+    "key": "6mile.origin.p3",
+    "text": "We called it the"
+  },
+  {
+    "key": "6mile.origin.p4",
+    "text": "Every other company in Ocean City that talks about riding to Assateague today? They're following our lead."
+  },
+  {
+    "key": "6mile.origin.pullquote",
+    "text": "\"We created the 6 Mile Ride. The unequal watersports rental company — where being equal isn't good enough.\""
+  },
+  {
+    "key": "6mile.route.eyebrow",
+    "text": "The Route"
+  },
+  {
+    "key": "6mile.route.title",
+    "text": "6 Miles. 6 Stops."
+  },
+  {
+    "key": "6mile.route.sub",
+    "text": "From our dock in downtown Ocean City MD to the wild shoreline of Assateague Island National Seashore. Here's every stop along the way."
+  },
+  {
+    "key": "6mile.stop1.num",
+    "text": "Stop 01 · The Launch"
+  },
+  {
+    "key": "6mile.stop1.title",
+    "text": "Our Dock — Downtown Ocean City"
+  },
+  {
+    "key": "6mile.stop1.dist",
+    "text": "📍 12817 Harbor Rd, Ocean City MD"
+  },
+  {
+    "key": "6mile.stop1.text",
+    "text": "You arrive at our dock at 12817 Harbor Rd — right on the bay with direct water access and the biggest riding area in OC. Orientation. Waivers. Briefing on the route south to Assateague. Then you launch."
+  },
+  {
+    "key": "6mile.stop2.num",
+    "text": "Stop 02 · The Open Bay"
+  },
+  {
+    "key": "6mile.stop2.title",
+    "text": "Full Throttle Freedom"
+  },
+  {
+    "key": "6mile.stop2.dist",
+    "text": "🌊 Largest riding area in Ocean City MD"
+  },
+  {
+    "key": "6mile.stop2.text",
+    "text": "Within minutes of launch you're heading south into wide open water — 6 miles of bay stretching along Assateague Island all the way to the Verrazano Bridge. No circles. No buoys. No other company gives you this. Hit the throttle and ride. Million-dollar waterfront homes line the shore. The coastline of Assateague opens up ahead. This is the ride."
+  },
+  {
+    "key": "6mile.stop3.num",
+    "text": "Stop 03 · The Sandbars"
+  },
+  {
+    "key": "6mile.stop3.title",
+    "text": "The OC Sandbars"
+  },
+  {
+    "key": "6mile.stop3.dist",
+    "text": "🏖️ Shallow-water carving ground"
+  },
+  {
+    "key": "6mile.stop3.text",
+    "text": "As you approach Assateague Island, shallow sandbars rise from the bay floor — some just inches deep. Cut through them. Slow down and drift across them. Pontoon riders beach here. Jet ski riders carve circles. This is where Ocean City's summer crowd completely disappears."
+  },
+  {
+    "key": "6mile.stop4.num",
+    "text": "Stop 04 · Assateague Island Coastline"
+  },
+  {
+    "key": "6mile.stop4.title",
+    "text": "The National Seashore"
+  },
+  {
+    "key": "6mile.stop4.dist",
+    "text": "🌿 37 miles of federally protected wilderness"
+  },
+  {
+    "key": "6mile.stop4.text",
+    "text": "You arrive at Assateague Island National Seashore — a 37-mile barrier island with zero development. No hotels. No condos. Just wild beach, barrier dunes, and the Atlantic. The contrast from Ocean City just 6 miles behind you is staggering. Protected by the National Park Service since 1965."
+  },
+  {
+    "key": "6mile.stop5.num",
+    "text": "Stop 05 · Wild Horse Territory"
+  },
+  {
+    "key": "6mile.stop5.title",
+    "text": "The Wild Horses"
+  },
+  {
+    "key": "6mile.stop5.dist",
+    "text": "🐴 Free since the 1600s"
+  },
+  {
+    "key": "6mile.stop5.text",
+    "text": "The famous wild Assateague horses have roamed this island for over 400 years. Legend says they swam ashore from a Spanish shipwreck in the 1500s. Whether true or not, seeing them on the beach — from the water, from your jet ski — is a moment that doesn't exist anywhere else in the world quite like this."
+  },
+  {
+    "key": "6mile.stop6.num",
+    "text": "Stop 06 · The Return"
+  },
+  {
+    "key": "6mile.stop6.title",
+    "text": "Sunset on the Bay"
+  },
+  {
+    "key": "6mile.stop6.dist",
+    "text": "🌅 The best view of Ocean City, Maryland"
+  },
+  {
+    "key": "6mile.stop6.text",
+    "text": "You turn back toward the OC skyline with the sun dropping behind it and the bay going glassy. This is the most photographed part of the ride — riders slow down here on instinct. You've just done something that most people visiting Ocean City never even know exists. See you back at the dock."
+  },
+  {
+    "key": "6mile.map.eyebrow",
+    "text": "Ride It Before You Ride It"
+  },
+  {
+    "key": "6mile.map.title",
+    "text": "The Interactive 6 Mile Ride"
+  },
+  {
+    "key": "6mile.map.sub",
+    "text": "Every stop. Every view. Every moment. Explore the full route on our satellite map loaded with photos and videos from the actual ride."
+  },
+  {
+    "key": "6mile.assateague.eyebrow",
+    "text": "Know the Destination"
+  },
+  {
+    "key": "6mile.assateague.title",
+    "text": "The Place You'll Be Riding To."
+  },
+  {
+    "key": "6mile.assateague.sub",
+    "text": "Here's what you should know about Assateague Island before you ride there."
+  },
+  {
+    "key": "6mile.fact1.num",
+    "text": "37"
+  },
+  {
+    "key": "6mile.fact1.title",
+    "text": "Miles of Protected Coastline"
+  },
+  {
+    "key": "6mile.fact1.text",
+    "text": "Assateague Island stretches 37 miles along the Atlantic coast, shared between Maryland and Virginia. As a National Seashore protected by the National Park Service, the land looks exactly as it did hundreds of years ago. No hotels. No condos. No development. Just wilderness."
+  },
+  {
+    "key": "6mile.fact2.title",
+    "text": "Wild Horses Since the 1600s"
+  },
+  {
+    "key": "6mile.fact2.text",
+    "text": "The Assateague horses have roamed freely for over 400 years. Local legend says they swam ashore from a Spanish shipwreck. Whether true or not, they are a recognized wonder — and you might see them just feet from the waterline on the bay side of the island during your ride."
+  },
+  {
+    "key": "6mile.fact3.title",
+    "text": "Dolphins in the Inlet"
+  },
+  {
+    "key": "6mile.fact3.text",
+    "text": "Atlantic bottlenose dolphins are regularly spotted in the waters between Ocean City and Assateague Island. We can't promise them on every ride — but it happens often enough that we talk about it in every pre-ride briefing. When it happens, riders go quiet. It's that good."
+  },
+  {
+    "key": "6mile.fact4.title",
+    "text": "A National Seashore — Not a Resort"
+  },
+  {
+    "key": "6mile.fact4.text",
+    "text": "Assateague is protected federal land. No hotels, no condos, no development. Just 37 miles of wilderness, barrier dunes, and wild shoreline. The contrast to Ocean City — just 6 miles away by water — is staggering. One of the most unique natural experiences on the Eastern Seaboard."
+  },
+  {
+    "key": "6mile.fact5.title",
+    "text": "The Bay-Side Sandbars"
+  },
+  {
+    "key": "6mile.fact5.text",
+    "text": "On the bay side of Assateague, shallow sandbars emerge from the water — some just inches deep. Pontoon riders beach here and walk on the island. Jet ski riders carve through the shallows. This is where Ocean City's summer bustle completely disappears and the wilderness takes over."
+  },
+  {
+    "key": "6mile.fact6.title",
+    "text": "OC From the Water"
+  },
+  {
+    "key": "6mile.fact6.text",
+    "text": "The view of Ocean City, Maryland from the middle of the bay — skyline, the Ferris wheel, the Rt. 50 bridge — is something most visitors never see. From Assateague looking back toward OC, the entire resort city appears like a thin strip between two bodies of water. It reframes everything."
+  },
+  {
+    "key": "6mile.vs.eyebrow",
+    "text": "The Honest Difference"
+  },
+  {
+    "key": "6mile.vs.title",
+    "text": "OCA vs. Every Other Jet Ski Company in Ocean City"
+  },
+  {
+    "key": "6mile.vs.them.header",
+    "text": "Every Other Company in OC"
+  },
+  {
+    "key": "6mile.vs.them.li1",
+    "text": "60-minute ride time"
+  },
+  {
+    "key": "6mile.vs.them.li2",
+    "text": "Confined buoyed-off bay loop"
+  },
+  {
+    "key": "6mile.vs.them.li3",
+    "text": "Bay access only — no Assateague"
+  },
+  {
+    "key": "6mile.vs.them.li4",
+    "text": "Supervised \"babysitter\" experience"
+  },
+  {
+    "key": "6mile.vs.them.li5",
+    "text": "Nothing memorable to see"
+  },
+  {
+    "key": "6mile.vs.them.li6",
+    "text": "Generic rental"
+  },
+  {
+    "key": "6mile.vs.us.header",
+    "text": "OCA Watersports"
+  },
+  {
+    "key": "6mile.vs.us.li1",
+    "text": "70-minute ride time"
+  },
+  {
+    "key": "6mile.vs.us.li2",
+    "text": "6 mile open-water route"
+  },
+  {
+    "key": "6mile.vs.us.li3",
+    "text": "Assateague Island access"
+  },
+  {
+    "key": "6mile.vs.us.li4",
+    "text": "True rider freedom"
+  },
+  {
+    "key": "6mile.vs.us.li5",
+    "text": "Wild horses, dolphins, sandbars"
+  },
+  {
+    "key": "6mile.vs.us.li6",
+    "text": "The 6 Mile Ride — we created it"
+  },
+  {
+    "key": "6mile.reviews.eyebrow",
+    "text": "4.4★ · 640+ Reviews"
+  },
+  {
+    "key": "6mile.reviews.title",
+    "text": "What Riders Say About the Ride"
+  },
+  {
+    "key": "6mile.review1.text",
+    "text": "The 6 mile ride was absolutely incredible. No other jet ski place in OC even comes close. You actually get to RIDE, not just go in circles. We saw dolphins and got to cruise by Assateague. Already booked again for next weekend."
+  },
+  {
+    "key": "6mile.review1.author",
+    "text": "— Jessica T. · Ocean City, MD"
+  },
+  {
+    "key": "6mile.review2.text",
+    "text": "We've been coming to Ocean City for 15 years and this was the most unique thing we've ever done here. The route to Assateague, seeing the wild horses from the water — we had no idea this even existed. OCA is in a class by themselves."
+  },
+  {
+    "key": "6mile.review2.author",
+    "text": "— The Mercer Family · Annapolis, MD"
+  },
+  {
+    "key": "6mile.review3.text",
+    "text": "70 minutes feels like the right amount of time — 60 would have felt rushed. The 6 mile route is the real deal. Wide open water, the horses on the beach, sandbars you can carve through. Best watersports experience I've had anywhere on the East Coast."
+  },
+  {
+    "key": "6mile.review3.author",
+    "text": "— Marcus D. · Washington, DC"
+  },
+  {
+    "key": "6mile.cta.eyebrow",
+    "text": "Included in Every Jet Ski Rental"
+  },
+  {
+    "key": "6mile.cta.title",
+    "text": "You've Read About It."
+  },
+  {
+    "key": "6mile.cta.sub",
+    "text": "The 6 Mile Ride is our signature experience — and it's included in every single jet ski rental. You don't pay extra for the best ride in Ocean City Maryland. You just book and show up."
+  },
+  {
+    "key": "about.sticky.text",
+    "text": "See You On the Water."
+  },
+  {
+    "key": "about.hero.eyebrow",
+    "text": "Est. 2010 · Ocean City, MD"
+  },
+  {
+    "key": "about.hero.title",
+    "text": "About OCA Watersports"
+  },
+  {
+    "key": "about.hero.sub",
+    "text": "Ocean City's Most Trusted Watersports Company Since 2010."
+  },
+  {
+    "key": "about.stats.years.num",
+    "text": "15+"
+  },
+  {
+    "key": "about.stats.years.label",
+    "text": "Years in Business"
+  },
+  {
+    "key": "about.stats.reviews.num",
+    "text": "0"
+  },
+  {
+    "key": "about.stats.reviews.label",
+    "text": "Google Reviews"
+  },
+  {
+    "key": "about.stats.rating.num",
+    "text": "4.4★"
+  },
+  {
+    "key": "about.stats.rating.label",
+    "text": "Average Rating"
+  },
+  {
+    "key": "about.stats.families.num",
+    "text": "1000s"
+  },
+  {
+    "key": "about.stats.families.label",
+    "text": "of Families Served"
+  },
+  {
+    "key": "about.story.eyebrow",
+    "text": "The Story"
+  },
+  {
+    "key": "about.story.title",
+    "text": "Founded on One Idea:"
+  },
+  {
+    "key": "about.story.p1",
+    "text": "We started OCA Watersports in 2010 with a straightforward belief — people deserve better than a 60-minute bay circle. They deserve a real ride. So we gave them one."
+  },
+  {
+    "key": "about.story.p2",
+    "text": "We mapped the entire bay between Ocean City and Assateague Island. We found the sandbars, the dolphin feeding grounds, the stretch of beach where the wild horses come down to the waterline. We built a 6 mile route that became the signature experience in Ocean City, Maryland — one that no other company has been able to replicate."
+  },
+  {
+    "key": "about.story.p3",
+    "text": "Fifteen years later, the mission hasn't changed. We run the largest riding area in Ocean City. We give riders 70 minutes, not 60. We point out where the horses walk, where the dolphins feed, where the sandbars rise from nowhere at low tide. That ride became the reason thousands of families come back to OCA Watersports year after year."
+  },
+  {
+    "key": "about.story.p4",
+    "text": "We are not a babysitter operation. We trust our riders. We give them the whole bay. And we take genuine pride in being the best watersports company in Ocean City, Maryland — not because we say so, but because 640+ Google reviews do."
+  },
+  {
+    "key": "about.evolution.eyebrow",
+    "text": "The Evolution"
+  },
+  {
+    "key": "about.evolution.title",
+    "text": "From Under The Bridge"
+  },
+  {
+    "key": "about.evolution.p1",
+    "text": "You might know us as"
+  },
+  {
+    "key": "about.evolution.p2",
+    "text": "New name. New home at 12817 Harbor Rd. Bigger riding area. More open water. Better access to Assateague Island and everything the bay has to offer. The ride got an upgrade — and so did we."
+  },
+  {
+    "key": "about.location.eyebrow",
+    "text": "Find Us"
+  },
+  {
+    "key": "about.location.title",
+    "text": "Right Where You Need to Be."
+  },
+  {
+    "key": "about.location.p1",
+    "text": "12817 Harbor Rd — right on the bay with direct water access and the biggest riding area in all of OC. From our dock, you have a straight shot to Assateague Island, open water, and everything in between."
+  },
+  {
+    "key": "about.location.p2",
+    "text": "Pull up, park, walk to the dock, and your adventure begins. No wasted time. No long idle zones. You're on the water in seconds."
+  },
+  {
+    "key": "about.partner.title",
+    "text": "Ride With Us. Eat Like a Local."
+  },
+  {
+    "key": "about.partner.text",
+    "text": "Show your OCA confirmation email at"
+  },
+  {
+    "key": "about.diff.eyebrow",
+    "text": "The Real Difference"
+  },
+  {
+    "key": "about.diff.title",
+    "text": "We're Not Just Another Rental Company."
+  },
+  {
+    "key": "about.diff.sub",
+    "text": "Here's why riders who come once come back every summer."
+  },
+  {
+    "key": "about.diff.feature1.title",
+    "text": "We Created the 6 Mile Ride"
+  },
+  {
+    "key": "about.diff.feature1.text",
+    "text": "No other company in Ocean City offers this route. We built it in 2010. Every company that talks about Assateague access is following our blueprint. The original is always better."
+  },
+  {
+    "key": "about.diff.feature2.title",
+    "text": "70 Minutes, Not 60"
+  },
+  {
+    "key": "about.diff.feature2.text",
+    "text": "We ride too. We know that 60 minutes isn't enough to do the 6 mile route justice. So we give you 70, and we start the clock when you hit the water — not when you walk in the door."
+  },
+  {
+    "key": "about.diff.feature3.title",
+    "text": "Prime Location"
+  },
+  {
+    "key": "about.diff.feature3.text",
+    "text": "Right on the bay in the biggest riding area in OC. You launch and you're riding. No idle zones, no wasted time. Location matters — ours is unmatched."
+  },
+  {
+    "key": "about.diff.feature4.title",
+    "text": "Real Rider Freedom"
+  },
+  {
+    "key": "about.diff.feature4.text",
+    "text": "We are not a babysitter operation. We brief you, we trust you, and we give you the whole bay. Ride where you want within our boundaries. No guided circles. No escort boats. Real freedom."
+  },
+  {
+    "key": "about.diff.feature5.title",
+    "text": "15 Years. 640+ Reviews."
+  },
+  {
+    "key": "about.diff.feature5.text",
+    "text": "Established in 2010 and still running strong. Our 640+ Google reviews speak louder than anything we could say. Most of them mention the same things: the route, the staff, and the fact that there's nothing like this in Ocean City."
+  },
+  {
+    "key": "about.diff.feature6.title",
+    "text": "Assateague Island Access"
+  },
+  {
+    "key": "about.diff.feature6.text",
+    "text": "Jet skis to the island shoreline. Pontoon boats right up onto the bay-side sandbars. Wild horses. Dolphins. A 37-mile protected National Seashore as your backdrop. It exists right here — most people just don't know to look for it."
+  },
+  {
+    "key": "about.cta.eyebrow",
+    "text": "See You on the Water"
+  },
+  {
+    "key": "about.cta.title",
+    "text": "See You On the Water."
+  },
+  {
+    "key": "about.cta.sub",
+    "text": "12817 Harbor Rd. Direct bay access. Next to 12817 Harbor Rd. Come find us — the adventure starts the moment you pull up."
+  },
+  {
+    "key": "contact.sticky.text",
+    "text": "Come Find Us. Book Your Adventure."
+  },
+  {
+    "key": "contact.hero.eyebrow",
+    "text": "12817 Harbor Rd · Ocean City, MD 21842"
+  },
+  {
+    "key": "contact.hero.title",
+    "text": "Find Us."
+  },
+  {
+    "key": "contact.hero.sub",
+    "text": "Direct bay access. The biggest riding area in OC. Right in the heart of Ocean City, Maryland."
+  },
+  {
+    "key": "contact.info.phone.label",
+    "text": "Phone"
+  },
+  {
+    "key": "contact.info.phone.text",
+    "text": "410-629-RIDE (7433)"
+  },
+  {
+    "key": "contact.info.email.label",
+    "text": "Email"
+  },
+  {
+    "key": "contact.info.address.label",
+    "text": "Address"
+  },
+  {
+    "key": "contact.info.address.text",
+    "text": "12817 Harbor Rd"
+  },
+  {
+    "key": "contact.info.hours.label",
+    "text": "Hours"
+  },
+  {
+    "key": "contact.info.hours.text",
+    "text": "Seasonal — call for current hours. We operate spring through fall. Early April bookings: call us directly."
+  },
+  {
+    "key": "contact.partner.title",
+    "text": "Ride With Us. Eat Like a Local."
+  },
+  {
+    "key": "contact.partner.text",
+    "text": "Show your OCA confirmation email at"
+  },
+  {
+    "key": "contact.reviews.title",
+    "text": "4.4 Stars · 640+ Google Reviews"
+  },
+  {
+    "key": "contact.reviews.text",
+    "text": "Don't take our word for it — see what thousands of riders say about OCA Watersports."
+  },
+  {
+    "key": "contact.directions.eyebrow",
+    "text": "Directions"
+  },
+  {
+    "key": "contact.directions.title",
+    "text": "How to Get Here"
+  },
+  {
+    "key": "contact.dir1.from",
+    "text": "From the Ocean City Boardwalk"
+  },
+  {
+    "key": "contact.dir1.text",
+    "text": "Head west toward the bay on any cross street. Navigate to 12817 Harbor Rd. We're right on the water with direct bay access."
+  },
+  {
+    "key": "contact.dir2.from",
+    "text": "From Rt. 50 (coming into OC)"
+  },
+  {
+    "key": "contact.dir2.text",
+    "text": "Cross into Ocean City and navigate to 12817 Harbor Rd. GPS will take you straight to our dock."
+  },
+  {
+    "key": "contact.dir3.from",
+    "text": "From Rt. 90 Bridge"
+  },
+  {
+    "key": "contact.dir3.text",
+    "text": "Head south on Coastal Highway and navigate to 12817 Harbor Rd. We're on the bay side with easy access from anywhere in OC."
+  },
+  {
+    "key": "contact.dir4.from",
+    "text": "From Delaware / Fenwick Island"
+  },
+  {
+    "key": "contact.dir4.text",
+    "text": "Head south on Coastal Highway into Ocean City, MD. Navigate to 12817 Harbor Rd — right on the bay."
+  },
+  {
+    "key": "contact.parking.title",
+    "text": "Parking"
+  },
+  {
+    "key": "contact.faq.eyebrow",
+    "text": "Getting Here"
+  },
+  {
+    "key": "contact.faq.title",
+    "text": "Location FAQ"
+  },
+  {
+    "key": "contact.faq.q1",
+    "text": "Where exactly are you located?"
+  },
+  {
+    "key": "contact.faq.a1",
+    "text": "We're at 12817 Harbor Rd in Ocean City, Maryland — right on the bay with direct water access. You'll see our dock and boats from the parking area. Plug the address into GPS and it'll take you right to us."
+  },
+  {
+    "key": "contact.faq.q2",
+    "text": "Where do I park?"
+  },
+  {
+    "key": "contact.faq.a2",
+    "text": "Free parking is available at our location — 12817 Harbor Rd. Street parking is also nearby. On peak summer weekends, consider Uber or Lyft and drop off right at 12817 Harbor Rd."
+  },
+  {
+    "key": "contact.faq.q3",
+    "text": "How early should I arrive?"
+  },
+  {
+    "key": "contact.faq.a3",
+    "text": "Please arrive at least"
+  },
+  {
+    "key": "contact.faq.q4",
+    "text": "Can I use Uber or Lyft to get there?"
+  },
+  {
+    "key": "contact.faq.a4",
+    "text": "Absolutely — and it's a great option on busy summer weekends. Request drop-off at"
+  },
+  {
+    "key": "contact.cta.eyebrow",
+    "text": "On the Water"
+  },
+  {
+    "key": "contact.cta.title",
+    "text": "Come Find Us."
+  },
+  {
+    "key": "contact.cta.sub",
+    "text": "12817 Harbor Rd. Direct bay access. The adventure starts the moment you walk up to our dock."
+  },
+  {
+    "key": "deals.sticky.text",
+    "text": "Ready to Book with Your Deal?"
+  },
+  {
+    "key": "deals.hero.eyebrow",
+    "text": "Save More. Ride More."
+  },
+  {
+    "key": "deals.hero.title",
+    "text": "Deals & Coupons"
+  },
+  {
+    "key": "deals.hero.sub",
+    "text": "Save some money. Spend more time on the water."
+  },
+  {
+    "key": "deals.section.jetski.label",
+    "text": "Jet Ski Coupons"
+  },
+  {
+    "key": "deals.section.boat.label",
+    "text": "Boat Coupons"
+  },
+  {
+    "key": "deals.section.special.label",
+    "text": "Special Discounts"
+  },
+  {
+    "key": "deals.fineprint.title",
+    "text": "Good to Know"
+  },
+  {
+    "key": "deals.fineprint.li1",
+    "text": "Specials and coupons"
+  },
+  {
+    "key": "deals.fineprint.li2",
+    "text": "Must arrive"
+  },
+  {
+    "key": "deals.fineprint.li3",
+    "text": "Discount limited to"
+  },
+  {
+    "key": "deals.fineprint.li4",
+    "text": "Have a larger group or want a customized trip?"
+  },
+  {
+    "key": "deals.fineprint.li5",
+    "text": "Want to save more money?"
+  },
+  {
+    "key": "deals.fineprint.li6",
+    "text": "Applies to any day of the week (unless stated otherwise)."
+  },
+  {
+    "key": "deals.cta.eyebrow",
+    "text": "Ready to Book?"
+  },
+  {
+    "key": "deals.cta.title",
+    "text": "Ready to Book?"
+  },
+  {
+    "key": "deals.cta.text",
+    "text": "Apply your deal at checkout — or call us and mention your code. Our team will make sure you get the best rate available for your date."
+  }
+]
