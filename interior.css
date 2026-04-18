@@ -556,6 +556,25 @@
   box-shadow: 0 24px 80px rgba(0,0,0,0.28);
 }
 
+/* Two images stacked vertically in the same slot. */
+.alt-layout__img--stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.75rem;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.alt-layout__img--stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+}
+
 .alt-layout__img img {
   width: 100%;
   height: 460px;
@@ -891,6 +910,128 @@
   font-size: 0.88rem;
   line-height: 1.68;
   color: rgba(255,255,255,0.58);
+}
+
+/* ============================
+   Image Feature Cards (About page)
+   ============================ */
+.feature-grid--images {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .feature-grid--images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-grid--images {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card--image {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.45s ease,
+              border-color 0.45s ease;
+}
+
+.feature-card--image .feature-card__img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin: 0;
+}
+
+.feature-card--image .feature-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.feature-card--image .feature-card__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 25, 34, 0) 45%,
+    rgba(2, 25, 34, 0.55) 85%,
+    rgba(2, 25, 34, 0.85) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.feature-card--image .feature-card__body {
+  padding: 1.4rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.feature-card--image .feature-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.feature-card--image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+  border-color: rgba(222, 188, 107, 0.45);
+}
+
+.feature-card--image:hover .feature-card__img img {
+  transform: scale(1.08);
+}
+
+.feature-card--image:hover .feature-card__img::after {
+  opacity: 0.6;
+}
+
+.feature-card--image:hover .feature-card__title {
+  color: var(--color-gold);
+}
+
+/* Gold corner accent that draws on hover. */
+.feature-card--image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, rgba(222, 188, 107, 0) 100%);
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 2;
+}
+
+.feature-card--image:hover::before {
+  width: 70%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card--image,
+  .feature-card--image .feature-card__img img,
+  .feature-card--image::before,
+  .feature-card--image .feature-card__img::after {
+    transition: none;
+  }
 }
 
 /* ============================
@@ -1989,6 +2130,46 @@
   font-size: 0.88rem;
   line-height: 1.65;
   color: rgba(255,255,255,0.6);
+}
+
+/* Image variant — replaces the icon with a photo of the neighbor. */
+.partner-card--image {
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  gap: 0;
+}
+
+.partner-card--image .partner-card__img {
+  flex-shrink: 0;
+  width: 40%;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.partner-card--image .partner-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.partner-card--image .partner-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .partner-card--image {
+    flex-direction: column;
+  }
+  .partner-card--image .partner-card__img {
+    width: 100%;
+    min-height: 220px;
+    max-height: 260px;
+  }
 }
 
 .partner-card__body a { color: var(--color-gold); font-weight: 600; }

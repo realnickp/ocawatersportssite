@@ -386,8 +386,8 @@ INSERT INTO site_content (id, content) VALUES ('about.stats.years.num', '15+') O
 INSERT INTO site_content (id, content) VALUES ('about.stats.years.label', 'Years in Business') ON CONFLICT (id) DO UPDATE SET content = 'Years in Business', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('about.stats.reviews.num', '0') ON CONFLICT (id) DO UPDATE SET content = '0', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('about.stats.reviews.label', 'Google Reviews') ON CONFLICT (id) DO UPDATE SET content = 'Google Reviews', updated_at = now();
-INSERT INTO site_content (id, content) VALUES ('about.stats.rating.num', '4.4★') ON CONFLICT (id) DO UPDATE SET content = '4.4★', updated_at = now();
-INSERT INTO site_content (id, content) VALUES ('about.stats.rating.label', 'Average Rating') ON CONFLICT (id) DO UPDATE SET content = 'Average Rating', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('about.stats.area.num', '#1') ON CONFLICT (id) DO UPDATE SET content = '#1', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('about.stats.area.label', 'Largest Riding Area in OC') ON CONFLICT (id) DO UPDATE SET content = 'Largest Riding Area in OC', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('about.stats.families.num', '1000s') ON CONFLICT (id) DO UPDATE SET content = '1000s', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('about.stats.families.label', 'of Families Served') ON CONFLICT (id) DO UPDATE SET content = 'of Families Served', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('about.story.eyebrow', 'The Story') ON CONFLICT (id) DO UPDATE SET content = 'The Story', updated_at = now();
