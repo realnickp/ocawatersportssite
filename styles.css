@@ -2147,6 +2147,11 @@ a:hover {
   margin: 0 auto;
 }
 
+.ig-feed {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 @media (min-width: 700px) {
   .xp-gallery__grid {
     grid-template-columns: repeat(3, 1fr);
