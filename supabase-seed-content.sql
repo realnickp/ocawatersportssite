@@ -230,6 +230,12 @@ INSERT INTO site_content (id, content) VALUES ('pontoons.price5.sub', '+ tax') O
 INSERT INTO site_content (id, content) VALUES ('pontoons.price6.duration', 'Custom Times') ON CONFLICT (id) DO UPDATE SET content = 'Custom Times', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('pontoons.price6.price', 'Call Us') ON CONFLICT (id) DO UPDATE SET content = 'Call Us', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('pontoons.price6.sub', 'Tailored trips — phone to arrange') ON CONFLICT (id) DO UPDATE SET content = 'Tailored trips — phone to arrange', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('pontoons.price7.duration', '4 Hours') ON CONFLICT (id) DO UPDATE SET content = '4 Hours', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('pontoons.price7.price', '$489') ON CONFLICT (id) DO UPDATE SET content = '$489', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('pontoons.price7.sub', '+ tax') ON CONFLICT (id) DO UPDATE SET content = '+ tax', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('index.pontoon.addons.eyebrow', 'Pontoon Add-Ons') ON CONFLICT (id) DO UPDATE SET content = 'Pontoon Add-Ons', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('index.pontoon.addons.title', 'Add-Ons') ON CONFLICT (id) DO UPDATE SET content = 'Add-Ons', updated_at = now();
+INSERT INTO site_content (id, content) VALUES ('index.pontoon.rates.text', 'Boat Rentals starting at $199.') ON CONFLICT (id) DO UPDATE SET content = 'Boat Rentals starting at $199.', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('pontoons.pricing.highlight', 'All rentals are <strong>100% private</strong> — your group only. No strangers. No shared tours. The boat is yours for the entire rental period.') ON CONFLICT (id) DO UPDATE SET content = 'All rentals are <strong>100% private</strong> — your group only. No strangers. No shared tours. The boat is yours for the entire rental period.', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('pontoons.addons.eyebrow', 'Upgrades') ON CONFLICT (id) DO UPDATE SET content = 'Upgrades', updated_at = now();
 INSERT INTO site_content (id, content) VALUES ('pontoons.addons.title', 'Add-Ons for the Full Experience') ON CONFLICT (id) DO UPDATE SET content = 'Add-Ons for the Full Experience', updated_at = now();

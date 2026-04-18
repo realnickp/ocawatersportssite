@@ -1259,12 +1259,11 @@
 /* ============================
    Photo Gallery + Lightbox
    ============================ */
+/* Masonry-style columns so every photo keeps its natural aspect ratio
+   — no more hard-cropping subjects out of the frame. */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 240px;
-  grid-auto-flow: dense;
-  gap: 0.5rem;
+  columns: 3;
+  column-gap: 0.5rem;
 }
 
 .gallery-item {
@@ -1272,19 +1271,22 @@
   overflow: hidden;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  break-inside: avoid;
+  margin: 0 0 0.5rem;
+  display: block;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.42s ease;
+  height: auto;
   display: block;
+  transition: transform 0.42s ease;
 }
 
 .gallery-item:hover img { transform: scale(1.04); }
 
-.gallery-item--wide { grid-column: span 2; }
+/* "wide" is a no-op in masonry mode — kept so existing markup still works. */
+.gallery-item--wide {}
 
 .gallery-item__overlay {
   position: absolute;
@@ -1305,13 +1307,12 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+@media (max-width: 900px) {
+  .gallery-grid { columns: 2; }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item--wide { grid-column: span 1; }
+  .gallery-grid { columns: 1; }
 }
 
 .lightbox {
