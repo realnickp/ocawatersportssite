@@ -2152,6 +2152,24 @@ a:hover {
   margin: 0 auto;
 }
 
+/* On mobile, cap the Instagram widget height so it doesn't dominate
+   the page — users can scroll within it AND past it. */
+@media (max-width: 720px) {
+  .ig-feed {
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .ig-feed::-webkit-scrollbar { width: 4px; }
+  .ig-feed::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+}
+
 @media (min-width: 700px) {
   .xp-gallery__grid {
     grid-template-columns: repeat(3, 1fr);
