@@ -1057,5 +1057,104 @@
   <script src="cms.js"></script>
   <!-- FareHarbor Lightframe API -->
   <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+
+  <!-- Memorial Day Sale Popup -->
+  <style>
+    .mdpop { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(2, 25, 34, 0.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }
+    .mdpop.is-open { display: flex; opacity: 1; }
+    .mdpop__card { position: relative; width: 100%; max-width: 520px; background: #021922; color: #fff; border-radius: 18px; border-top: 4px solid #debc6b; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(222, 188, 107, 0.15); overflow: hidden; transform: translateY(14px) scale(0.98); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); font-family: "Manrope", system-ui, sans-serif; }
+    .mdpop.is-open .mdpop__card { transform: translateY(0) scale(1); }
+    .mdpop__image { position: relative; height: 180px; background: #021922 center/cover no-repeat; }
+    .mdpop__image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2, 25, 34, 0.15) 0%, rgba(2, 25, 34, 0.92) 100%); }
+    .mdpop__logo { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); width: 130px; height: auto; z-index: 2; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5)); }
+    .mdpop__close { position: absolute; top: 12px; right: 12px; z-index: 5; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(2, 25, 34, 0.7); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease; }
+    .mdpop__close:hover { background: rgba(2, 25, 34, 0.95); border-color: #debc6b; transform: scale(1.05); }
+    .mdpop__close:focus-visible { outline: 2px solid #debc6b; outline-offset: 2px; }
+    .mdpop__body { padding: 1.4rem 1.6rem 1.75rem; text-align: center; }
+    .mdpop__eyebrow { display: inline-block; background: #cc2424; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; margin-bottom: 1rem; }
+    .mdpop__title { font-family: "Audiowide", cursive; font-size: 1.85rem; line-height: 1.1; color: #fff; margin: 0 0 0.4rem; letter-spacing: 0.01em; }
+    .mdpop__sub { font-size: 0.95rem; color: #debc6b; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 1.1rem; }
+    .mdpop__deals { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0 0 1.1rem; }
+    .mdpop__deal { background: rgba(222, 188, 107, 0.08); border: 1px solid rgba(222, 188, 107, 0.28); border-radius: 12px; padding: 0.85rem 0.6rem; }
+    .mdpop__deal-amt { font-family: "Audiowide", cursive; font-size: 1.55rem; color: #debc6b; line-height: 1; margin-bottom: 0.25rem; }
+    .mdpop__deal-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; }
+    .mdpop__copy { font-size: 0.92rem; line-height: 1.5; color: #c9d4e5; margin: 0 0 1.2rem; }
+    .mdpop__dates { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #021922; background: #debc6b; padding: 6px 14px; border-radius: 999px; margin-bottom: 1.2rem; }
+    .mdpop__cta { display: inline-block; background: #debc6b; color: #23262d; font-family: "Manrope", system-ui, sans-serif; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 32px; border-radius: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .mdpop__cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(222, 188, 107, 0.35); text-decoration: none; }
+    .mdpop__foot { display: block; font-size: 0.72rem; color: #8899b5; margin-top: 0.85rem; letter-spacing: 0.02em; }
+    @media (max-width: 480px) {
+      .mdpop__card { max-width: 100%; }
+      .mdpop__image { height: 140px; }
+      .mdpop__logo { width: 110px; }
+      .mdpop__body { padding: 1.2rem 1.1rem 1.5rem; }
+      .mdpop__title { font-size: 1.5rem; }
+      .mdpop__deal-amt { font-size: 1.3rem; }
+    }
+  </style>
+  <div class="mdpop" id="mdSalePopup" role="dialog" aria-modal="true" aria-labelledby="mdpopTitle" aria-hidden="true">
+    <div class="mdpop__card">
+      <button type="button" class="mdpop__close" id="mdpopClose" aria-label="Close">&times;</button>
+      <div class="mdpop__image" style="background-image: url('https://iili.io/B489eVV.jpg');">
+        <img class="mdpop__logo" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
+      </div>
+      <div class="mdpop__body">
+        <span class="mdpop__eyebrow">Massive Memorial Day Sale</span>
+        <h2 class="mdpop__title" id="mdpopTitle">Lowest Prices We&rsquo;ve Ever Run.</h2>
+        <p class="mdpop__sub">The biggest deal in OC. Period.</p>
+        <div class="mdpop__deals">
+          <div class="mdpop__deal">
+            <div class="mdpop__deal-amt">$99</div>
+            <div class="mdpop__deal-label">Jet Skis</div>
+          </div>
+          <div class="mdpop__deal">
+            <div class="mdpop__deal-amt">15% OFF</div>
+            <div class="mdpop__deal-label">All Pontoons</div>
+          </div>
+        </div>
+        <p class="mdpop__copy">OC&rsquo;s longest jet ski ride. Pontoons with <strong style="color:#fff;">free reign of the largest boating area in Ocean City</strong>, Inlet to Assateague. We&rsquo;ve never priced it like this. Don&rsquo;t blink.</p>
+        <div class="mdpop__dates">Today through May 31</div><br />
+        <a class="mdpop__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes" id="mdpopCta">Book Now</a>
+        <span class="mdpop__foot">Press ESC to close</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var pop = document.getElementById('mdSalePopup');
+      if (!pop) return;
+      /* Auto-expire on 2026-06-01 ET (midnight ET = 04:00 UTC during DST) */
+      var saleEnd = new Date('2026-06-01T04:00:00Z');
+      if (Date.now() >= saleEnd.getTime()) {
+        pop.parentNode && pop.parentNode.removeChild(pop);
+        return;
+      }
+      if (sessionStorage.getItem('mdSalePopupSeen') === '1') return;
+      var closeBtn = document.getElementById('mdpopClose');
+      var cta = document.getElementById('mdpopCta');
+      var lastFocus = null;
+      function open() {
+        lastFocus = document.activeElement;
+        pop.classList.add('is-open');
+        pop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { closeBtn.focus(); }, 50);
+        sessionStorage.setItem('mdSalePopupSeen', '1');
+      }
+      function close() {
+        pop.classList.remove('is-open');
+        pop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      }
+      closeBtn.addEventListener('click', close);
+      pop.addEventListener('click', function (e) { if (e.target === pop) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && pop.classList.contains('is-open')) close();
+      });
+      cta.addEventListener('click', close);
+      setTimeout(open, 2000);
+    })();
+  </script>
 </body>
 </html>
