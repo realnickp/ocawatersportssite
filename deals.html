@@ -420,7 +420,7 @@
       .giftcard-card__body { padding: 2rem 1.5rem; }
     }
 
-    /* Memorial Day Sale banner */
+    /* Preseason Special banner */
     .mdsale { display: none; background: linear-gradient(135deg, #021922 0%, #02323f 100%); border-top: 4px solid #debc6b; border-bottom: 4px solid #debc6b; padding: 3.5rem 1.5rem; position: relative; overflow: hidden; }
     .mdsale.is-active { display: block; }
     .mdsale::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 30%, rgba(222,188,107,0.22) 0%, transparent 55%), radial-gradient(ellipse at 80% 70%, rgba(204,36,36,0.18) 0%, transparent 55%); pointer-events: none; }
@@ -430,6 +430,7 @@
     .mdsale__sub { font-size: clamp(1rem, 2vw, 1.2rem); color: #debc6b; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin: 0 0 2rem; }
     .mdsale__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 720px; margin: 0 auto 1.75rem; }
     .mdsale__deal { background: rgba(222,188,107,0.08); border: 1px solid rgba(222,188,107,0.32); border-radius: 14px; padding: 1.6rem 1rem; }
+    .mdsale__deal-was { font-family: var(--font-display); font-size: clamp(1.05rem, 2.6vw, 1.5rem); color: rgba(255,255,255,0.5); line-height: 1; text-decoration: line-through; text-decoration-color: #cc2424; text-decoration-thickness: 3px; margin-bottom: 0.15rem; }
     .mdsale__deal-amt { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); color: #debc6b; line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
     .mdsale__deal-label { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; }
     .mdsale__copy { color: rgba(255,255,255,0.78); font-size: 1rem; line-height: 1.55; max-width: 640px; margin: 0 auto 1.5rem; }
@@ -441,11 +442,11 @@
       .mdsale__grid { grid-template-columns: 1fr; }
     }
 
-    /* Fine print highlight line for Memorial Day Sale */
+    /* Fine print highlight line for Preseason Special */
     .mdsale-finelines { display: none; }
     .mdsale-active .mdsale-finelines { display: list-item; background: rgba(222,188,107,0.10); border-left: 3px solid #debc6b; padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 0.85rem; list-style-position: inside; }
 
-    /* Section info banner (advance-booking notice while Memorial Day Sale runs) */
+    /* Section info banner (advance-booking notice while Preseason Special runs) */
     .deals-section-note { display: none; background: linear-gradient(135deg, rgba(222,188,107,0.10) 0%, rgba(222,188,107,0.04) 100%); border: 1px solid rgba(222,188,107,0.32); border-left: 4px solid #debc6b; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.75rem; color: #fff; }
     .mdsale-active .deals-section-note { display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap; }
     .deals-section-note__icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #debc6b; color: #021922; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; font-family: var(--font-body); }
@@ -496,14 +497,15 @@
   </header>
 
   <main>
-  <!-- Memorial Day Sale (auto-hides on 2026-06-01) -->
+  <!-- Preseason Special (auto-hides on 2026-06-01) -->
   <section class="mdsale" id="mdSaleBanner">
     <div class="mdsale__inner">
-      <span class="mdsale__strip">Massive Memorial Day Sale</span>
+      <span class="mdsale__strip">Massive Preseason Special</span>
       <h2 class="mdsale__title">Lowest Prices We&rsquo;ve Ever Run</h2>
       <p class="mdsale__sub">The biggest deal in OC. Period.</p>
       <div class="mdsale__grid">
         <div class="mdsale__deal">
+          <div class="mdsale__deal-was">$129</div>
           <div class="mdsale__deal-amt">$99</div>
           <div class="mdsale__deal-label">Jet Skis</div>
         </div>
@@ -553,7 +555,7 @@
       </div>
       <div class="deals-section-note reveal">
         <div class="deals-section-note__icon">i</div>
-        <div class="deals-section-note__text">Booking for <strong>June 1 or later?</strong> Use these codes. Riding <strong>through May 31?</strong> You get our <strong>$99 jet ski</strong> Memorial Day rate automatically. No code needed.</div>
+        <div class="deals-section-note__text">Booking for <strong>June 1 or later?</strong> Use these codes. Riding <strong>through May 31?</strong> You get our <strong>$99 jet ski</strong> Preseason Special rate automatically. No code needed.</div>
         <a class="deals-section-note__cta" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">Book Now</a>
       </div>
       <div class="coupon-grid" id="coupon-grid-jetski"></div>
@@ -583,7 +585,7 @@
       </div>
       <div class="deals-section-note reveal">
         <div class="deals-section-note__icon">i</div>
-        <div class="deals-section-note__text">Specials apply for <strong>travel June 1 and later</strong>. For Memorial Day weekend through May 31, our sitewide sale ($99 jet skis / 15% off pontoons) beats every code here.</div>
+        <div class="deals-section-note__text">Specials apply for <strong>travel June 1 and later</strong>. For dates through May 31, our sitewide Preseason Special ($99 jet skis / 15% off pontoons) beats every code here.</div>
         <a class="deals-section-note__cta" href="tel:4106297433">Call 410-629-RIDE</a>
       </div>
       <div class="coupon-grid" id="coupon-grid-special"></div>
@@ -596,7 +598,7 @@
       <div class="info-box reveal">
         <p class="info-box__title" data-cms="deals.fineprint.title">Good to Know</p>
         <ul>
-          <li class="mdsale-finelines"><strong>Memorial Day Sale</strong> ($99 jet skis / 15% off pontoons) runs <strong>today through May 31</strong>. Applied automatically at checkout. <strong>No code needed.</strong> The sale supersedes all coupons on this page for travel dates through May 31. Coupons below apply to bookings for <strong>June 1 and later</strong>.</li>
+          <li class="mdsale-finelines"><strong>Preseason Special</strong> ($99 jet skis / 15% off pontoons) runs <strong>today through May 31</strong>. Applied automatically at checkout. <strong>No code needed.</strong> The sale supersedes all coupons on this page for travel dates through May 31. Coupons below apply to bookings for <strong>June 1 and later</strong>.</li>
           <li data-cms="deals.fineprint.li1">Specials and coupons <strong>cannot be combined</strong>.</li>
           <li data-cms="deals.fineprint.li2">Must arrive <strong>45 minutes early</strong> to ensure you get your full time on the water.</li>
           <li data-cms="deals.fineprint.li3">Discount limited to <strong>1 jet ski for you and 1 ski for a guest</strong>. Max $30 off any boat rental.</li>
@@ -710,7 +712,7 @@
 }());
 </script>
 <script>
-  /* Memorial Day Sale activation: show banner + section notes until 2026-06-01 ET */
+  /* Preseason Special activation: show banner + section notes until 2026-06-01 ET */
   (function () {
     var endET = new Date('2026-06-01T04:00:00Z'); /* midnight ET (UTC-4 DST) */
     if (Date.now() < endET.getTime()) {

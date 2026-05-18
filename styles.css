@@ -1757,6 +1757,52 @@ a:hover {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PRESEASON SPECIAL — homepage stat callouts
+   The gate script at the top of <body> adds `preseason-active`
+   until midnight ET on 2026-06-01, then never again — so these
+   rules go dormant on their own and the stats revert to defaults.
+   CMS-proof: promo elements are siblings with no data-cms.
+   ═══════════════════════════════════════════════════════════════ */
+.preseason-only { display: none; }
+.jk-stats__was {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.2vw, 1.4rem);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+  text-decoration-color: #cc2424;
+  text-decoration-thickness: 3px;
+  margin-bottom: 0.3rem;
+}
+body.preseason-active .jk-stats__was { display: block; }
+body.preseason-active .jk-stats__val--sale {
+  color: rgba(255, 255, 255, 0.42);
+  text-decoration: line-through;
+  text-decoration-color: #cc2424;
+  text-decoration-thickness: 3px;
+}
+.jk-stats__badge {
+  margin-top: 0.45rem;
+  background: var(--color-gold);
+  color: #021922;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+body.preseason-active .jk-stats__badge { display: inline-block; }
+.jk-cta__promo {
+  margin: 0.6rem 0 0;
+  color: var(--color-gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+body.preseason-active .jk-cta__promo { display: block; }
+
 /* ---- Photo strip ---- */
 .jk-strip {
   overflow: hidden;

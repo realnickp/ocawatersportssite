@@ -231,6 +231,18 @@
   </script>
 </head>
 <body>
+<script>
+/* Preseason Special price callouts — adds `preseason-active` to <body> until
+   midnight ET on 2026-06-01, then never again. All promo styling is scoped to
+   that class, so on June 1 the page reverts to default prices automatically
+   with no manual cleanup. Runs before the price markup is parsed (zero flash). */
+(function () {
+  var saleEnd = new Date('2026-06-01T04:00:00Z'); /* midnight ET (UTC-4 DST) */
+  if (Date.now() < saleEnd.getTime() && document.body) {
+    document.body.classList.add('preseason-active');
+  }
+})();
+</script>
 <div class="page-int">
 
   <!-- Sticky Bar -->
@@ -461,32 +473,38 @@
       <div class="pricing-grid reveal">
         <div class="price-card">
           <div class="price-card__duration" data-cms="pontoons.price1.duration">1 Hour</div>
-          <div class="price-card__price" data-cms="pontoons.price1.price">$199</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price1.price">$199</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price1.sub">+ tax</div>
         </div>
         <div class="price-card price-card--featured">
           <div class="price-card__duration" data-cms="pontoons.price2.duration">2 Hours</div>
-          <div class="price-card__price" data-cms="pontoons.price2.price">$329</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price2.price">$329</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price2.sub">+ tax</div>
         </div>
         <div class="price-card price-card--featured">
           <div class="price-card__duration" data-cms="pontoons.price3.duration">3 Hours</div>
-          <div class="price-card__price" data-cms="pontoons.price3.price">$419</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price3.price">$419</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price3.sub">+ tax · Most Popular</div>
         </div>
         <div class="price-card">
           <div class="price-card__duration" data-cms="pontoons.price7.duration">4 Hours</div>
-          <div class="price-card__price" data-cms="pontoons.price7.price">$489</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price7.price">$489</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price7.sub">+ tax</div>
         </div>
         <div class="price-card">
           <div class="price-card__duration" data-cms="pontoons.price4.duration">6 Hours</div>
-          <div class="price-card__price" data-cms="pontoons.price4.price">$659</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price4.price">$659</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price4.sub">+ tax</div>
         </div>
         <div class="price-card">
           <div class="price-card__duration" data-cms="pontoons.price5.duration">8 Hours</div>
-          <div class="price-card__price" data-cms="pontoons.price5.price">$879</div>
+          <div class="price-card__price price-card__price--sale" data-cms="pontoons.price5.price">$879</div>
+          <div class="price-card__badge preseason-only">15% OFF</div>
           <div class="price-card__sub" data-cms="pontoons.price5.sub">+ tax</div>
         </div>
         <div class="price-card">

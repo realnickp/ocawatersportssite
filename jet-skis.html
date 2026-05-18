@@ -242,6 +242,18 @@
   </script>
 </head>
 <body>
+<script>
+/* Preseason Special price callouts — adds `preseason-active` to <body> until
+   midnight ET on 2026-06-01, then never again. All promo styling is scoped to
+   that class, so on June 1 the page reverts to default prices automatically
+   with no manual cleanup. Runs before the price markup is parsed (zero flash). */
+(function () {
+  var saleEnd = new Date('2026-06-01T04:00:00Z'); /* midnight ET (UTC-4 DST) */
+  if (Date.now() < saleEnd.getTime() && document.body) {
+    document.body.classList.add('preseason-active');
+  }
+})();
+</script>
 <div class="page-int">
 
   <!-- Sticky Bar -->
@@ -429,7 +441,12 @@
           <h2 class="section-title section-title--dark" data-cms="jetskis.pricing.title">No Surprises. No Hidden Fees.</h2>
 
           <div class="price-single">
-            <div class="price-single__price" data-cms="jetskis.pricing.price">$129<span class="price-single__tax">+tax</span></div>
+            <div class="price-single__price price-single__price--sale" data-cms="jetskis.pricing.price">$129<span class="price-single__tax">+tax</span></div>
+            <!-- Preseason Special: sibling element, no data-cms — cms.js cannot overwrite it. Hidden & dormant after 2026-06-01 ET. -->
+            <div class="price-single__promo preseason-only">
+              <div class="price-single__promo-price">$99<span class="price-single__tax">+tax</span></div>
+              <span class="price-single__promo-tag">Preseason Special</span>
+            </div>
             <div class="price-single__label" data-cms="jetskis.pricing.label">Per Jet Ski · 70 Minutes</div>
           </div>
 

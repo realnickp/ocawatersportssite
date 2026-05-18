@@ -1288,6 +1288,72 @@
   margin: 0.35rem 0 0;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PRESEASON SPECIAL — promo price callouts
+   The gate script at the top of each page <body> adds the class
+   `preseason-active` to <body> until midnight ET on 2026-06-01,
+   then never again — so every rule below goes dormant on its own
+   and prices render at their normal defaults. No manual cleanup.
+   CMS-PROOF: cms.js only rewrites the INNER content of [data-cms]
+   elements. The strikethrough here is a CLASS on the price element
+   (survives an innerHTML swap), and the promo price/badge is a
+   separate SIBLING element with no data-cms attribute, so the CMS
+   can never reach it.
+   ═══════════════════════════════════════════════════════════════ */
+.preseason-only { display: none; }
+
+/* Jet ski single price (jet-skis.html) */
+body.preseason-active .price-single__price--sale {
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+  text-decoration-color: #cc2424;
+  text-decoration-thickness: 4px;
+}
+body.preseason-active .price-single__promo { display: block; }
+.price-single__promo {
+  margin-top: 0.5rem;
+}
+.price-single__promo-price {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5rem);
+  color: var(--color-gold);
+  line-height: 1;
+}
+.price-single__promo-tag {
+  display: inline-block;
+  margin-top: 0.7rem;
+  background: #cc2424;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+
+/* Pontoon rate cards (pontoon-boats.html) */
+body.preseason-active .price-card__price--sale {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: rgba(255, 255, 255, 0.38);
+  text-decoration: line-through;
+  text-decoration-color: #cc2424;
+  text-decoration-thickness: 3px;
+}
+body.preseason-active .price-card__badge { display: inline-block; }
+.price-card__badge {
+  align-self: center;
+  background: var(--color-gold);
+  color: #021922;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+
 /* ============================
    Add-on Cards
    ============================ */

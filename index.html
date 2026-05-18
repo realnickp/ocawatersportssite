@@ -210,6 +210,18 @@
   </script>
 </head>
 <body>
+  <script>
+  /* Preseason Special price callouts — adds `preseason-active` to <body> until
+     midnight ET on 2026-06-01, then never again. All promo styling is scoped to
+     that class, so on June 1 the page reverts to default prices automatically
+     with no manual cleanup. Runs before the price markup is parsed (zero flash). */
+  (function () {
+    var saleEnd = new Date('2026-06-01T04:00:00Z'); /* midnight ET (UTC-4 DST) */
+    if (Date.now() < saleEnd.getTime() && document.body) {
+      document.body.classList.add('preseason-active');
+    }
+  })();
+  </script>
   <!-- Sticky Book Tab -->
   <a class="book-tab" id="homeStickyBar" href="https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes">BOOK NOW</a>
 
@@ -549,7 +561,8 @@
         <!-- STATS BAR -->
         <div class="jk-stats reveal" data-reveal="up">
           <div class="jk-stats__item">
-            <span class="jk-stats__val" data-count="129">$129</span>
+            <span class="jk-stats__was preseason-only" aria-hidden="true">$129</span>
+            <span class="jk-stats__val" data-count="129" data-count-sale="99">$129</span>
             <span class="jk-stats__sub">+ tax</span>
           </div>
           <div class="jk-stats__divider"></div>
@@ -635,7 +648,8 @@
         <!-- Pontoon pricing callout (mirrors the jet ski stats bar) -->
         <div class="jk-stats reveal" data-reveal="up">
           <div class="jk-stats__item">
-            <span class="jk-stats__val" data-count="199">$199</span>
+            <span class="jk-stats__val jk-stats__val--sale" data-count="199">$199</span>
+            <span class="jk-stats__badge preseason-only">15% OFF</span>
             <span class="jk-stats__sub">Starting Rate</span>
           </div>
           <div class="jk-stats__divider"></div>
@@ -652,6 +666,7 @@
 
         <div class="jk-cta reveal" data-reveal="up">
           <p class="jk-cta__text" data-cms="index.pontoon.rates.text">Boat Rentals starting at $199.</p>
+          <p class="jk-cta__promo preseason-only">Preseason Special &mdash; 15% off all pontoon boats through May 31</p>
           <div class="jk-cta__actions">
             <a class="btn btn--gold btn--lg" href="/pontoon-boats#pricing">SEE BOAT RENTAL RATES</a>
           </div>
@@ -1038,7 +1053,10 @@
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           var el = entry.target;
-          var target = parseInt(el.dataset.count, 10);
+          /* Preseason Special: animate to the sale figure (data-count-sale) while the
+             promo is live, else to the normal data-count. Reverts itself after the sale. */
+          var saleOn = document.body.classList.contains('preseason-active');
+          var target = parseInt((saleOn && el.dataset.countSale) || el.dataset.count, 10);
           var prefix = el.textContent.indexOf('$') === 0 ? '$' : '';
           var duration = 1200;
           var start = performance.now();
@@ -1109,7 +1127,7 @@
   <!-- FareHarbor Lightframe API -->
   <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 
-  <!-- Memorial Day Sale Popup -->
+  <!-- Preseason Special Popup -->
   <style>
     .mdpop { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(2, 25, 34, 0.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }
     .mdpop.is-open { display: flex; opacity: 1; }
@@ -1127,6 +1145,7 @@
     .mdpop__sub { font-size: 0.95rem; color: #debc6b; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 1.1rem; }
     .mdpop__deals { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0 0 1.1rem; }
     .mdpop__deal { background: rgba(222, 188, 107, 0.08); border: 1px solid rgba(222, 188, 107, 0.28); border-radius: 12px; padding: 0.85rem 0.6rem; }
+    .mdpop__deal-was { font-family: "Audiowide", cursive; font-size: 0.95rem; color: rgba(255,255,255,0.45); line-height: 1; text-decoration: line-through; text-decoration-color: #cc2424; text-decoration-thickness: 2px; margin-bottom: 0.15rem; }
     .mdpop__deal-amt { font-family: "Audiowide", cursive; font-size: 1.55rem; color: #debc6b; line-height: 1; margin-bottom: 0.25rem; }
     .mdpop__deal-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; }
     .mdpop__copy { font-size: 0.92rem; line-height: 1.5; color: #c9d4e5; margin: 0 0 1.2rem; }
@@ -1150,11 +1169,12 @@
         <img class="mdpop__logo" src="images/OCA_LogoWhite-final.png" alt="OCA Watersports" />
       </div>
       <div class="mdpop__body">
-        <span class="mdpop__eyebrow">Massive Memorial Day Sale</span>
+        <span class="mdpop__eyebrow">Massive Preseason Special</span>
         <h2 class="mdpop__title" id="mdpopTitle">Lowest Prices We&rsquo;ve Ever Run.</h2>
         <p class="mdpop__sub">The biggest deal in OC. Period.</p>
         <div class="mdpop__deals">
           <div class="mdpop__deal">
+            <div class="mdpop__deal-was">$129</div>
             <div class="mdpop__deal-amt">$99</div>
             <div class="mdpop__deal-label">Jet Skis</div>
           </div>
