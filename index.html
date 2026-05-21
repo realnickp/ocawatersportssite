@@ -229,7 +229,7 @@
     <!-- Hero -->
     <header class="hero" id="top">
       <div class="hero__bg" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="auto" poster="images/Delmarva_Aerial_360-413.jpg">
+        <video autoplay muted loop playsinline preload="metadata" poster="images/Delmarva_Aerial_360-413.jpg">
           <source src="videos/hero.mp4" type="video/mp4" />
         </video>
         <div class="hero__bg-overlay"></div>
@@ -296,8 +296,8 @@
           </svg>
 
           <div class="journey__vehicle" id="journeyVehicle" aria-hidden="true">
-            <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="Jet ski icon" />
-            <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="Pontoon boat icon" />
+            <img class="journey__jetski" id="journeyJetski" src="images/jetski-icon.png" alt="Jet ski icon" loading="lazy" />
+            <img class="journey__pontoon" id="journeyPontoon" src="images/pontoon-icon.png" alt="Pontoon boat icon" loading="lazy" />
           </div>
 
           <h2 id="journey-title" class="journey__heading" data-cms="index.journey.heading">Your Adventure Starts at the Dock</h2>
@@ -951,12 +951,25 @@
         }
       }
 
-      window.addEventListener('scroll', update, { passive: true });
+      // Only animate while the journey map is on (or near) screen. The old code ran
+      // a self-perpetuating rAF loop 60x/sec for the life of the page, so update()
+      // — which forces a layout read (getBoundingClientRect), two SVG getPointAtLength
+      // calls and style writes every frame — kept thrashing the main thread during ALL
+      // scrolling, even far below this section. Gating it removes that scroll jank.
+      var rafId = null;
+      function loop() { update(); rafId = requestAnimationFrame(loop); }
+      function start() { if (rafId === null) rafId = requestAnimationFrame(loop); }
+      function stop() { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
+
       window.addEventListener('resize', update);
-      requestAnimationFrame(function loop() {
-        update();
-        requestAnimationFrame(loop);
-      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+        }, { rootMargin: '200px 0px 200px 0px' }).observe(map);
+      } else {
+        start(); // fallback: original always-on behavior
+      }
     })();
 
     // Interactive map modal
@@ -1105,7 +1118,7 @@
       if (!bar) return;
       window.addEventListener('scroll', function () {
         bar.classList.toggle('visible', window.scrollY > 400);
-      });
+      }, { passive: true });
     })();
 
     // Homepage nav scroll behavior
