@@ -248,7 +248,7 @@
           <li><a href="/jet-skis">Jet Skis</a></li>
           <li><a href="/pontoon-boats">Pontoon Boats</a></li>
           <li><a href="/the-6-mile-ride">The 6 Mile Ride</a></li>
-          <!-- HIDE:IMAP_LAUNCH_MAY --><!-- <li><a href="/interactive-map">Interactive Map</a></li> -->
+          <li><a href="/interactive-map">Interactive Map</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/deals">Deals</a></li>
           <li><a href="/contact">Contact</a></li>
@@ -431,11 +431,10 @@
       </div>
     </section>
 
-    <!-- HIDE:IMAP_LAUNCH_MAY - remove style="display:none" to show again -->
     <!-- ======================================================
          INTERACTIVE MAP SHOWCASE
          ====================================================== -->
-    <section class="imap" id="explore-the-ride" style="display:none">
+    <section class="imap" id="explore-the-ride">
       <div class="imap__inner">
         <div class="imap__text reveal" data-reveal="up">
           <span class="imap__pill">Live Now</span>
@@ -1031,6 +1030,29 @@
         el.style.transitionDelay = (i % 3) * 0.12 + 's';
         observer.observe(el);
       });
+    })();
+
+    // Ambient preview videos: Chrome won't reliably autoplay muted videos that
+    // start off-screen, so they sit paused on a black first frame. Nudge each
+    // autoplay video to play when it scrolls into view (landmark videos have no
+    // autoplay attribute, so this leaves their play-once logic untouched).
+    (function () {
+      var ambientVids = document.querySelectorAll('video[autoplay]');
+      if (!ambientVids.length) return;
+      function playVid(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      if ('IntersectionObserver' in window) {
+        var vidObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) playVid(e.target); });
+        }, { threshold: 0.25 });
+        ambientVids.forEach(function (v) { vidObs.observe(v); });
+      } else {
+        ambientVids.forEach(playVid);
+      }
+      var retryPlay = function () {
+        ambientVids.forEach(function (v) { if (v.paused) playVid(v); });
+      };
+      window.addEventListener('pointerdown', retryPlay, { once: true });
+      window.addEventListener('scroll', retryPlay, { once: true, passive: true });
     })();
 
     // Landmark videos: play once on scroll, then fade to static image

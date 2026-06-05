@@ -8,8 +8,7 @@
   <link rel="apple-touch-icon" href="/images/OCA_LogoColors-final.png" />
   <title>Interactive Map | The 6 Mile Ride &amp; Pontoon Destinations | OCA Watersports</title>
   <meta name="description" content="The only interactive ride map in Ocean City MD. Explore the Famous 6 Mile Ride and every pontoon destination on the bay — stops, landmarks, photos, and videos before you even leave the dock." />
-  <!-- HIDE:IMAP_LAUNCH_MAY - revert to "index, follow" when launching -->
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.ocawatersports.com/interactive-map" />
 
   <meta property="og:title" content="Interactive Map — The 6 Mile Ride &amp; Pontoon Destinations | OCA Watersports" />
@@ -758,6 +757,25 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
+
+  // Ambient preview videos: Chrome won't reliably autoplay muted videos that
+  // start off-screen, so they sit paused on a black first frame. Nudge each
+  // one to play when it scrolls into view, and retry on first interaction.
+  var ambientVids = document.querySelectorAll('video[autoplay]');
+  function playVid(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if ('IntersectionObserver' in window) {
+    var vidObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) playVid(e.target); });
+    }, { threshold: 0.25 });
+    ambientVids.forEach(function (v) { vidObs.observe(v); });
+  } else {
+    ambientVids.forEach(playVid);
+  }
+  var retryPlay = function () {
+    ambientVids.forEach(function (v) { if (v.paused) playVid(v); });
+  };
+  window.addEventListener('pointerdown', retryPlay, { once: true });
+  window.addEventListener('scroll', retryPlay, { once: true, passive: true });
 
   // Map mode switcher + modal launcher
   var switchBtns = document.querySelectorAll('.imap-live__switch button');
