@@ -604,6 +604,14 @@
   .alt-layout__img img { height: 280px; }
 }
 
+/* Poster/flyer images: show the full graphic, never crop */
+.alt-layout__img--natural { background: var(--color-white); }
+.alt-layout__img--natural img { height: auto; object-fit: contain; }
+
+@media (max-width: 900px) {
+  .alt-layout__img--natural img { height: auto; }
+}
+
 /* ============================
    VS Comparison Card
    ============================ */

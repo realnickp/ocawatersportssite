@@ -213,21 +213,6 @@
       max-width: 640px;
     }
 
-    .imap-only-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      color: var(--color-navy);
-      background: var(--color-gold);
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      box-shadow: 0 6px 24px rgba(222, 188, 107, 0.3);
-    }
-
     /* Preview + explanation row */
     .imap-explain {
       background: var(--color-navy);
@@ -383,14 +368,12 @@
       transition: background 0.25s, color 0.25s;
     }
 
-    .imap-live__switch button.active {
+    .imap-live__switch button:hover,
+    .imap-live__switch button:focus-visible {
       background: var(--color-gold);
       color: var(--color-navy);
       box-shadow: 0 6px 18px rgba(222, 188, 107, 0.3);
-    }
-
-    .imap-live__switch button:not(.active):hover {
-      color: var(--color-white);
+      outline: none;
     }
 
     .imap-launch-cta {
@@ -570,7 +553,6 @@
       <p class="imap-page-hero__sub">
         OCA is the only watersports company in Ocean City Maryland with a true interactive map of the bay &mdash; every stop on the Famous 6 Mile Ride, every pontoon destination, with photos and videos at each pin. Tap, explore, and see exactly what you're in for before you even leave the dock.
       </p>
-      <span class="imap-only-badge">Only at OCA</span>
     </div>
   </header>
 
@@ -605,11 +587,11 @@
   <section class="imap-live" id="map">
     <div class="imap-live__inner">
       <h2 class="imap-live__heading">Launch the Map</h2>
-      <p class="imap-live__sub">Pick your ride and dive in.</p>
+      <p class="imap-live__sub">Jump straight into a route, or launch the full map and pick your ride.</p>
 
-      <div class="imap-live__switch" role="tablist" aria-label="Map mode">
-        <button type="button" class="active" data-mode="jetski" role="tab" aria-selected="true">Jet Ski Route</button>
-        <button type="button" data-mode="pontoon" role="tab" aria-selected="false">Pontoon Route</button>
+      <div class="imap-live__switch" aria-label="Launch a route">
+        <button type="button" data-mode="jetski">Jet Ski Route</button>
+        <button type="button" data-mode="pontoon">Pontoon Route</button>
       </div>
 
       <div class="imap-launch-cta">
@@ -777,35 +759,32 @@
   window.addEventListener('pointerdown', retryPlay, { once: true });
   window.addEventListener('scroll', retryPlay, { once: true, passive: true });
 
-  // Map mode switcher + modal launcher
+  // Route buttons + modal launcher
   var switchBtns = document.querySelectorAll('.imap-live__switch button');
   var launchBtn = document.getElementById('imapLaunchBtn');
   var modal = document.getElementById('imapModal');
   var modalFrame = document.getElementById('imapModalFrame');
   var modalClose = document.getElementById('imapModalClose');
-  var base = 'https://oca-scrollytelling.vercel.app/?ride=';
-  var currentMode = 'jetski';
+  var base = 'https://oca-scrollytelling.vercel.app/';
 
-  // Cache-buster so the iframe always pulls the newest deploy from Vercel
+  // Cache-buster so the iframe always pulls the newest deploy from Vercel.
+  // With a mode, the map jumps straight into that route; without one it
+  // opens on the jet ski / pontoon selector screen.
   function buildMapUrl(mode) {
-    return base + mode + '&v=' + Date.now();
+    return base + '?' + (mode ? 'ride=' + mode + '&' : '') + 'v=' + Date.now();
   }
 
   switchBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      currentMode = btn.getAttribute('data-mode');
-      switchBtns.forEach(function (b) {
-        b.classList.toggle('active', b === btn);
-        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
-      });
+      openModal(btn.getAttribute('data-mode'));
     });
   });
 
   var savedScrollY = 0;
 
-  function openModal() {
+  function openModal(mode) {
     savedScrollY = window.scrollY;
-    modalFrame.src = buildMapUrl(currentMode);
+    modalFrame.src = buildMapUrl(mode);
     modal.classList.add('open');
     document.body.style.position = 'fixed';
     document.body.style.top = '-' + savedScrollY + 'px';
@@ -826,9 +805,10 @@
   }
 
   var preview = document.getElementById('imapPreview');
+  function openHome() { openModal(null); }
   if (launchBtn && modal && modalFrame) {
-    launchBtn.addEventListener('click', openModal);
-    if (preview) preview.addEventListener('click', openModal);
+    launchBtn.addEventListener('click', openHome);
+    if (preview) preview.addEventListener('click', openHome);
     modalClose.addEventListener('click', closeModal);
     modal.addEventListener('click', function (e) {
       if (e.target === modal) closeModal();
