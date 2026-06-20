@@ -156,8 +156,11 @@
     }
 
     function doLogin(pw) {
-      supaGet('admin_settings', '?select=value&key=eq.admin_password').then(function (rows) {
-        if (rows && rows.length && rows[0].value === pw) {
+      /* Verify the password server-side via the verify_admin RPC.
+         The password is never downloaded to the browser — the database
+         only ever answers true/false. */
+      rpc('verify_admin', { p_password: pw }).then(function (ok) {
+        if (ok === true) {
           sessionStorage.setItem('oca_admin', pw);
           loginError.style.display = 'none';
           showDashboard(pw);

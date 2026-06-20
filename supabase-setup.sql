@@ -41,11 +41,36 @@ CREATE TABLE admin_settings (
 
 ALTER TABLE admin_settings ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Public can read admin_settings"
-  ON admin_settings FOR SELECT USING (true);
+-- IMPORTANT: admin_settings has NO public-access policy on purpose.
+-- The anon/authenticated roles must never be able to read the password.
+-- Access happens only through the SECURITY DEFINER functions below
+-- (verify_admin / update_content / etc.), which read it internally.
+REVOKE ALL ON admin_settings FROM anon, authenticated;
 
+-- Do NOT commit the real password. Insert a placeholder here, then set the
+-- actual password in the Supabase dashboard / SQL editor after running this:
+--   UPDATE admin_settings SET value = '<your-real-password>' WHERE key = 'admin_password';
 INSERT INTO admin_settings (key, value)
-VALUES ('admin_password', 'OCJetskis26!');
+VALUES ('admin_password', 'CHANGE_ME_IN_DASHBOARD');
+
+-- Server-side login check. Returns only true/false so the password
+-- is never sent to the browser.
+CREATE OR REPLACE FUNCTION verify_admin(p_password TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, pg_temp
+AS $$
+DECLARE
+  stored_pw TEXT;
+BEGIN
+  SELECT value INTO stored_pw FROM admin_settings WHERE key = 'admin_password';
+  RETURN stored_pw IS NOT NULL AND stored_pw = p_password;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION verify_admin(TEXT) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION verify_admin(TEXT) TO anon, authenticated;
 
 -- 4. RPC functions for authenticated writes
 
@@ -66,7 +91,7 @@ BEGIN
   ON CONFLICT (id) DO UPDATE SET content = p_content, updated_at = now();
   RETURN true;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 CREATE OR REPLACE FUNCTION upsert_coupon(
   p_password TEXT,
@@ -103,7 +128,7 @@ BEGIN
   END IF;
   RETURN result_id;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 CREATE OR REPLACE FUNCTION delete_coupon(
   p_password TEXT,
@@ -119,7 +144,7 @@ BEGIN
   DELETE FROM coupons WHERE id = p_id;
   RETURN true;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 -- 5. Seed existing coupons
 
