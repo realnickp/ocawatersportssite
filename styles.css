@@ -1745,6 +1745,25 @@ a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.jk-stats__pre {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(222, 188, 107, 0.75);
+  margin-bottom: 0.3rem;
+}
+
+.jk-stats__fine {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.38);
+}
+
 .jk-stats__divider {
   width: 1px;
   height: 50px;
