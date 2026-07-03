@@ -157,7 +157,7 @@
 .nav-int__hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-int__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
-@media (max-width: 900px) {
+@media (max-width: 1120px) {
   .nav-int__hamburger { display: flex; z-index: 501; }
   .nav-int__cta { display: none; }
   .nav-int__links {
@@ -2754,5 +2754,22 @@ body.preseason-active .price-card__badge { display: inline-block; }
 @supports (-webkit-touch-callout: none) {
   .ride-map-modal__frame {
     height: -webkit-fill-available;
+  }
+}
+
+/* Compact nav zone: 9 tabs need smaller type until wide desktop */
+@media (min-width: 1121px) and (max-width: 1400px) {
+  .nav-int__links {
+    gap: 0.7rem;
+    font-size: 0.66rem;
+  }
+
+  .nav-int__links a {
+    white-space: nowrap;
+  }
+
+  .nav-int__logo .logo-white,
+  .nav-int__logo .logo-color {
+    width: 120px;
   }
 }
