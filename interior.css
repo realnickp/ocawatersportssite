@@ -166,14 +166,22 @@
     inset: 0;
     background: var(--color-navy);
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: clamp(0.9rem, 3vh, 2rem);
     font-size: 1.3rem;
     z-index: 500;
     padding: 4rem 1.5rem 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .nav-int__links.open { display: flex; }
+
+  /* Auto margins center the list when it fits and collapse when it doesn't, so a
+     short viewport scrolls from the top instead of clipping items off both ends. */
+  .nav-int__links.open > li:first-child { margin-top: auto; }
+  .nav-int__links.open > li:last-child { margin-bottom: auto; }
 
   .nav-int__links a {
     color: var(--color-white) !important;

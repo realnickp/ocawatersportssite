@@ -339,16 +339,24 @@ a:hover {
     inset: 0;
     background: var(--color-navy);
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: clamp(0.9rem, 3vh, 2rem);
     font-size: 1.1rem;
     z-index: 500;
     color: var(--color-white);
     padding: 4rem 1.5rem 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .nav__links.open { display: flex; }
+
+  /* Auto margins center the list when it fits and collapse when it doesn't, so a
+     short viewport scrolls from the top instead of clipping items off both ends. */
+  .nav__links.open > li:first-child { margin-top: auto; }
+  .nav__links.open > li:last-child { margin-bottom: auto; }
 
   .nav__links a {
     color: var(--color-white) !important;
