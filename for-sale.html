@@ -213,21 +213,56 @@
     }
 
     /* ============================
-       Hero
+       Hero — boats blend in from the left, skis from the right
        ============================ */
     .fs-hero {
       position: relative;
+      background: var(--color-navy);
+      overflow: hidden;
+    }
+
+    .fs-hero__img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 46%;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+    }
+
+    .fs-hero__img--boats {
+      left: 0;
+      background-image: url("images/for-sale-tritoon-fleet.jpg");
+      -webkit-mask-image: linear-gradient(100deg, #000 0%, #000 30%, transparent 94%);
+      mask-image: linear-gradient(100deg, #000 0%, #000 30%, transparent 94%);
+    }
+
+    .fs-hero__img--skis {
+      right: 0;
+      background-image: url("images/for-sale-ski26-main.jpg");
+      -webkit-mask-image: linear-gradient(-100deg, #000 0%, #000 30%, transparent 94%);
+      mask-image: linear-gradient(-100deg, #000 0%, #000 30%, transparent 94%);
+    }
+
+    /* Navy blend over the seam + text contrast + bottom fade into listings */
+    .fs-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 56px),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 56px),
-        radial-gradient(720px 420px at 78% 20%, rgba(222, 188, 107, 0.10), transparent 70%),
-        var(--color-navy);
+        radial-gradient(min(780px, 82vw) 440px at 50% 44%, rgba(2, 25, 34, 0.92), rgba(2, 25, 34, 0.45) 62%, transparent 100%),
+        linear-gradient(180deg, rgba(2, 25, 34, 0.62), rgba(2, 25, 34, 0.05) 35%, rgba(2, 25, 34, 0.94) 97%),
+        radial-gradient(640px 300px at 50% 0%, rgba(222, 188, 107, 0.14), transparent 70%);
     }
 
     .fs-hero__inner {
+      position: relative;
+      z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 9.5rem 1.5rem 3.25rem;
+      padding: 10rem 1.5rem 4.25rem;
+      text-align: center;
     }
 
     .fs-hero__eyebrow {
@@ -244,21 +279,26 @@
       margin: 0 0 1.2rem;
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: clamp(1.9rem, 4.6vw, 3.4rem);
-      line-height: 1.14;
+      font-size: clamp(2rem, 5.2vw, 3.9rem);
+      line-height: 1.12;
       color: #fff;
+      text-shadow: 0 4px 34px rgba(0, 0, 0, 0.65);
     }
 
-    .fs-hero__title span {
+    .fs-hero__title-nw { white-space: nowrap; }
+
+    .fs-hero__title-gold {
       color: var(--color-gold);
+      white-space: nowrap;
     }
 
     .fs-hero__lead {
-      margin: 0 0 1.8rem;
-      max-width: 62ch;
+      margin: 0 auto 1.8rem;
+      max-width: 60ch;
       font-size: clamp(1.02rem, 1.4vw, 1.15rem);
       line-height: 1.65;
       color: var(--fs-body);
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
     }
 
     .fs-hero__lead strong { color: #fff; }
@@ -322,10 +362,11 @@
     }
 
     .fs-card {
-      background: var(--color-navy-card);
-      border: 1px solid rgba(222, 188, 107, 0.16);
+      background: #ffffff;
+      border-top: 4px solid var(--color-gold);
       border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     }
 
     .fs-card + .fs-card { margin-top: 2.2rem; }
@@ -335,8 +376,8 @@
       align-items: center;
       gap: 0.7rem;
       padding: 0.55rem 1.5rem;
-      background: rgba(2, 25, 34, 0.6);
-      border-bottom: 1px solid var(--fs-hairline);
+      background: #f2f5f7;
+      border-bottom: 1px solid rgba(2, 25, 34, 0.08);
     }
 
     .fs-chip {
@@ -365,7 +406,7 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--fs-slate);
+      color: #64748b;
     }
 
     .fs-card__grid {
@@ -379,7 +420,7 @@
       flex-direction: column;
       gap: 0.75rem;
       padding: 1.25rem;
-      background: rgba(2, 25, 34, 0.35);
+      background: #f6f8fa;
     }
 
     .fs-slot {
@@ -387,9 +428,9 @@
       display: block;
       width: 100%;
       padding: 0;
-      border: 1px solid var(--fs-hairline);
+      border: 1px solid rgba(2, 25, 34, 0.08);
       border-radius: 12px;
-      background: #081420;
+      background: #e9eef2;
       overflow: hidden;
       cursor: default;
     }
@@ -409,7 +450,7 @@
       flex: 1;
     }
 
-    .fs-main.cms-img-filled { cursor: zoom-in; }
+    .fs-slot.cms-img-filled { cursor: zoom-in; }
 
     .fs-main img {
       transition: opacity 180ms ease;
@@ -435,7 +476,6 @@
       .fs-main.cms-img-filled:hover { border-color: var(--color-gold); }
     }
 
-    .fs-thumb.cms-img-filled { cursor: pointer; }
     .fs-thumb.cms-img-filled:active { transform: scale(0.97); }
 
     /* Placeholder face for empty photo slots */
@@ -455,14 +495,14 @@
       content: "";
       position: absolute;
       inset: 9px;
-      border: 1.5px dashed rgba(222, 188, 107, 0.3);
+      border: 1.5px dashed rgba(150, 118, 45, 0.4);
       border-radius: 8px;
     }
 
     .fs-slot__ph svg {
       width: 30px;
       height: 30px;
-      color: rgba(222, 188, 107, 0.55);
+      color: rgba(150, 118, 45, 0.6);
     }
 
     .fs-slot__ph-title {
@@ -471,12 +511,12 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(222, 188, 107, 0.75);
+      color: var(--color-gold-muted);
     }
 
     .fs-slot__ph-sub {
       font-size: 0.78rem;
-      color: var(--fs-slate);
+      color: #64748b;
     }
 
     .fs-thumb .fs-slot__ph svg { width: 20px; height: 20px; }
@@ -497,14 +537,14 @@
       font-weight: 400;
       font-size: clamp(1.15rem, 2.2vw, 1.5rem);
       line-height: 1.3;
-      color: #fff;
+      color: var(--color-navy);
     }
 
     .fs-card__sub {
       margin: 0;
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--fs-slate);
+      color: #64748b;
     }
 
     /* Price plate, styled after the hull registration plates on the boats */
@@ -570,7 +610,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.12rem;
-      border-left: 2px solid rgba(222, 188, 107, 0.35);
+      border-left: 2px solid rgba(150, 118, 45, 0.45);
       padding-left: 0.75rem;
     }
 
@@ -580,23 +620,23 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--fs-slate);
+      color: #8a97a3;
     }
 
     .fs-facts strong {
       font-size: 0.92rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--color-navy);
     }
 
     .fs-card__copy {
       margin: 0 0 1.4rem;
       font-size: 0.97rem;
       line-height: 1.65;
-      color: var(--fs-body);
+      color: #475569;
     }
 
-    .fs-card__copy strong { color: #fff; }
+    .fs-card__copy strong { color: var(--color-navy); }
 
     .fs-card__ctas {
       display: flex;
@@ -608,7 +648,7 @@
     /* ---- Spec sheet ---- */
     .fs-specs {
       margin-top: auto;
-      border-top: 1px solid var(--fs-hairline);
+      border-top: 1px solid rgba(2, 25, 34, 0.1);
       padding-top: 1rem;
     }
 
@@ -623,7 +663,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--color-gold);
+      color: var(--color-gold-muted);
     }
 
     .fs-specs summary::-webkit-details-marker { display: none; }
@@ -646,7 +686,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #fff;
+      color: var(--color-navy);
     }
 
     .fs-specs__content h4:first-child { margin-top: 0; }
@@ -656,12 +696,12 @@
       margin: 0 0 0.6rem;
       font-size: 0.88rem;
       line-height: 1.6;
-      color: var(--fs-slate);
+      color: #5b6b76;
     }
 
     .fs-specs__content ul { padding-left: 1.1rem; }
     .fs-specs__content li { margin-bottom: 0.25rem; }
-    .fs-specs__content strong { color: var(--fs-body); font-weight: 600; }
+    .fs-specs__content strong { color: #33424c; font-weight: 600; }
 
     /* ============================
        How buying works
@@ -791,6 +831,69 @@
     }
 
     /* ============================
+       Lightbox
+       ============================ */
+    .fs-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 10, 15, 0.92);
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    .fs-lightbox[hidden] { display: none; }
+
+    .fs-lightbox.open { opacity: 1; }
+
+    .fs-lightbox__img {
+      max-width: min(92vw, 1200px);
+      max-height: 86vh;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      transform: scale(0.96);
+      transition: transform 220ms var(--fs-ease-out);
+      cursor: pointer;
+    }
+
+    .fs-lightbox.open .fs-lightbox__img { transform: scale(1); }
+
+    .fs-lightbox__close,
+    .fs-lightbox__nav {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(2, 25, 34, 0.55);
+      color: #fff;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, transform 160ms var(--fs-ease-out);
+    }
+
+    .fs-lightbox__close svg,
+    .fs-lightbox__nav svg { width: 20px; height: 20px; }
+
+    .fs-lightbox__close:hover,
+    .fs-lightbox__nav:hover { background: var(--color-gold); color: var(--color-navy); }
+
+    .fs-lightbox__close:active,
+    .fs-lightbox__nav:active { transform: scale(0.94); }
+
+    .fs-lightbox__close { top: 1.1rem; right: 1.1rem; }
+    .fs-lightbox__nav--prev { left: 1.1rem; top: 50%; margin-top: -23px; }
+    .fs-lightbox__nav--next { right: 1.1rem; top: 50%; margin-top: -23px; }
+
+    /* ============================
        Buttons polish
        ============================ */
     .fs-card__ctas .btn,
@@ -806,9 +909,13 @@
        ============================ */
     @media (max-width: 900px) {
       .fs-card__grid { grid-template-columns: 1fr; }
-      .fs-card__media { padding: 1rem 1rem 0.25rem; }
+      .fs-card__media { padding: 1rem 1rem 0.75rem; }
       .fs-card__body { padding: 1.35rem 1.25rem 1.5rem; }
       .fs-how__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .fs-hero__img { width: 78%; opacity: 0.55; }
     }
 
     @media (max-width: 540px) {
@@ -822,7 +929,11 @@
       .fs-main img,
       .fs-specs summary svg,
       .fs-card__ctas .btn,
-      .fs-cta__btns .btn { transition: none; }
+      .fs-cta__btns .btn,
+      .fs-lightbox,
+      .fs-lightbox__img,
+      .fs-lightbox__close,
+      .fs-lightbox__nav { transition: none; }
     }
   </style>
 </head>
@@ -859,9 +970,11 @@
        HERO
        ====================================================== -->
   <header class="fs-hero" id="top">
+    <div class="fs-hero__img fs-hero__img--boats" aria-hidden="true"></div>
+    <div class="fs-hero__img fs-hero__img--skis" aria-hidden="true"></div>
     <div class="fs-hero__inner">
       <p class="fs-hero__eyebrow" data-cms="forsale.hero.eyebrow">OCA Watersports &bull; Fleet Sale</p>
-      <h1 class="fs-hero__title">BOATS &amp; JET SKIS <span>FOR SALE</span></h1>
+      <h1 class="fs-hero__title">BOATS &amp; <span class="fs-hero__title-nw">JET SKIS</span> <span class="fs-hero__title-gold">FOR SALE</span></h1>
       <p class="fs-hero__lead" data-cms="forsale.hero.lead"><strong>The same skis and tritoons we run on the bay,</strong> sold straight off our docks. Every unit is serviced by our crew before it changes hands, and priced well under buying new or from a dealer.</p>
       <p class="fs-hero__note" data-cms="forsale.hero.note"><strong>Prices subject to change.</strong> Units sell fast. Contact Cliff and come see the vessels on the docks today.</p>
     </div>
@@ -890,7 +1003,7 @@
         <div class="fs-card__grid">
           <div class="fs-card__media">
             <button class="fs-slot fs-main cms-img-filled" type="button" aria-label="Open photo full size">
-              <img data-cms-src="forsale.ski26.photo1" src="images/for-sale-ski26-main.jpg" alt="2026 Sea-Doo GTX Pro 130 with iBR" width="1000" height="750" loading="lazy" />
+              <img data-cms-src="forsale.ski26.photo1" src="images/for-sale-ski26-alt.jpg" alt="2026 Sea-Doo GTX Pro 130 with iBR" width="1000" height="750" loading="lazy" />
               <span class="fs-slot__ph" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg>
                 <span class="fs-slot__ph-title">Photos coming soon</span>
@@ -898,8 +1011,8 @@
               </span>
             </button>
             <div class="fs-thumbs">
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
-                <img data-cms-src="forsale.ski26.photo2" src="images/for-sale-ski26-alt.jpg" alt="2026 Sea-Doo GTX Pro 130, front three-quarter view" width="1000" height="750" loading="lazy" />
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
+                <img data-cms-src="forsale.ski26.photo2" src="images/for-sale-ski26-main.jpg" alt="2026 Sea-Doo GTX Pro 130, studio view" width="1000" height="750" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
             </div>
@@ -925,7 +1038,7 @@
             <p class="fs-card__copy" data-cms="forsale.ski26.body">Our 2026 fleet skis, ridden one season with regular service the whole way. Expect some minor cosmetic wear and tear, but overall <strong>great condition for rental skis</strong>. Every unit gets a full service before it leaves the dock.</p>
             <div class="fs-card__ctas">
               <a class="btn btn--gold" href="tel:4106297433">CALL &amp; ASK FOR CLIFF</a>
-              <a class="btn btn--outline btn--on-dark" href="mailto:ride@ocawatersports.com?subject=2026%20GTX%20Pro%20130%20for%20sale">EMAIL US</a>
+              <a class="btn btn--outline" href="mailto:ride@ocawatersports.com?subject=2026%20GTX%20Pro%20130%20for%20sale">EMAIL US</a>
             </div>
             <details class="fs-specs">
               <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>Full spec sheet: 2026 GTX Pro 130</summary>
@@ -972,7 +1085,7 @@
               </span>
             </button>
             <div class="fs-thumbs">
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.skifleet.photo2" src="images/for-sale-skifleet-alt.jpg" alt="Sea-Doo GTX fleet ski, side view" width="1000" height="563" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
@@ -996,7 +1109,7 @@
             <p class="fs-card__copy" data-cms="forsale.skifleet.body">Earlier-year GTX Pro fleet skis, available for sale and pick up right now. Contact us and <strong>ask for Cliff</strong> for the current list and to schedule a time to come by our docks and see the skis.</p>
             <div class="fs-card__ctas">
               <a class="btn btn--gold" href="tel:4106297433">CALL &amp; ASK FOR CLIFF</a>
-              <a class="btn btn--outline btn--on-dark" href="mailto:ride@ocawatersports.com?subject=2022-2024%20GTX%20Pro%20skis%20for%20sale">EMAIL US</a>
+              <a class="btn btn--outline" href="mailto:ride@ocawatersports.com?subject=2022-2024%20GTX%20Pro%20skis%20for%20sale">EMAIL US</a>
             </div>
           </div>
         </div>
@@ -1025,15 +1138,15 @@
               </span>
             </button>
             <div class="fs-thumbs">
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon25.photo2" src="images/for-sale-tritoon-helm.jpg" alt="Helm station with hydraulic steering on the Berkshire 24RFX" width="1800" height="2400" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon25.photo3" src="images/for-sale-tritoon-bow-seating.jpg" alt="Front seating area and boarding gate on the Berkshire 24RFX" width="1800" height="2400" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
-              <button class="fs-slot fs-thumb" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon25.photo4" alt="2025 Berkshire 24RFX LE tritoon" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
@@ -1060,7 +1173,7 @@
             <p class="fs-card__copy" data-cms="forsale.toon25.body">Regular service throughout its life on the bay, with the motor serviced by a certified Mercury mechanic or dealer before sale. The boat will have some wear and tear but is in overall <strong>good to great condition</strong>, offered at a serious discount against buying new or from a dealer. Contact us and ask for Cliff to see it in person at our docks.</p>
             <div class="fs-card__ctas">
               <a class="btn btn--gold" href="tel:4106297433">CALL &amp; ASK FOR CLIFF</a>
-              <a class="btn btn--outline btn--on-dark" href="mailto:ride@ocawatersports.com?subject=2025%20Berkshire%2024RFX%20for%20sale">EMAIL US</a>
+              <a class="btn btn--outline" href="mailto:ride@ocawatersports.com?subject=2025%20Berkshire%2024RFX%20for%20sale">EMAIL US</a>
             </div>
             <details class="fs-specs">
               <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>Full spec sheet: 24RFX LE 2.75</summary>
@@ -1103,15 +1216,15 @@
               </span>
             </button>
             <div class="fs-thumbs">
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon24.photo2" src="images/for-sale-tritoon-lounge.jpg" alt="Interior lounge seating on the Berkshire 24RFX tritoon" width="1800" height="2400" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
-              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb cms-img-filled" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon24.photo3" src="images/for-sale-tritoon-fleet.jpg" alt="Berkshire tritoons lined up on the OCA docks" width="1800" height="2400" loading="lazy" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
-              <button class="fs-slot fs-thumb" type="button" aria-label="Show this photo larger">
+              <button class="fs-slot fs-thumb" type="button" aria-label="Open photo full size">
                 <img data-cms-src="forsale.toon24.photo4" alt="2024 Berkshire 24RFX LE tritoon" />
                 <span class="fs-slot__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
               </button>
@@ -1138,7 +1251,7 @@
             <p class="fs-card__copy" data-cms="forsale.toon24.body">Same 24RFX LE 2.75 layout as the 2025 above, one model year earlier and priced lower. Motor serviced by a certified Mercury mechanic or dealer before sale, with regular service throughout its life. Some wear and tear, overall <strong>good to great condition</strong>. Ask Cliff for an updated hour count and come see it at the docks.</p>
             <div class="fs-card__ctas">
               <a class="btn btn--gold" href="tel:4106297433">CALL &amp; ASK FOR CLIFF</a>
-              <a class="btn btn--outline btn--on-dark" href="mailto:ride@ocawatersports.com?subject=2024%20Berkshire%2024RFX%20for%20sale">EMAIL US</a>
+              <a class="btn btn--outline" href="mailto:ride@ocawatersports.com?subject=2024%20Berkshire%2024RFX%20for%20sale">EMAIL US</a>
             </div>
             <details class="fs-specs">
               <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>Full spec sheet: 24RFX LE 2.75</summary>
@@ -1272,6 +1385,20 @@
 
 </div>
 
+<!-- Photo lightbox -->
+<div class="fs-lightbox" id="fsLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="fs-lightbox__close" type="button" aria-label="Close photo viewer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="fs-lightbox__nav fs-lightbox__nav--prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <img class="fs-lightbox__img" alt="" />
+  <button class="fs-lightbox__nav fs-lightbox__nav--next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
 <script>
 (function () {
   'use strict';
@@ -1317,49 +1444,77 @@
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  /* ─── Listing galleries: thumb click swaps with main, main click zooms ── */
+  /* ─── Listing galleries: any photo click opens the lightbox ──────────── */
+  var lightbox = document.getElementById('fsLightbox');
+  var lbImg = lightbox.querySelector('.fs-lightbox__img');
+  var lbClose = lightbox.querySelector('.fs-lightbox__close');
+  var lbPrev = lightbox.querySelector('.fs-lightbox__nav--prev');
+  var lbNext = lightbox.querySelector('.fs-lightbox__nav--next');
+  var lbPhotos = [];
+  var lbIndex = 0;
+  var lbLastFocus = null;
+  var lbHideTimer = null;
+
+  function lbShow(i) {
+    lbIndex = (i + lbPhotos.length) % lbPhotos.length;
+    lbImg.src = lbPhotos[lbIndex].src;
+    lbImg.alt = lbPhotos[lbIndex].alt;
+    var multi = lbPhotos.length > 1;
+    lbPrev.style.display = multi ? '' : 'none';
+    lbNext.style.display = multi ? '' : 'none';
+  }
+
+  function lbOpen(photos, start) {
+    if (!photos.length) return;
+    lbPhotos = photos;
+    lbLastFocus = document.activeElement;
+    clearTimeout(lbHideTimer);
+    lightbox.hidden = false;
+    lbShow(start);
+    void lightbox.offsetWidth; /* flush layout so the fade-in transition runs */
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function lbDismiss() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbHideTimer = setTimeout(function () { lightbox.hidden = true; }, 220);
+    if (lbLastFocus && lbLastFocus.focus) { lbLastFocus.focus(); }
+  }
+
   document.querySelectorAll('.fs-card__media').forEach(function (media) {
-    var main = media.querySelector('.fs-main');
-    var mainImg = main ? main.querySelector('img') : null;
-    if (!main || !mainImg) return;
-
-    media.querySelectorAll('.fs-thumb').forEach(function (thumb) {
-      thumb.addEventListener('click', function () {
-        var thumbImg = thumb.querySelector('img');
-        if (!thumbImg || !thumbImg.getAttribute('src')) return;
-
-        var tSrc = thumbImg.getAttribute('src');
-        var tAlt = thumbImg.getAttribute('alt') || '';
-        var mSrc = mainImg.getAttribute('src');
-        var mAlt = mainImg.getAttribute('alt') || '';
-
-        mainImg.style.opacity = '0.3';
-        mainImg.src = tSrc;
-        mainImg.alt = tAlt;
-        main.classList.add('cms-img-filled');
-
-        if (mSrc) {
-          thumbImg.src = mSrc;
-          thumbImg.alt = mAlt;
-        } else {
-          thumbImg.removeAttribute('src');
-          thumbImg.alt = '';
-          thumb.classList.remove('cms-img-filled');
-        }
-
-        var restore = function () { mainImg.style.opacity = ''; };
-        if (mainImg.complete) { restore(); }
-        else {
-          mainImg.addEventListener('load', restore, { once: true });
-          setTimeout(restore, 600);
-        }
+    media.querySelectorAll('.fs-slot').forEach(function (slot) {
+      slot.addEventListener('click', function () {
+        var img = slot.querySelector('img');
+        var src = img && img.getAttribute('src');
+        if (!src) return;
+        var photos = [];
+        var start = 0;
+        media.querySelectorAll('.fs-slot img').forEach(function (im) {
+          var s = im.getAttribute('src');
+          if (!s) return;
+          if (s === src) { start = photos.length; }
+          photos.push({ src: s, alt: im.getAttribute('alt') || '' });
+        });
+        lbOpen(photos, start);
       });
     });
+  });
 
-    main.addEventListener('click', function () {
-      var src = mainImg.getAttribute('src');
-      if (src) { window.open(src, '_blank', 'noopener'); }
-    });
+  lbClose.addEventListener('click', lbDismiss);
+  lbPrev.addEventListener('click', function () { lbShow(lbIndex - 1); });
+  lbNext.addEventListener('click', function () { lbShow(lbIndex + 1); });
+  lbImg.addEventListener('click', function () { if (lbPhotos.length > 1) { lbShow(lbIndex + 1); } });
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) { lbDismiss(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') { lbDismiss(); }
+    else if (e.key === 'ArrowLeft') { lbShow(lbIndex - 1); }
+    else if (e.key === 'ArrowRight') { lbShow(lbIndex + 1); }
   });
 }());
 </script>
