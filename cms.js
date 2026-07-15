@@ -57,12 +57,22 @@
     return div.innerHTML;
   }
 
+  /* ─── applyCmsSrc(el, value) ─────────────────────────────────────────── */
+  // Sets an image src from CMS content. The parent slot gets .cms-img-filled
+  // so placeholder faces (e.g. For Sale photo slots) hide themselves.
+  function applyCmsSrc(el, value) {
+    el.src = value;
+    if (el.parentElement) { el.parentElement.classList.add('cms-img-filled'); }
+  }
+
   /* ─── loadContent() ──────────────────────────────────────────────────── */
   // Finds all [data-cms] elements, fetches site_content rows, swaps textContent.
+  // [data-cms-src] elements get their src attribute set instead (image URLs).
   // Fails silently — hardcoded HTML is the fallback.
   function loadContent() {
     var els = document.querySelectorAll('[data-cms]');
-    if (!els.length) { return; }
+    var srcEls = document.querySelectorAll('[data-cms-src]');
+    if (!els.length && !srcEls.length) { return; }
 
     supabaseGet('site_content', 'select=id,content').then(function (rows) {
       var map = {};
@@ -73,6 +83,12 @@
         var key = els[j].getAttribute('data-cms');
         if (map[key] !== undefined && map[key] !== '') {
           els[j].innerHTML = map[key];
+        }
+      }
+      for (var k = 0; k < srcEls.length; k++) {
+        var srcKey = srcEls[k].getAttribute('data-cms-src');
+        if (map[srcKey] !== undefined && map[srcKey] !== '') {
+          applyCmsSrc(srcEls[k], map[srcKey]);
         }
       }
     }).catch(function () {
@@ -250,6 +266,10 @@
     var el = document.querySelector('[data-cms="' + e.data.cmsKey + '"]');
     if (el) {
       el.innerHTML = e.data.cmsValue;
+    }
+    var srcEl = document.querySelector('[data-cms-src="' + e.data.cmsKey + '"]');
+    if (srcEl && e.data.cmsValue) {
+      applyCmsSrc(srcEl, e.data.cmsValue);
     }
   });
 
