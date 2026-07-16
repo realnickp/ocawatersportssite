@@ -225,7 +225,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 46%;
+      width: 58%;
       background-size: cover;
       background-position: center;
       pointer-events: none;
@@ -234,15 +234,15 @@
     .fs-hero__img--boats {
       left: 0;
       background-image: url("images/for-sale-tritoon-fleet.jpg");
-      -webkit-mask-image: linear-gradient(100deg, #000 0%, #000 30%, transparent 94%);
-      mask-image: linear-gradient(100deg, #000 0%, #000 30%, transparent 94%);
+      -webkit-mask-image: linear-gradient(100deg, #000 0%, #000 40%, transparent 97%);
+      mask-image: linear-gradient(100deg, #000 0%, #000 40%, transparent 97%);
     }
 
     .fs-hero__img--skis {
       right: 0;
       background-image: url("images/for-sale-ski26-main.jpg");
-      -webkit-mask-image: linear-gradient(-100deg, #000 0%, #000 30%, transparent 94%);
-      mask-image: linear-gradient(-100deg, #000 0%, #000 30%, transparent 94%);
+      -webkit-mask-image: linear-gradient(-100deg, #000 0%, #000 40%, transparent 97%);
+      mask-image: linear-gradient(-100deg, #000 0%, #000 40%, transparent 97%);
     }
 
     /* Navy blend over the seam + text contrast + bottom fade into listings */
@@ -261,7 +261,13 @@
       z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 10rem 1.5rem 4.25rem;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7.5rem 1.5rem 4rem;
       text-align: center;
     }
 
