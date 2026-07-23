@@ -10,7 +10,6 @@
   var SUPABASE_URL = 'https://kokusecmajupumitprue.supabase.co';
   var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtva3VzZWNtYWp1cHVtaXRwcnVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxMTgxODYsImV4cCI6MjA5MTY5NDE4Nn0.bXBDmhm1nzmjxwCD4HTIh0FE_S64ej3p05uAATauhZk';
 
-  var FH_URL = 'https://fareharbor.com/embeds/book/underthebridgewatersports/?full-items=yes';
   var PHONE_HREF = 'tel:4106297433';
   var PHONE_LABEL = '410-629-RIDE';
 
@@ -208,9 +207,8 @@
         // Single "CALL TO BOOK" button
         html += '<a class="btn btn--gold coupon-card__book-btn" href="' + PHONE_HREF + '">CALL TO BOOK</a>';
       } else {
-        // Two buttons: BOOK & APPLY CODE + CALL
-        html += '<a class="btn btn--gold coupon-card__book-btn" href="' + escHtml(FH_URL) + '">BOOK &amp; APPLY CODE</a>';
-        html += '<a class="btn btn--outline btn--on-dark coupon-card__call-btn" href="' + PHONE_HREF + '">CALL ' + escHtml(PHONE_LABEL) + '</a>';
+        // Online booking is paused — all reservations go through the phone.
+        html += '<a class="btn btn--gold coupon-card__book-btn" href="' + PHONE_HREF + '">CALL TO BOOK: ' + escHtml(PHONE_LABEL) + '</a>';
       }
 
       html += '</div>'; // .coupon-card__foot
