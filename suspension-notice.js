@@ -14,6 +14,12 @@
 
   var SEEN_KEY = 'ocaSuspensionNoticeSeen';
 
+  /* Jet-ski-intent pages get their own seen-flag: visitors who already saw
+   * the notice on the homepage still see it once more on a jet ski page,
+   * since that is where the suspension matters most. */
+  var JETSKI_SEEN_KEY = 'ocaSuspensionNoticeSeenJetski';
+  var isJetskiPage = /\/(jet-skis|the-6-mile-ride)(\.html)?\/?$/.test(window.location.pathname);
+
   var css = '' +
     '.ntcpop { position: fixed; inset: 0; z-index: 99999; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(2, 25, 34, 0.82); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }' +
     '.ntcpop.is-open { display: flex; opacity: 1; }' +
@@ -95,7 +101,11 @@
     '</div>';
 
   function init() {
-    if (sessionStorage.getItem(SEEN_KEY) === '1') { return; }
+    if (isJetskiPage) {
+      if (sessionStorage.getItem(JETSKI_SEEN_KEY) === '1') { return; }
+    } else {
+      if (sessionStorage.getItem(SEEN_KEY) === '1') { return; }
+    }
 
     var style = document.createElement('style');
     style.textContent = css;
@@ -122,6 +132,7 @@
       document.body.style.overflow = 'hidden';
       setTimeout(function () { closeBtn.focus(); }, 50);
       sessionStorage.setItem(SEEN_KEY, '1');
+      if (isJetskiPage) { sessionStorage.setItem(JETSKI_SEEN_KEY, '1'); }
     }
 
     function close() {
