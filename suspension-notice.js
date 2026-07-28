@@ -1,5 +1,5 @@
 /* suspension-notice.js — Jet Ski Suspension Notice Popup
- * Shown on: index, jet-skis, interactive-map, the-6-mile-ride.
+ * Shown on: jet-skis, interactive-map, the-6-mile-ride (removed from index).
  * Injects its own styles + markup, shows once per browser session
  * (shared sessionStorage key across all pages; jet ski pages get their
  * own key so jet-ski-intent visitors always see it at least once there).
